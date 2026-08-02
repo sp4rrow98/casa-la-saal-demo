@@ -346,20 +346,6 @@
   .gal-item{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
   .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
   .gal-item:hover img{transform:scale(1.09)}
-  .gal-item::after{
-    content:attr(data-tag);
-    position:absolute;left:8px;bottom:8px;z-index:2;
-    font-size:.66rem;letter-spacing:.05em;text-transform:uppercase;font-weight:600;
-    color:#fff;background:rgba(15,12,9,.55);padding:4px 9px;border-radius:999px;
-    opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s;
-  }
-  .gal-item:hover::after{opacity:1;transform:translateY(0)}
-  .gal-item::before{
-    content:"";position:absolute;inset:0;z-index:1;
-    background:linear-gradient(0deg, rgba(15,12,9,.5), transparent 45%);
-    opacity:0;transition:opacity .3s;
-  }
-  .gal-item:hover::before{opacity:1}
 
   @media (max-width:980px){ .gal-grid{grid-template-columns:repeat(4,1fr)} }
   @media (max-width:640px){ .gal-grid{grid-template-columns:repeat(3,1fr);gap:8px} }
@@ -412,7 +398,6 @@
     box-shadow:0 32px 80px rgba(0,0,0,.6);
   }
   .lb-overlay.open .lb-img{transform:scale(1)}
-  .lb-caption{color:rgba(255,255,255,.75);font-size:.86rem;letter-spacing:.03em}
   .lb-close{
     position:absolute;top:20px;right:20px;
     width:44px;height:44px;border-radius:50%;cursor:pointer;
@@ -684,59 +669,58 @@
   </button>
   <div class="lb-inner">
     <img class="lb-img" id="lbImg" src="" alt="">
-    <p class="lb-caption" id="lbCaption"></p>
   </div>
 </div>
 
 <script>
 /* ---------- gallery data (all 34 photos) ---------- */
 var GALLERY = [
-  {src:"images/hero.jpg", tag:"Grătar & curte", alt:"Curte cu grătar zidit sub pergolă și dealuri în fundal"},
-  {src:"images/gratar.jpg", tag:"Grătar & curte", alt:"Grătar zidit sub pergolă, cu vedere spre casele satului"},
-  {src:"images/fatada-seara.jpg", tag:"Fațadă", alt:"Fațada casei seara, luminată"},
-  {src:"images/fatada-seara-2.jpg", tag:"Fațadă", alt:"Fațada casei seara, unghi diferit"},
-  {src:"images/biserica.jpg", tag:"Sat & împrejurimi", alt:"Biserică fortificată săsească"},
-  {src:"images/sat-iarna.jpg", tag:"Sat & împrejurimi", alt:"Satul iarna, sub zăpadă, cu dealuri împădurite"},
-  {src:"images/colaj.jpg", tag:"Pensiunea", alt:"Colaj cu fațada, ciubărul, sauna, biliardul și camerele"},
+  {src:"images/hero.jpg", alt:"Curte cu grătar zidit sub pergolă și dealuri în fundal"},
+  {src:"images/gratar.jpg", alt:"Grătar zidit sub pergolă, cu vedere spre casele satului"},
+  {src:"images/fatada-seara.jpg", alt:"Fațada casei seara, luminată"},
+  {src:"images/fatada-seara-2.jpg", alt:"Fațada casei seara, unghi diferit"},
+  {src:"images/biserica.jpg", alt:"Biserică fortificată săsească"},
+  {src:"images/sat-iarna.jpg", alt:"Satul iarna, sub zăpadă, cu dealuri împădurite"},
+  {src:"images/colaj.jpg", alt:"Colaj cu fațada, ciubărul, sauna, biliardul și camerele"},
 
-  {src:"images/room-01.jpg", tag:"Cameră", alt:"Cameră cu perdele maro și tăblie din lemn"},
-  {src:"images/room-02.jpg", tag:"Cameră", alt:"Cameră cu perdele maro, unghi diferit"},
-  {src:"images/room-03.jpg", tag:"Cameră", alt:"Cameră cu dulap din lemn și tablou cu copaci"},
-  {src:"images/room-04.jpg", tag:"Cameră", alt:"Cameră cu draperii petrol"},
-  {src:"images/room-05.jpg", tag:"Cameră mansardă", alt:"Cameră la mansardă cu geam de tavan"},
-  {src:"images/room-06.jpg", tag:"Cameră mansardă", alt:"Cameră la mansardă, unghi diferit"},
-  {src:"images/room-07.jpg", tag:"Cameră", alt:"Cameră cu draperii petrol, detaliu pat"},
-  {src:"images/room-08.jpg", tag:"Cameră", alt:"Hol cameră cu aer condiționat"},
-  {src:"images/room-09.jpg", tag:"Cameră", alt:"Cameră cu hol propriu"},
-  {src:"images/room-detail-01.jpg", tag:"Cameră — detaliu", alt:"Detaliu cameră cu oglindă și birou mic"},
-  {src:"images/room-detail-02.jpg", tag:"Cameră — detaliu", alt:"Detaliu cameră, unghi diferit"},
+  {src:"images/room-01.jpg", alt:"Cameră cu perdele maro și tăblie din lemn"},
+  {src:"images/room-02.jpg", alt:"Cameră cu perdele maro, unghi diferit"},
+  {src:"images/room-03.jpg", alt:"Cameră cu dulap din lemn și tablou cu copaci"},
+  {src:"images/room-04.jpg", alt:"Cameră cu draperii petrol"},
+  {src:"images/room-05.jpg", alt:"Cameră la mansardă cu geam de tavan"},
+  {src:"images/room-06.jpg", alt:"Cameră la mansardă, unghi diferit"},
+  {src:"images/room-07.jpg", alt:"Cameră cu draperii petrol, detaliu pat"},
+  {src:"images/room-08.jpg", alt:"Hol cameră cu aer condiționat"},
+  {src:"images/room-09.jpg", alt:"Cameră cu hol propriu"},
+  {src:"images/room-detail-01.jpg", alt:"Detaliu cameră cu oglindă și birou mic"},
+  {src:"images/room-detail-02.jpg", alt:"Detaliu cameră, unghi diferit"},
 
-  {src:"images/sauna-02.jpg", tag:"Saună", alt:"Saună din lemn masiv"},
-  {src:"images/gratar-02.jpg", tag:"Grătar & curte", alt:"Grătar zidit sub pergolă, unghi diferit"},
-  {src:"images/ciubar-01.jpg", tag:"Ciubăr", alt:"Ciubăr încălzit cu lemne, noaptea"},
-  {src:"images/ciubar-02.jpg", tag:"Ciubăr", alt:"Ciubăr încălzit cu lemne, vedere largă"},
-  {src:"images/ciubar-03.jpg", tag:"Ciubăr", alt:"Ciubăr încălzit cu lemne, altă secvență de noapte"},
-  {src:"images/ciubar-interior.jpg", tag:"Ciubăr", alt:"Interiorul ciubărului, luminat colorat"},
-  {src:"images/cabana-seara.jpg", tag:"Ciubăr & saună", alt:"Cabana de lemn cu ciubăr și saună, seara, cu șemineu aprins"},
+  {src:"images/sauna-02.jpg", alt:"Saună din lemn masiv"},
+  {src:"images/gratar-02.jpg", alt:"Grătar zidit sub pergolă, unghi diferit"},
+  {src:"images/ciubar-01.jpg", alt:"Ciubăr încălzit cu lemne, noaptea"},
+  {src:"images/ciubar-02.jpg", alt:"Ciubăr încălzit cu lemne, vedere largă"},
+  {src:"images/ciubar-03.jpg", alt:"Ciubăr încălzit cu lemne, altă secvență de noapte"},
+  {src:"images/ciubar-interior.jpg", alt:"Interiorul ciubărului, luminat colorat"},
+  {src:"images/cabana-seara.jpg", alt:"Cabana de lemn cu ciubăr și saună, seara, cu șemineu aprins"},
 
-  {src:"images/piscina.jpg", tag:"Piscină", alt:"Piscină exterioară cu terasă"},
-  {src:"images/terasa.jpg", tag:"Foișor", alt:"Foișor acoperit cu mese pregătite"},
-  {src:"images/biliard.jpg", tag:"Bar & biliard", alt:"Masă de biliard sub boltă de cărămidă"},
-  {src:"images/bucatarie-01.jpg", tag:"Bucătărie", alt:"Bucătărie utilată cu masă lungă"},
-  {src:"images/bucatarie-02.jpg", tag:"Bucătărie", alt:"Bucătărie utilată, unghi diferit"},
-  {src:"images/sufragerie.jpg", tag:"Living", alt:"Living cu bibliotecă și masă mare"},
+  {src:"images/piscina.jpg", alt:"Piscină exterioară cu terasă"},
+  {src:"images/terasa.jpg", alt:"Foișor acoperit cu mese pregătite"},
+  {src:"images/biliard.jpg", alt:"Masă de biliard sub boltă de cărămidă"},
+  {src:"images/bucatarie-01.jpg", alt:"Bucătărie utilată cu masă lungă"},
+  {src:"images/bucatarie-02.jpg", alt:"Bucătărie utilată, unghi diferit"},
+  {src:"images/sufragerie.jpg", alt:"Living cu bibliotecă și masă mare"},
 
-  {src:"images/dining-eveniment-01.jpg", tag:"Evenimente", alt:"Masă festivă pregătită pentru eveniment"},
-  {src:"images/dining-eveniment-02.jpg", tag:"Evenimente", alt:"Masă festivă, unghi diferit"},
-  {src:"images/petrecere.jpg", tag:"Evenimente", alt:"Masă pregătită pentru o petrecere aniversară"},
-  {src:"images/noapte-blur.jpg", tag:"Curte, seara", alt:"Curtea interioară, seara"}
+  {src:"images/dining-eveniment-01.jpg", alt:"Masă festivă pregătită pentru eveniment"},
+  {src:"images/dining-eveniment-02.jpg", alt:"Masă festivă, unghi diferit"},
+  {src:"images/petrecere.jpg", alt:"Masă pregătită pentru o petrecere aniversară"},
+  {src:"images/noapte-blur.jpg", alt:"Curtea interioară, seara"}
 ];
 
 (function renderGallery(){
   var grid = document.getElementById('galGrid');
   var html = '';
   GALLERY.forEach(function(item, i){
-    html += '<div class="gal-item" tabindex="0" role="button" aria-label="Deschide poza: '+item.alt+'" data-index="'+i+'" data-tag="'+item.tag+'">'+
+    html += '<div class="gal-item" tabindex="0" role="button" aria-label="Deschide poza: '+item.alt+'" data-index="'+i+'">'+
               '<img src="'+item.src+'" alt="'+item.alt+'" loading="lazy">'+
             '</div>';
   });
@@ -806,7 +790,6 @@ var GALLERY = [
 (function(){
   var overlay = document.getElementById('lbOverlay');
   var img = document.getElementById('lbImg');
-  var caption = document.getElementById('lbCaption');
   var btnClose = document.getElementById('lbClose');
   var btnPrev = document.getElementById('lbPrev');
   var btnNext = document.getElementById('lbNext');
@@ -817,7 +800,6 @@ var GALLERY = [
     var item = GALLERY[current];
     img.src = item.src;
     img.alt = item.alt;
-    caption.textContent = item.tag + ' — ' + item.alt;
   }
   function open(i){
     show(i);
