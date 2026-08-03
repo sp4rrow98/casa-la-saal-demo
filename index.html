@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pensiunea — casă veche într-un sat săsesc din Transilvania</title>
-<meta name="description" content="Pensiunea: cazare într-o casă veche dintr-un sat săsesc din Transilvania, cu piscină, ciubăr încălzit cu lemne, saună, bar cu biliard și foișor pentru mese lungi.">
+<title>Casa La Saal — casă de oaspeți cu poveste, Șeica Mare, Sibiu</title>
+<meta name="description" content="Casa La Saal: casă de oaspeți într-o fostă școală săsească din 1842, în Șeica Mare, județul Sibiu. Piscină, ciubăr încălzit, saună, bar cu biliard și salon pentru evenimente.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -128,9 +128,32 @@
     border-color:var(--line);
     box-shadow:0 8px 30px -18px rgba(42,35,28,.25);
   }
-  .logo{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:500;color:#fff;transition:color .4s}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.32rem;font-weight:500;color:#fff;transition:color .4s}
   header.solid .logo{color:var(--ink)}
   .logo .dot{color:var(--accent)}
+  .logo-accent{color:var(--accent);font-style:italic}
+
+  /* ---- brand mark (custom logo SVG) ---- */
+  .brand-mark{width:32px;height:32px;flex:none;overflow:visible}
+  .brand-mark .svg-core,.brand-mark .svg-shadow,.brand-mark .svg-roof,.brand-mark .svg-accent{
+    transform-box:fill-box;transform-origin:center;
+    transition:transform .45s cubic-bezier(.4,0,.2,1);
+  }
+  .logo:hover .brand-mark .svg-bg{transform:scale(1.1)}
+  .logo:hover .brand-mark .svg-core{transform:translateY(-1px)}
+  .logo:hover .brand-mark .svg-roof{transform:translateY(-1.5px)}
+  .logo:hover .brand-mark .svg-accent{transform:translateY(-2.5px) scale(1.2)}
+  @media (prefers-reduced-motion: no-preference){
+    .brand-mark .svg-accent{animation:markPulse 12s ease-in-out infinite}
+    footer .brand-mark .svg-accent{animation-delay:4s}
+  }
+  @keyframes markPulse{
+    0%,87%,100%{transform:scale(1)}
+    93%{transform:scale(1.32)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .brand-mark .svg-core,.brand-mark .svg-shadow,.brand-mark .svg-roof,.brand-mark .svg-accent{transition:none}
+  }
 
   nav.links{display:flex;gap:34px}
   nav.links a{
@@ -429,7 +452,26 @@
 
 <header id="siteHeader">
   <div class="wrap">
-    <a href="#top" class="logo">Pensiunea<span class="dot">.</span></a>
+    <a href="#top" class="logo">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c96a3d"/>
+            <stop offset="100%" stop-color="#8a3f1f"/>
+          </linearGradient>
+          <radialGradient id="markGlow" cx="50%" cy="38%" r="65%">
+            <stop offset="0%" stop-color="#ecd3bd" stop-opacity=".65"/>
+            <stop offset="100%" stop-color="#ecd3bd" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+        <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+        <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+        <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+      </svg>
+      <span>Casa <span class="logo-accent">La Saal</span></span>
+    </a>
     <nav class="links" id="navLinks">
       <a href="#despre">Despre</a>
       <a href="#camere">Camere</a>
@@ -438,7 +480,7 @@
       <a href="#contact">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Pensiunea." target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
         <span class="full">WhatsApp</span>
       </a>
@@ -454,9 +496,9 @@
     <img src="images/hero.jpg" alt="Curte interioară cu grătar zidit sub pergolă, casă cu pereți pictați și dealuri împădurite în fundal">
     <div class="hero-content">
       <div class="wrap">
-        <p class="eyebrow">Sat săsesc, inima Transilvaniei</p>
+        <p class="eyebrow">Șeica Mare, județul Sibiu</p>
         <h1>
-          Pensiunea
+          Casa La Saal
           <span class="rotator-line">un loc pentru
             <span class="wr-wrap">
               <span class="wr-word active">liniște</span>
@@ -466,9 +508,9 @@
             </span>
           </span>
         </h1>
-        <p class="lead">O casă veche, cu obloane de lemn și fațadă galbenă, într-un sat liniștit din Transilvania. Piscină, ciubăr încălzit cu lemne, saună și loc pentru toată lumea la aceeași masă.</p>
+        <p class="lead">O casă de oaspeți cu poveste, liniște și mult loc pentru timp petrecut împreună — într-o fostă școală săsească din 1842, renovată în 2022.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Pensiunea." target="_blank" rel="noopener">
+          <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
             Scrie-ne pe WhatsApp
           </a>
@@ -485,12 +527,12 @@
       <div class="despre-text" data-reveal>
         <p class="eyebrow">Despre</p>
         <h2>O casă, nu <em>un hotel</em></h2>
-        <p>La capătul unui drum liniștit dintr-un sat săsesc din Transilvania, cu turnul bisericii fortificate vizibil peste acoperișuri, stă o casă veche refăcută cu grijă. Obloanele de lemn și fațada galbenă au rămas neschimbate; înăuntru, camerele sunt simple și calde.</p>
-        <p>În curte s-au adăugat, cu timpul, o piscină, un ciubăr încălzit cu lemne, o saună și un foișor pentru mese lungi. Nu e o pensiune cu recepție și fițe — e o casă în care intri, îți lași bagajele și rămâi.</p>
+        <p>Clădirea de astăzi a fost construită în 1842 și a funcționat inițial ca școala satului. În 2022 a fost renovată integral și transformată în casă de oaspeți, fără să-și piardă din caracter — obloanele de lemn și fațada galbenă au rămas neschimbate.</p>
+        <p>În curte s-au adăugat, cu timpul, o piscină, un ciubăr încălzit, o saună și un foișor cu grătar. Înăuntru, un salon mare ține loc de sufragerie pentru toți oaspeții — și, la nevoie, pentru nunți sau aniversări. Nu e o pensiune cu recepție și fițe — e o casă în care intri, îți lași bagajele și rămâi.</p>
         <div class="despre-facts">
-          <span class="fact">Sat săsesc, Transilvania</span>
-          <span class="fact">Biserică fortificată în apropiere</span>
-          <span class="fact">Dealuri împădurite de jur împrejur</span>
+          <span class="fact">Șeica Mare, județul Sibiu</span>
+          <span class="fact">Clădire din 1842, fostă școală</span>
+          <span class="fact">Biserică fortificată din ~1300</span>
         </div>
       </div>
       <div class="despre-media" data-reveal>
@@ -506,7 +548,7 @@
       <div class="section-head" data-reveal>
         <p class="eyebrow">Cazare</p>
         <h2>Camere simple, făcute pentru <em>odihnă</em></h2>
-        <p>Fiecare cameră are pat dublu, baie proprie, aer condiționat și prosoape pregătite la sosire. Fără două camere identice.</p>
+        <p>6 camere duble și un apartament cu două camere — loc pentru 16-20 de oaspeți. Fiecare cameră are baie proprie, TV, minibar și acces la bucătăria comună. Fără două camere identice.</p>
       </div>
       <div class="room-grid">
 
@@ -537,7 +579,7 @@
 
         <article class="room-card" data-reveal data-reveal-delay="200">
           <div class="room-media"><span class="room-tag">Toate camerele</span><img src="images/room-detail-01.jpg" alt="Detaliu cameră cu oglindă, cuier din lemn și birou mic" loading="lazy"></div>
-          <div class="room-body"><h3>+ 4 camere</h3><p>Vezi toate camerele și fiecare colț al casei în galerie.</p></div>
+          <div class="room-body"><h3>+ 3 camere & apartament</h3><p>Vezi toate camerele și fiecare colț al casei în galerie.</p></div>
         </article>
 
       </div>
@@ -571,7 +613,7 @@
 
         <div class="bento-item" data-reveal>
           <img src="images/biliard.jpg" alt="Masă de biliard sub boltă de cărămidă, cu bar de vinuri în fundal" loading="lazy">
-          <div class="bento-text"><h3>Bar & biliard</h3><p>La demisol, sub boltă de cărămidă — o masă de biliard și vinuri la raft.</p></div>
+          <div class="bento-text"><h3>Bar, biliard & ping-pong</h3><p>La demisol, sub boltă de cărămidă — biliard, ping-pong și vinuri la raft.</p></div>
         </div>
 
         <div class="bento-item small" data-reveal data-reveal-delay="100">
@@ -596,7 +638,7 @@
         <p class="eyebrow">Seara</p>
         <h2>Când se-ntunecă peste deal</h2>
         <p>Focul arde sub ciubăr de la ora la care alegeți. Aburul se ridică peste curte, cineva pune muzică încet în casă, iar dealurile din jur dispar în întuneric. E momentul din zi pentru care merită să vii.</p>
-        <a class="btn btn-light" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Pensiunea." target="_blank" rel="noopener">Rezervă o seară</a>
+        <a class="btn btn-light" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">Rezervă o seară</a>
       </div>
     </div>
   </section>
@@ -623,11 +665,12 @@
         <p class="eyebrow">Contact</p>
         <h2>Hai să stabilim o <em>dată</em></h2>
         <p>Cel mai simplu e pe WhatsApp — răspundem repede și vă spunem exact ce camere sunt libere.</p>
-        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Pensiunea." target="_blank" rel="noopener">
+        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
           Scrie pe WhatsApp
         </a>
-        <p class="phone">0787 292 633</p>
+        <p class="phone">0787 292 633 · ssmsibiu@gmail.com</p>
+        <p class="phone" style="margin-top:2px">Șeica Mare, nr. 125, județul Sibiu</p>
       </div>
     </div>
   </section>
@@ -638,8 +681,17 @@
   <div class="wrap">
     <div class="foot-top">
       <div>
-        <div class="foot-logo">Pensiunea<span style="color:var(--accent)">.</span></div>
-        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Sat săsesc, Transilvania</p>
+        <div class="foot-logo" style="display:flex;align-items:center;gap:10px">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" style="width:28px;height:28px">
+            <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+            <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+            <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+            <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+          </svg>
+          <span>Casa <span class="logo-accent">La Saal</span></span>
+        </div>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Șeica Mare, județul Sibiu</p>
       </div>
       <nav class="foot-links">
         <a href="#despre">Despre</a>
@@ -650,7 +702,7 @@
       </nav>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Pensiunea. Toate drepturile rezervate.</span>
+      <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
       <span>0787 292 633</span>
     </div>
   </div>
