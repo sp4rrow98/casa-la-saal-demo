@@ -446,6 +446,98 @@
   .lb-nav svg{width:22px;height:22px}
   @media (max-width:640px){ .lb-nav{width:38px;height:38px} .lb-prev{left:8px} .lb-next{right:8px} }
 
+  /* ============ CALENDAR REZERVARE ============ */
+  .cal-ov{
+    position:fixed;inset:0;z-index:9200;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(30,22,14,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease;
+    padding:20px;
+  }
+  .cal-ov.open{opacity:1;pointer-events:auto}
+  .cal-box{
+    width:100%;max-width:640px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);
+    padding:30px 28px 26px;
+    max-height:90vh;overflow-y:auto;
+    box-shadow:var(--shadow-lift);
+    transform:scale(.95) translateY(20px);
+    transition:transform .4s var(--ease);
+  }
+  .cal-ov.open .cal-box{transform:scale(1) translateY(0)}
+  .cal-drag{display:none}
+  @media (max-width:599px){
+    .cal-ov{align-items:flex-end;padding:0}
+    .cal-box{border-radius:var(--radius-l) var(--radius-l) 0 0;max-height:92svh;padding:20px 18px max(24px,env(safe-area-inset-bottom));transform:translateY(100%)}
+    .cal-ov.open .cal-box{transform:translateY(0)}
+    .cal-drag{display:block;width:36px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 18px}
+  }
+  .cal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:18px}
+  .cal-head .eyebrow{margin-bottom:6px}
+  .cal-head h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;line-height:1.1}
+  .cal-close{
+    width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-s);
+    cursor:pointer;color:var(--ink);transition:background .18s,border-color .18s;margin-top:2px;
+  }
+  .cal-close:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .cal-close svg{width:15px;height:15px}
+  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:16px;font-size:12px;color:var(--ink-soft)}
+  .cal-legend span{display:inline-flex;align-items:center;gap:7px}
+  .cal-sw{width:13px;height:13px;border-radius:3px;display:inline-block;flex-shrink:0}
+  .cal-sw-ci{background:var(--accent)}
+  .cal-sw-co{background:var(--accent-dark)}
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;border-top:1px solid var(--line);padding-top:16px}
+  .cal-nav button{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-s);
+    cursor:pointer;color:var(--ink);padding:7px 14px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .18s,border-color .18s;
+  }
+  .cal-nav button svg{width:16px;height:16px;flex-shrink:0}
+  .cal-nav-label{flex:1;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.02rem;color:var(--ink);letter-spacing:.02em}
+  .cal-nav button:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .cal-nav button:disabled{color:var(--line);cursor:not-allowed;background:transparent;border-color:transparent}
+  .cal-months{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:8px}
+  @media (max-width:599px){ .cal-months{grid-template-columns:1fr} }
+  .cal-month-label{display:none}
+  .cal-dow{
+    display:grid;grid-template-columns:repeat(7,1fr);
+    font-size:9.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;
+    text-align:center;margin-bottom:6px;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+  .cal-day{
+    height:36px;display:flex;align-items:center;justify-content:center;
+    font-size:13.5px;border-radius:5px;cursor:pointer;user-select:none;
+    color:var(--ink);
+  }
+  @media (max-width:599px){ .cal-day{height:44px} }
+  .cal-day.empty{cursor:default}
+  .cal-day.sel-pick:not(.checkin):not(.checkout):not(.in-range){transition:background .12s}
+  .cal-day.sel-pick:not(.checkin):not(.checkout):not(.in-range):hover{background:var(--bg-soft)}
+  .cal-day.past{color:var(--line);cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px}
+  .cal-day.past:hover{background:transparent}
+  .cal-day.in-range{background:var(--accent-soft);border-radius:0}
+  .cal-day.checkin{background:var(--accent);color:#fff;border-radius:5px 0 0 5px;font-weight:600}
+  .cal-day.checkout{background:var(--accent-dark);color:#fff;border-radius:0 5px 5px 0;font-weight:600}
+  .cal-day.checkin.checkout{border-radius:5px}
+  .cal-divider{height:1px;background:var(--line);margin:18px 0 14px}
+  .cal-summary{font-size:13.5px;color:var(--ink-soft);text-align:center;min-height:20px;margin-bottom:14px}
+  .cal-summary b{color:var(--ink)}
+  .cal-cta{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;text-decoration:none;
+    background:#25d366;color:#fff;
+    font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+    padding:15px;border-radius:999px;border:none;cursor:pointer;
+    transition:background .15s,transform .15s;
+  }
+  .cal-cta:hover{background:#1ebe5a;transform:translateY(-2px)}
+  .cal-cta svg{width:17px;height:17px;flex-shrink:0}
+  .cal-note{font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:10px;line-height:1.5}
+
   /* focus visibility (accessibility, non-negotiable) */
   a:focus-visible, button:focus-visible, .gal-item:focus-visible{
     outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;
@@ -514,11 +606,14 @@
         </h1>
         <p class="lead">O casă de oaspeți cu poveste, liniște și mult loc pentru timp petrecut împreună — într-o fostă școală săsească din 1842, renovată în 2022.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+          <button class="btn btn-primary" onclick="openCalModal()" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Rezervă acum
+          </button>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
             Scrie-ne pe WhatsApp
           </a>
-          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#camere">Vezi camerele</a>
         </div>
       </div>
     </div>
@@ -723,6 +818,39 @@
   </div>
 </div>
 
+<!-- Calendar rezervare -->
+<div class="cal-ov" id="calOv" role="dialog" aria-modal="true" aria-label="Calendar rezervare">
+  <div class="cal-box" id="calBox">
+    <div class="cal-drag"></div>
+    <div class="cal-head">
+      <div class="cal-head-text">
+        <p class="eyebrow">Disponibilitate</p>
+        <h3>Verifică &amp; rezervă</h3>
+      </div>
+      <button class="cal-close" onclick="closeCalModal()" aria-label="Închide">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cal-legend">
+      <span><i class="cal-sw cal-sw-ci"></i>Check-in</span>
+      <span><i class="cal-sw cal-sw-co"></i>Check-out</span>
+    </div>
+    <div class="cal-nav">
+      <button id="calPrev" type="button" aria-label="Luna anterioară"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div id="calNavLabel" class="cal-nav-label"></div>
+      <button id="calNext" type="button" aria-label="Luna următoare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="cal-months" id="calMonths"></div>
+    <div class="cal-divider"></div>
+    <div class="cal-summary" id="calSummary">Alege data de check-in.</div>
+    <a class="cal-cta" id="calCta" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20rezerv%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+      Rezervă pe WhatsApp
+    </a>
+    <p class="cal-note">Confirmăm disponibilitatea exactă direct pe WhatsApp.</p>
+  </div>
+</div>
+
 <script>
 /* ---------- gallery data (all 34 photos) ---------- */
 var GALLERY = [
@@ -878,6 +1006,114 @@ var GALLERY = [
     if(e.key === 'Escape') close();
     if(e.key === 'ArrowLeft') show(current-1);
     if(e.key === 'ArrowRight') show(current+1);
+  });
+})();
+
+/* ---------- calendar rezervare ---------- */
+(function(){
+  var CAL_WA = "40787292633";
+  var CAL_NAME = "Casa La Saal";
+  var LUNI = ["Ianuarie","Februarie","Martie","Aprilie","Mai","Iunie",
+    "Iulie","August","Septembrie","Octombrie","Noiembrie","Decembrie"];
+  var ZILE = ["L","M","M","J","V","S","D"];
+
+  var checkin = null, checkout = null;
+  var cursor = new Date(); cursor.setDate(1);
+  var today = new Date(); today.setHours(0,0,0,0);
+
+  function iso(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  function isPast(d){ return d < today; }
+
+  function clickDay(d){
+    if(isPast(d)) return;
+    if(!checkin||(checkin&&checkout)){ checkin=d; checkout=null; }
+    else if(d<=checkin){ checkin=d; }
+    else { checkout=d; }
+    renderCal();
+  }
+
+  function buildMonth(year,month){
+    var wrap=document.createElement('div');
+    var dow=document.createElement('div'); dow.className='cal-dow';
+    ZILE.forEach(function(z){ var c=document.createElement('div'); c.textContent=z; dow.appendChild(c); });
+    wrap.appendChild(dow);
+    var grid=document.createElement('div'); grid.className='cal-grid';
+    var first=new Date(year,month,1);
+    var lead=(first.getDay()+6)%7;
+    for(var i=0;i<lead;i++){ var e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+    var days=new Date(year,month+1,0).getDate();
+    for(var n=1;n<=days;n++){
+      var d=new Date(year,month,n);
+      var cell=document.createElement('div'); cell.className='cal-day'; cell.textContent=n;
+      if(isPast(d)){ cell.classList.add('past'); }
+      else{
+        cell.classList.add('sel-pick');
+        if(checkin&&iso(d)===iso(checkin)) cell.classList.add('checkin');
+        if(checkout&&iso(d)===iso(checkout)) cell.classList.add('checkout');
+        if(checkin&&checkout&&d>checkin&&d<checkout) cell.classList.add('in-range');
+        (function(day){ cell.onclick=function(){ clickDay(day); }; })(d);
+      }
+      grid.appendChild(cell);
+    }
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  function updateSummary(){
+    var s=document.getElementById('calSummary'),cta=document.getElementById('calCta');
+    var f=function(d){ return d.getDate()+' '+LUNI[d.getMonth()].toLowerCase(); };
+    if(checkin&&checkout){
+      var nopti=Math.round((checkout-checkin)/86400000);
+      s.innerHTML='<b>'+f(checkin)+'</b> → <b>'+f(checkout)+'</b> · '+nopti+' '+(nopti===1?'noapte':'nopți');
+      var txt='Bună! Aș dori să rezerv la '+CAL_NAME+': check-in '+f(checkin)+', check-out '+f(checkout)+' ('+nopti+' '+(nopti===1?'noapte':'nopți')+').';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt);
+    } else if(checkin){
+      s.textContent='Acum alege data de check-out.';
+      var txt2='Bună! Aș dori să rezerv la '+CAL_NAME+', check-in '+f(checkin)+'.';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt2);
+    } else {
+      s.textContent='Alege data de check-in.';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent('Bună! Aș dori să rezerv la '+CAL_NAME+'.');
+    }
+  }
+
+  function renderCal(){
+    var host=document.getElementById('calMonths'); host.innerHTML='';
+    var viz=window.innerWidth>=520?2:1;
+    var navLbl=document.getElementById('calNavLabel');
+    var d0=new Date(cursor.getFullYear(),cursor.getMonth(),1);
+    if(viz===2){
+      var d1=new Date(cursor.getFullYear(),cursor.getMonth()+1,1);
+      navLbl.textContent=LUNI[d0.getMonth()]+' – '+LUNI[d1.getMonth()]+' '+d1.getFullYear();
+    }else{
+      navLbl.textContent=LUNI[d0.getMonth()]+' '+d0.getFullYear();
+    }
+    for(var i=0;i<viz;i++){
+      var d=new Date(cursor.getFullYear(),cursor.getMonth()+i,1);
+      host.appendChild(buildMonth(d.getFullYear(),d.getMonth()));
+    }
+    updateSummary();
+    document.getElementById('calPrev').disabled=(cursor.getFullYear()===today.getFullYear()&&cursor.getMonth()===today.getMonth());
+  }
+
+  document.getElementById('calPrev').onclick=function(){ cursor.setMonth(cursor.getMonth()-1); renderCal(); };
+  document.getElementById('calNext').onclick=function(){ cursor.setMonth(cursor.getMonth()+1); renderCal(); };
+
+  window.openCalModal=function(){
+    document.getElementById('calOv').classList.add('open');
+    document.body.style.overflow='hidden';
+    renderCal();
+  };
+  window.closeCalModal=function(){
+    document.getElementById('calOv').classList.remove('open');
+    document.body.style.overflow='';
+  };
+
+  document.getElementById('calOv').addEventListener('click',function(e){
+    if(e.target===this) closeCalModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&document.getElementById('calOv').classList.contains('open')) closeCalModal();
   });
 })();
 </script>
