@@ -302,8 +302,12 @@
     font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--accent-dark);
   }
   .room-body{padding:22px 24px 26px}
+  .room-body-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .room-body h3{font-size:1.28rem}
   .room-body p{color:var(--ink-soft);font-size:.94rem;margin-top:8px}
+  .room-price{flex:none;text-align:right;white-space:nowrap}
+  .room-price .amount{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--accent-dark)}
+  .room-price .per{display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:1px}
 
   /* ============ FACILITĂȚI — bento ============ */
   .bento{
@@ -554,32 +558,32 @@
 
         <article class="room-card" data-reveal>
           <div class="room-media"><span class="room-tag">Cameră</span><img src="images/room-01.jpg" alt="Cameră cu perdele grele maro, tăblie din lemn masiv și pictură veche pe perete" loading="lazy"></div>
-          <div class="room-body"><h3>Camera Nuc</h3><p>Perdele grele, tăblie din lemn masiv și o pictură veche pe perete.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>Camera Nuc</h3><div class="room-price"><span class="amount">250 lei</span><span class="per">/ noapte</span></div></div><p>Perdele grele, tăblie din lemn masiv și o pictură veche pe perete.</p></div>
         </article>
 
         <article class="room-card" data-reveal data-reveal-delay="100">
           <div class="room-media"><span class="room-tag">Cameră</span><img src="images/room-03.jpg" alt="Cameră liniștită cu dulap din lemn și tablou cu copaci pe perete" loading="lazy"></div>
-          <div class="room-body"><h3>Camera Tei</h3><p>Liniștită, cu dulap din lemn deschis la culoare și pereți calzi.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>Camera Tei</h3><div class="room-price"><span class="amount">230 lei</span><span class="per">/ noapte</span></div></div><p>Liniștită, cu dulap din lemn deschis la culoare și pereți calzi.</p></div>
         </article>
 
         <article class="room-card" data-reveal data-reveal-delay="200">
           <div class="room-media"><span class="room-tag">Cameră</span><img src="images/room-04.jpg" alt="Cameră cu draperii petrol, tăblie din lemn și lumină caldă" loading="lazy"></div>
-          <div class="room-body"><h3>Camera Salcâm</h3><p>Draperii petrol, lumină caldă, fereastră spre grădină.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>Camera Salcâm</h3><div class="room-price"><span class="amount">240 lei</span><span class="per">/ noapte</span></div></div><p>Draperii petrol, lumină caldă, fereastră spre grădină.</p></div>
         </article>
 
         <article class="room-card" data-reveal>
           <div class="room-media"><span class="room-tag">Mansardă</span><img src="images/room-06.jpg" alt="Cameră la mansardă, cu geam de tavan înclinat spre cer și tablou cu floarea-soarelui" loading="lazy"></div>
-          <div class="room-body"><h3>Camera Brad</h3><p>Sub acoperiș înclinat, cu geam de tavan prin care intră cerul.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>Camera Brad</h3><div class="room-price"><span class="amount">220 lei</span><span class="per">/ noapte</span></div></div><p>Sub acoperiș înclinat, cu geam de tavan prin care intră cerul.</p></div>
         </article>
 
         <article class="room-card" data-reveal data-reveal-delay="100">
           <div class="room-media"><span class="room-tag">Cameră</span><img src="images/room-09.jpg" alt="Cameră spațioasă cu hol propriu și aparat de aer condiționat" loading="lazy"></div>
-          <div class="room-body"><h3>Camera Arin</h3><p>Spațioasă, cu hol propriu și aer condiționat.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>Camera Arin</h3><div class="room-price"><span class="amount">260 lei</span><span class="per">/ noapte</span></div></div><p>Spațioasă, cu hol propriu și aer condiționat.</p></div>
         </article>
 
         <article class="room-card" data-reveal data-reveal-delay="200">
           <div class="room-media"><span class="room-tag">Toate camerele</span><img src="images/room-detail-01.jpg" alt="Detaliu cameră cu oglindă, cuier din lemn și birou mic" loading="lazy"></div>
-          <div class="room-body"><h3>+ 3 camere & apartament</h3><p>Vezi toate camerele și fiecare colț al casei în galerie.</p></div>
+          <div class="room-body"><div class="room-body-top"><h3>+ 3 camere & apartament</h3><div class="room-price"><span class="amount">de la 220 lei</span><span class="per">/ noapte</span></div></div><p>Vezi toate camerele și fiecare colț al casei în galerie.</p></div>
         </article>
 
       </div>
