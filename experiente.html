@@ -1,0 +1,950 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Experiențe — Casa La Saal, Șeica Mare, Sibiu</title>
+<meta name="description" content="Ce poți trăi la Casa La Saal: salonul cu bibliotecă, crama cu biliard, drumeții și floră locală pe dealurile din jur, plus cetăți săsești și orașe medievale la câteva zeci de minute — Sibiu, Biertan, Sighișoara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ef;
+    --bg-soft:#f3ecdf;
+    --card:#fdfbf6;
+    --ink:#2a231c;
+    --ink-soft:#6f6152;
+    --line:#e4d8c3;
+    --accent:#b5592f;
+    --accent-dark:#8a3f1f;
+    --accent-soft:#ecd3bd;
+    --green:#5c6a4c;
+    --dark-bg:#1b1712;
+    --dark-card:#26201a;
+    --dark-ink:#f3ead9;
+    --dark-ink-soft:#c9bba6;
+    --radius-s:8px;
+    --radius-m:14px;
+    --radius-l:22px;
+    --maxw:1240px;
+    --shadow-card:0 1px 2px rgba(42,35,28,.04), 0 12px 28px -16px rgba(42,35,28,.18);
+    --shadow-lift:0 20px 44px -18px rgba(42,35,28,.35);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+
+  /* subtle film-grain texture over the whole page */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:2000;
+    opacity:.035;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.08;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+  em{font-style:italic;color:var(--accent);font-family:'Fraunces',serif}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ul{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  @media (max-width:640px){ .wrap{padding:0 20px} }
+
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
+
+  .section{padding:120px 0}
+  @media (max-width:820px){ .section{padding:80px 0} }
+
+  .section-head{max-width:640px;margin-bottom:56px}
+  .section-head h2{font-size:clamp(2rem,4vw,2.9rem);margin-top:14px}
+  .section-head p{margin-top:18px;color:var(--ink-soft);font-size:1.05rem;max-width:52ch}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 26px;border-radius:999px;
+    font-size:.95rem;font-weight:600;
+    transition:transform .4s var(--ease),background .3s,box-shadow .3s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(181,89,47,.55)}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .btn-light{background:var(--dark-ink);color:var(--dark-bg)}
+  .btn-light:hover{background:#fff;transform:translateY(-2px)}
+  .btn svg{width:18px;height:18px}
+
+  /* ============ NAVBAR ============ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    padding:22px 0;
+    transition:background .4s var(--ease),padding .4s var(--ease),box-shadow .4s var(--ease),border-color .4s var(--ease);
+    border-bottom:1px solid transparent;
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  header.solid{
+    background:rgba(250,246,239,.86);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    padding:14px 0;
+    border-color:var(--line);
+    box-shadow:0 8px 30px -18px rgba(42,35,28,.25);
+  }
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.32rem;font-weight:500;color:#fff;transition:color .4s}
+  header.solid .logo{color:var(--ink)}
+  .logo .dot{color:var(--accent)}
+  .logo-accent{color:var(--accent);font-style:italic}
+
+  /* ---- brand mark (custom logo SVG) ---- */
+  .brand-mark{width:32px;height:32px;flex:none;overflow:visible}
+  .brand-mark .svg-core,.brand-mark .svg-shadow,.brand-mark .svg-roof,.brand-mark .svg-accent{
+    transform-box:fill-box;transform-origin:center;
+    transition:transform .45s cubic-bezier(.4,0,.2,1);
+  }
+  .logo:hover .brand-mark .svg-bg{transform:scale(1.1)}
+  .logo:hover .brand-mark .svg-core{transform:translateY(-1px)}
+  .logo:hover .brand-mark .svg-roof{transform:translateY(-1.5px)}
+  .logo:hover .brand-mark .svg-accent{transform:translateY(-2.5px) scale(1.2)}
+  @media (prefers-reduced-motion: no-preference){
+    .brand-mark .svg-accent{animation:markPulse 12s ease-in-out infinite}
+    footer .brand-mark .svg-accent{animation-delay:4s}
+  }
+  @keyframes markPulse{
+    0%,87%,100%{transform:scale(1)}
+    93%{transform:scale(1.32)}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .brand-mark .svg-core,.brand-mark .svg-shadow,.brand-mark .svg-roof,.brand-mark .svg-accent{transition:none}
+  }
+
+  nav.links{display:flex;gap:34px}
+  nav.links a{
+    font-size:.92rem;color:rgba(255,255,255,.88);font-weight:500;
+    position:relative;transition:color .4s;
+  }
+  header.solid nav.links a{color:var(--ink-soft)}
+  nav.links a:hover{color:#fff}
+  header.solid nav.links a:hover{color:var(--ink)}
+  nav.links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;
+    background:currentColor;transform:scaleX(0);transform-origin:right;
+    transition:transform .35s var(--ease);
+  }
+  nav.links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .nav-cta .btn-primary{padding:11px 20px;font-size:.86rem}
+  .burger{display:none;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(255,255,255,.5)}
+  header.solid .burger{border-color:var(--line)}
+  .burger span{display:block;width:16px;height:1px;background:#fff;position:relative;transition:background .3s}
+  header.solid .burger span{background:var(--ink)}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:inherit}
+  .burger span::before{top:-5px} .burger span::after{top:5px}
+
+  @media (max-width:900px){
+    nav.links{
+      position:fixed;inset:0;top:0;
+      background:var(--bg);
+      flex-direction:column;justify-content:center;align-items:center;gap:28px;
+      transform:translateY(-100%);opacity:0;pointer-events:none;
+      transition:transform .5s var(--ease),opacity .4s;
+    }
+    nav.links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+    nav.links a{color:var(--ink);font-size:1.4rem;font-family:'Fraunces',serif}
+    .burger{display:flex;position:relative;z-index:950}
+    .nav-cta .btn-primary span.full{display:none}
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    position:relative;height:100svh;min-height:600px;
+    display:flex;align-items:flex-end;
+    overflow:hidden;
+  }
+  .hero img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transform:scale(1.02);
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(20,16,12,.15) 0%, rgba(20,16,12,.1) 35%, rgba(18,14,10,.78) 100%);
+  }
+  .hero-content{position:relative;z-index:2;width:100%;padding-bottom:76px}
+  .hero-content .eyebrow{color:var(--accent-soft)}
+  .hero-content .eyebrow::before{background:var(--accent-soft)}
+  .hero h1{
+    color:#fff;
+    font-size:clamp(2.8rem,7.2vw,5.4rem);
+    margin-top:18px;
+  }
+  .hero .rotator-line{
+    display:block;font-size:.42em;font-weight:400;font-style:italic;
+    color:var(--accent-soft);margin-top:10px;
+  }
+  .hero p.lead{
+    color:rgba(255,255,255,.82);
+    font-size:1.08rem;max-width:46ch;margin-top:24px;
+  }
+  .hero-actions{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
+
+  .wr-wrap{display:inline-grid;vertical-align:bottom;overflow:hidden;padding-bottom:.1em}
+  .wr-word{
+    grid-area:1/1;white-space:nowrap;pointer-events:none;
+    opacity:0;transform:translateY(110%);
+    transition:opacity .62s cubic-bezier(.22,1,.36,1),transform .62s cubic-bezier(.22,1,.36,1);
+  }
+  .wr-word.active{opacity:1;transform:translateY(0);pointer-events:auto}
+  .wr-word.out{
+    opacity:0;transform:translateY(-90%);
+    transition:opacity .3s cubic-bezier(.55,0,.45,1),transform .3s cubic-bezier(.55,0,.45,1);
+  }
+
+  .scroll-cue{
+    position:absolute;right:32px;bottom:36px;z-index:2;
+    display:flex;flex-direction:column;align-items:center;gap:10px;
+    color:rgba(255,255,255,.7);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .scroll-cue .line{width:1px;height:46px;background:rgba(255,255,255,.4);overflow:hidden;position:relative}
+  .scroll-cue .line::after{
+    content:"";position:absolute;top:-100%;left:0;width:100%;height:100%;background:#fff;
+    animation:cueDown 2.2s ease-in-out infinite;
+  }
+  @keyframes cueDown{ 0%{top:-100%} 60%{top:100%} 100%{top:100%} }
+  @media (prefers-reduced-motion: reduce){ .scroll-cue .line::after{animation:none;top:0} }
+  @media (max-width:640px){ .scroll-cue{display:none} }
+
+  /* ============ scroll reveal ============ */
+  [data-reveal]{
+    opacity:0;transform:translateY(26px);
+    transition:opacity .8s var(--ease),transform .8s var(--ease);
+  }
+  [data-reveal].revealed{opacity:1;transform:translateY(0)}
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{opacity:1;transform:none;transition:none}
+  }
+
+  /* ============ DESPRE ============ */
+  .despre{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  .despre-text p{color:var(--ink-soft);font-size:1.06rem;margin-top:18px}
+  .despre-text p+p{margin-top:16px}
+  .despre-facts{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+  .fact{
+    border:1px solid var(--line);border-radius:999px;padding:9px 18px;
+    font-size:.84rem;color:var(--ink-soft);background:var(--card);
+  }
+  .despre-media{position:relative;border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow-card)}
+  .despre-media img{width:100%;height:560px;object-fit:cover;transition:transform .8s var(--ease)}
+  .despre-media:hover img{transform:scale(1.04)}
+  .despre-media .cap{
+    position:absolute;left:0;right:0;bottom:0;padding:20px 24px;
+    background:linear-gradient(0deg, rgba(15,12,9,.72), transparent);
+    color:#fff;font-size:.86rem;font-weight:500;
+  }
+  @media (max-width:900px){
+    .despre{grid-template-columns:1fr;gap:36px}
+    .despre-media img{height:340px}
+  }
+
+  /* ============ ISTORIC ============ */
+  .istoric-intro{max-width:760px}
+  .istoric-intro p{color:var(--ink-soft);font-size:1.05rem;margin-top:16px}
+  .istoric-intro p+p{margin-top:14px}
+
+  .postcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  @media (max-width:700px){ .postcard-grid{grid-template-columns:1fr} }
+  .postcard{position:relative;border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow-card)}
+  .postcard img{width:100%;height:340px;object-fit:cover;filter:sepia(.15)}
+  .postcard .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:linear-gradient(0deg, rgba(15,12,9,.75), transparent);color:#fff;font-size:.84rem;font-weight:500}
+
+  .istoric-sub{margin-top:64px}
+  .istoric-sub-head{max-width:640px;margin-bottom:26px}
+  .istoric-sub-head h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:500}
+  .istoric-sub-head p{color:var(--ink-soft);font-size:.98rem;margin-top:10px}
+
+  .filmstrip{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .filmstrip img{
+    flex:none;width:150px;height:112px;object-fit:cover;border-radius:var(--radius-s);
+    scroll-snap-align:start;filter:grayscale(.25) contrast(1.02);opacity:.92;
+  }
+  .filmstrip::-webkit-scrollbar{height:6px}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+
+  .azi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media (max-width:900px){ .azi-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:640px){ .azi-grid{grid-template-columns:repeat(2,1fr);gap:8px} }
+  .azi-grid a{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
+  .azi-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .azi-grid a:hover img{transform:scale(1.08)}
+
+  .istoric-quote{
+    margin-top:56px;max-width:640px;border-left:2px solid var(--accent);
+    padding-left:24px;font-family:'Fraunces',serif;font-style:italic;
+    font-size:1.2rem;color:var(--ink-soft);line-height:1.5;
+  }
+  .istoric-quote b{color:var(--ink);font-weight:500}
+
+  /* ============ CAMERE ============ */
+  .room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  @media (max-width:980px){ .room-grid{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:640px){ .room-grid{grid-template-columns:1fr} }
+
+  .room-card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-m);
+    overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease);
+  }
+  .room-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lift)}
+  .room-media{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .room-media img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+  .room-card:hover .room-media img{transform:scale(1.06)}
+  .room-tag{
+    position:absolute;top:14px;left:14px;background:rgba(250,246,239,.9);
+    backdrop-filter:blur(6px);padding:6px 12px;border-radius:999px;
+    font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:var(--accent-dark);
+  }
+  .room-body{padding:22px 24px 26px}
+  .room-body-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .room-body h3{font-size:1.28rem}
+  .room-body p{color:var(--ink-soft);font-size:.94rem;margin-top:8px}
+  .room-price{flex:none;text-align:right;white-space:nowrap}
+  .room-price .amount{font-family:'Fraunces',serif;font-style:italic;font-size:1.2rem;color:var(--accent-dark)}
+  .room-price .per{display:block;font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-soft);margin-top:1px}
+
+  /* ============ FACILITĂȚI — bento ============ */
+  .bento{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-auto-rows:220px;
+    gap:22px;
+  }
+  .bento-item{
+    position:relative;border-radius:var(--radius-m);overflow:hidden;
+    grid-column:span 3;
+    box-shadow:var(--shadow-card);
+  }
+  .bento-item.big{grid-column:span 4;grid-row:span 2}
+  .bento-item.small{grid-column:span 2;grid-row:span 1}
+  .bento-item img{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+    transition:transform .8s var(--ease);
+  }
+  .bento-item:hover img{transform:scale(1.07)}
+  .bento-item::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(0deg, rgba(15,12,9,.82) 0%, rgba(15,12,9,.15) 55%, transparent 75%);
+  }
+  .bento-text{position:absolute;left:0;right:0;bottom:0;padding:22px;z-index:2;color:#fff}
+  .bento-text h3{font-size:1.3rem;color:#fff}
+  .bento-item.small .bento-text h3{font-size:1.08rem}
+  .bento-text p{font-size:.86rem;color:rgba(255,255,255,.82);margin-top:6px;max-width:34ch}
+  .bento-item.small .bento-text p{display:none}
+
+  @media (max-width:900px){
+    .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:210px}
+    .bento-item,.bento-item.big,.bento-item.small{grid-column:span 2;grid-row:span 1}
+    .bento-item.small .bento-text p{display:block}
+  }
+
+  /* ============ DARK MOMENT ============ */
+  .moment{
+    position:relative;padding:160px 0;
+    background:var(--dark-bg);color:var(--dark-ink);
+    overflow:hidden;
+  }
+  .moment img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.55}
+  .moment::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(20,16,12,.96) 0%, rgba(20,16,12,.75) 45%, rgba(20,16,12,.35) 100%);
+  }
+  .moment .wrap{position:relative;z-index:2}
+  .moment-inner{max-width:560px}
+  .moment .eyebrow{color:var(--accent-soft)}
+  .moment .eyebrow::before{background:var(--accent-soft)}
+  .moment h2{font-size:clamp(2.2rem,4.4vw,3.2rem);color:#fff;margin-top:16px}
+  .moment p{color:var(--dark-ink-soft);font-size:1.08rem;margin-top:20px;max-width:48ch}
+  .moment .btn-light{margin-top:32px}
+  @media (max-width:820px){ .moment{padding:110px 0} }
+
+  /* ============ GALERIE ============ */
+  .gal-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+  }
+  .gal-item{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
+  .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .gal-item:hover img{transform:scale(1.09)}
+
+  @media (max-width:980px){ .gal-grid{grid-template-columns:repeat(4,1fr)} }
+  @media (max-width:640px){ .gal-grid{grid-template-columns:repeat(3,1fr);gap:8px} }
+
+  .gal-more{
+    text-align:center;margin-top:40px;
+  }
+
+  /* ============ CONTACT ============ */
+  .contact{
+    background:var(--bg-soft);border-radius:var(--radius-l);
+    padding:80px 60px;text-align:center;
+    display:flex;flex-direction:column;align-items:center;
+    border:1px solid var(--line);
+  }
+  .contact h2{font-size:clamp(2.1rem,4.6vw,3.1rem);max-width:16ch}
+  .contact p{color:var(--ink-soft);margin-top:18px;max-width:44ch;font-size:1.05rem}
+  .contact .btn-primary{margin-top:34px;padding:18px 34px;font-size:1.02rem}
+  .contact .phone{margin-top:18px;color:var(--ink-soft);font-size:.9rem;letter-spacing:.04em}
+  @media (max-width:640px){ .contact{padding:56px 26px} }
+
+  /* ============ FOOTER ============ */
+  footer{padding:64px 0 40px;border-top:1px solid var(--line)}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+  .foot-logo{font-family:'Fraunces',serif;font-size:1.5rem}
+  .foot-links{display:flex;gap:28px;flex-wrap:wrap}
+  .foot-links a{color:var(--ink-soft);font-size:.92rem}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-bottom{
+    margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    color:var(--ink-soft);font-size:.82rem;
+  }
+
+  /* ============ LIGHTBOX ============ */
+  .lb-overlay{
+    position:fixed;inset:0;z-index:9000;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(15,12,9,.93);backdrop-filter:blur(8px);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease;
+  }
+  .lb-overlay.open{opacity:1;pointer-events:auto}
+  .lb-inner{max-width:92vw;max-height:88vh;display:flex;flex-direction:column;align-items:center;gap:14px}
+  .lb-img{
+    max-width:92vw;max-height:80vh;
+    object-fit:contain;border-radius:8px;
+    transform:scale(.94);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+    box-shadow:0 32px 80px rgba(0,0,0,.6);
+  }
+  .lb-overlay.open .lb-img{transform:scale(1)}
+  .lb-close{
+    position:absolute;top:20px;right:20px;
+    width:44px;height:44px;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,.1);backdrop-filter:blur(6px);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    transition:background .2s,transform .2s;
+  }
+  .lb-close:hover{background:rgba(255,255,255,.2);transform:scale(1.08)}
+  .lb-close svg{width:20px;height:20px}
+  .lb-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;border-radius:50%;cursor:pointer;
+    background:rgba(255,255,255,.1);backdrop-filter:blur(6px);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    transition:background .2s,transform .2s;
+  }
+  .lb-nav:hover{background:rgba(255,255,255,.22)}
+  .lb-prev{left:20px} .lb-next{right:20px}
+  .lb-nav svg{width:22px;height:22px}
+  @media (max-width:640px){ .lb-nav{width:38px;height:38px} .lb-prev{left:8px} .lb-next{right:8px} }
+
+  /* ============ CALENDAR REZERVARE ============ */
+  .cal-ov{
+    position:fixed;inset:0;z-index:9200;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(30,22,14,.55);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+    opacity:0;pointer-events:none;
+    transition:opacity .3s ease;
+    padding:20px;
+  }
+  .cal-ov.open{opacity:1;pointer-events:auto}
+  .cal-box{
+    width:100%;max-width:640px;
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);
+    padding:30px 28px 26px;
+    max-height:90vh;overflow-y:auto;
+    box-shadow:var(--shadow-lift);
+    transform:scale(.95) translateY(20px);
+    transition:transform .4s var(--ease);
+  }
+  .cal-ov.open .cal-box{transform:scale(1) translateY(0)}
+  .cal-drag{display:none}
+  @media (max-width:599px){
+    .cal-ov{align-items:flex-end;padding:0}
+    .cal-box{border-radius:var(--radius-l) var(--radius-l) 0 0;max-height:92svh;padding:20px 18px max(24px,env(safe-area-inset-bottom));transform:translateY(100%)}
+    .cal-ov.open .cal-box{transform:translateY(0)}
+    .cal-drag{display:block;width:36px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 18px}
+  }
+  .cal-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:18px}
+  .cal-head .eyebrow{margin-bottom:6px}
+  .cal-head h3{font-family:'Fraunces',serif;font-style:italic;font-size:1.5rem;line-height:1.1}
+  .cal-close{
+    width:38px;height:38px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-s);
+    cursor:pointer;color:var(--ink);transition:background .18s,border-color .18s;margin-top:2px;
+  }
+  .cal-close:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .cal-close svg{width:15px;height:15px}
+  .cal-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:16px;font-size:12px;color:var(--ink-soft)}
+  .cal-legend span{display:inline-flex;align-items:center;gap:7px}
+  .cal-sw{width:13px;height:13px;border-radius:3px;display:inline-block;flex-shrink:0}
+  .cal-sw-ci{background:var(--accent)}
+  .cal-sw-co{background:var(--accent-dark)}
+  .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;border-top:1px solid var(--line);padding-top:16px}
+  .cal-nav button{
+    background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-s);
+    cursor:pointer;color:var(--ink);padding:7px 14px;
+    display:flex;align-items:center;justify-content:center;
+    transition:background .18s,border-color .18s;
+  }
+  .cal-nav button svg{width:16px;height:16px;flex-shrink:0}
+  .cal-nav-label{flex:1;text-align:center;font-family:'Fraunces',serif;font-style:italic;font-size:1.02rem;color:var(--ink);letter-spacing:.02em}
+  .cal-nav button:hover{background:var(--accent-soft);border-color:var(--accent)}
+  .cal-nav button:disabled{color:var(--line);cursor:not-allowed;background:transparent;border-color:transparent}
+  .cal-months{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:8px}
+  @media (max-width:599px){ .cal-months{grid-template-columns:1fr} }
+  .cal-month-label{display:none}
+  .cal-dow{
+    display:grid;grid-template-columns:repeat(7,1fr);
+    font-size:9.5px;letter-spacing:.1em;color:var(--accent);font-weight:600;
+    text-align:center;margin-bottom:6px;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid var(--line);
+  }
+  .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px}
+  .cal-day{
+    height:36px;display:flex;align-items:center;justify-content:center;
+    font-size:13.5px;border-radius:5px;cursor:pointer;user-select:none;
+    color:var(--ink);
+  }
+  @media (max-width:599px){ .cal-day{height:44px} }
+  .cal-day.empty{cursor:default}
+  .cal-day.sel-pick:not(.checkin):not(.checkout):not(.in-range){transition:background .12s}
+  .cal-day.sel-pick:not(.checkin):not(.checkout):not(.in-range):hover{background:var(--bg-soft)}
+  .cal-day.past{color:var(--line);cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px}
+  .cal-day.past:hover{background:transparent}
+  .cal-day.in-range{background:var(--accent-soft);border-radius:0}
+  .cal-day.checkin{background:var(--accent);color:#fff;border-radius:5px 0 0 5px;font-weight:600}
+  .cal-day.checkout{background:var(--accent-dark);color:#fff;border-radius:0 5px 5px 0;font-weight:600}
+  .cal-day.checkin.checkout{border-radius:5px}
+  .cal-divider{height:1px;background:var(--line);margin:18px 0 14px}
+  .cal-summary{font-size:13.5px;color:var(--ink-soft);text-align:center;min-height:20px;margin-bottom:14px}
+  .cal-summary b{color:var(--ink)}
+  .cal-cta{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;text-decoration:none;
+    background:#25d366;color:#fff;
+    font-family:'Inter',sans-serif;font-size:15px;font-weight:600;
+    padding:15px;border-radius:999px;border:none;cursor:pointer;
+    transition:background .15s,transform .15s;
+  }
+  .cal-cta:hover{background:#1ebe5a;transform:translateY(-2px)}
+  .cal-cta svg{width:17px;height:17px;flex-shrink:0}
+  .cal-note{font-size:11.5px;color:var(--ink-soft);text-align:center;margin-top:10px;line-height:1.5}
+
+  /* focus visibility (accessibility, non-negotiable) */
+  a:focus-visible, button:focus-visible, .gal-item:focus-visible{
+    outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;
+  }
+
+  /* ============ EXPERIENTE PAGE ============ */
+  .exp-hero{height:78svh;min-height:520px}
+  .exp-list{margin-top:22px;display:flex;flex-direction:column;gap:12px;max-width:640px}
+  .exp-list li{position:relative;padding-left:26px;color:var(--ink-soft);font-size:1.02rem;line-height:1.55}
+  .exp-list li::before{content:"—";position:absolute;left:0;color:var(--accent);font-weight:600}
+  .exp-list strong{color:var(--ink);font-weight:600}
+
+  .exp-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
+  @media (max-width:800px){ .exp-cards{grid-template-columns:1fr} }
+  .exp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);padding:36px 32px;box-shadow:var(--shadow-card)}
+  .exp-card h3{font-size:1.4rem;margin-bottom:16px}
+  .exp-card ul{display:flex;flex-direction:column;gap:16px}
+  .exp-card li{color:var(--ink-soft);font-size:.98rem;line-height:1.55}
+  .exp-card li b{display:block;color:var(--ink);font-family:'Fraunces',serif;font-size:1.05rem;font-weight:500;margin-bottom:4px}
+
+  .exp-gal-lead{aspect-ratio:16/9;border-radius:var(--radius-m);overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow-card)}
+  .exp-gal-lead img{width:100%;height:100%;object-fit:cover}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c96a3d"/>
+            <stop offset="100%" stop-color="#8a3f1f"/>
+          </linearGradient>
+          <radialGradient id="markGlow" cx="50%" cy="38%" r="65%">
+            <stop offset="0%" stop-color="#ecd3bd" stop-opacity=".65"/>
+            <stop offset="100%" stop-color="#ecd3bd" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+        <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+        <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+        <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+      </svg>
+      <span>Casa <span class="logo-accent">La Saal</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html#despre">Despre</a>
+      <a href="index.html#istorie">Istorie</a>
+      <a href="index.html#camere">Camere</a>
+      <a href="index.html#facilitati">Facilități</a>
+      <a href="#top">Experiențe</a>
+      <a href="index.html#galerie">Galerie</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        <span class="full">WhatsApp</span>
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Deschide meniul" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero exp-hero">
+    <img src="images/exterior-fatada-noapte-luminite-01.jpg" alt="Fațada Casei La Saal noaptea, luminată cu ghirlande colorate, obloane de lemn">
+    <div class="hero-content">
+      <div class="wrap">
+        <p class="eyebrow">Experiențe</p>
+        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Trăiește Casa <em>La Saal</em>, în casă și pe dealuri</h1>
+        <p class="lead">De la salonul cu bibliotecă și crama cu biliard, până la cetăți medievale și sate săsești — tot ce poți descoperi aici, și în jurul nostru.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#interior">Experiențe la Casa La Saal</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#regiune">Regiunea din jur</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
+  </section>
+
+  <!-- INTERIOR -->
+  <section class="section" id="interior">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">În casă</p>
+        <h2>Experiențe de neuitat între zidurile <em>istoriei</em></h2>
+        <p>La Casa La Saal, fosta școală a sașilor din Șeica Mare, timpul curge altfel. Am transformat o clădire încărcată de istorie într-un refugiu modern al relaxării și bunei dispoziții, perfect pentru momentele petrecute alături de cei dragi. Fie că ești în căutare de liniște sau de distracție dinamică, interiorul casei noastre îți oferă cadrul ideal.</p>
+      </div>
+
+      <div class="istoric-sub" style="margin-top:56px" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Salonul Mare: spațiul tău de poveste</h3>
+          <p>Inima casei este salonul nostru generos, un loc unde lumina și confortul te invită să te desprinzi de agitația zilnică.</p>
+        </div>
+        <ul class="exp-list">
+          <li>Te pierzi în filele unei povești din <strong>biblioteca cu peste 100 de cărți</strong>.</li>
+          <li>Provoci prietenii la sesiuni animate de <strong>jocuri de societate</strong>.</li>
+          <li>Creezi atmosfera perfectă cu muzica ta preferată la <strong>boxa din salon</strong>, sau te relaxezi la un film bun la TV.</li>
+        </ul>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/salon-mare-biblioteca-tv.jpg" alt="Salonul mare, cu masă festivă lungă, raft cu cărți în firidă și TV montat pe perete" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-biblioteca-foto-vechi.jpg" alt="Salon cu bibliotecă și fotografii vechi înrămate" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-masa-lunga-biblioteca.jpg" alt="Sufragerie cu masă lungă, firidă cu cărți și canapea" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-masa-toamna.jpg" alt="Masă festivă cu decor de toamnă, pahare de vin și scaune de lemn" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-masa-festiva-aur.jpg" alt="Masă festivă pentru o aniversare, farfurii aurii și baloane" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-eveniment-mese-lungi.jpg" alt="Sală amenajată pentru un eveniment, cu mese lungi aranjate" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-petrecere-baloane.jpg" alt="Salon decorat pentru o petrecere aniversară, cu baloane" loading="lazy"></div>
+          <div class="gal-item"><img src="images/salon-seara-lumini-dans.jpg" alt="Oaspeți petrecând seara sub lumini colorate, în salon" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Crama de la subsol: epicentrul distracției</h3>
+          <p>Coborând treptele, vei descoperi o cramă autentică, unde vibe-ul istoric se îmbină perfect cu energia jocurilor indoor. Este spațiul ideal pentru seri lungi și pline de viață.</p>
+        </div>
+        <ul class="exp-list">
+          <li>O <strong>masă de biliard</strong> și una de <strong>ping-pong</strong>, pregătite pentru campionate amicale.</li>
+          <li>O <strong>boxă dedicată</strong>, pentru ca ritmul petrecerii să nu se oprească niciodată.</li>
+        </ul>
+        <div class="postcard-grid" style="margin-top:28px">
+          <div class="postcard">
+            <img src="images/crama-masa-biliard.jpg" alt="Cramă boltită cu pereți lambrisați din lemn, masă de biliard și rafturi cu sticle de vin" loading="lazy">
+            <div class="cap">Masa de biliard, sub boltă de cărămidă</div>
+          </div>
+          <div class="postcard">
+            <img src="images/crama-masa-vin.jpg" alt="Cramă boltită cu masă pătrată din lemn, scaune și rafturi cu sticle de vin" loading="lazy">
+            <div class="cap">Colț de cramă pentru un pahar de vin</div>
+          </div>
+        </div>
+      </div>
+
+      <p class="istoric-quote">Casa La Saal nu este doar un loc de cazare, ci <b>o experiență în sine</b>. De la tihnă și lectură, până la râsete și competiții nocturne la subsol, fiecare colț este gândit să adune oamenii împreună.</p>
+    </div>
+  </section>
+
+  <!-- OUTDOOR -->
+  <section class="section" id="natura" style="background:var(--bg-soft)">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Dincolo de porți</p>
+        <h2>Farmecul colinelor <em>transilvănene</em></h2>
+        <p>Experiența Casa La Saal se extinde mult dincolo de zidurile sale. Locația noastră este punctul de pornire perfect pentru a explora natura neatinsă și istoria fascinantă a zonei Șeica Mare.</p>
+      </div>
+
+      <div class="istoric-sub" style="margin-top:56px" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Aventură în natură și tradiții locale</h3>
+          <p>Dacă iubești aerul curat și mișcarea, dealurile din jur te așteaptă să le descoperi secretele. Locația se află la poalele unui deal impunător (Burbihi / Burgring), frumos împădurit.</p>
+        </div>
+        <ul class="exp-list">
+          <li><strong>Drumeții reconfortante:</strong> urmează potecile umbroase ale pădurilor care împodobesc dealurile și lasă-te încărcat de energia naturii.</li>
+          <li><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Peteiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
+          <li><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
+        </ul>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-deal-flori-salbatice.jpg" alt="Deal înierbat cu flori sălbatice albe și copaci izolați" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-panorama-munti-copac.jpg" alt="Panoramă cu munți la orizont și un copac singuratic în prim-plan" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-livada-stupi-albine.jpg" alt="Livadă înflorită cu stupi de albine, de la o fermă locală" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Floră locală</h3>
+          <p>Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
+        </div>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/flora-floare-soc-mana.jpg" alt="Floare de soc ținută în mână, deasupra unui tufiș verde" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-tufa-soc-inflorit.jpg" alt="Tufă deasă de soc înflorit" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-coada-soricelului.jpg" alt="Buchet de coada-șoricelului, deasupra unei pajiști verzi" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-cimbrisor-camp.jpg" alt="Tufiș de cimbrișor sălbatic, cu flori mov, în câmp" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-cimbrisor-mana.jpg" alt="Buchet de cimbrișor sălbatic mov, ținut în mână" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-cimbrisor-albina.jpg" alt="Tufă de cimbrișor mov, cu o albină pe flori" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-cimbrisor-pajiste.jpg" alt="Buchet de cimbrișor mov, deasupra unei pajiști cu flori sălbatice" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-flori-piersic-livada.jpg" alt="Livadă de piersici înfloriți, cu stupi de albine" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-flori-piersic-cladire.jpg" alt="Crenguțe înflorite de piersic, în prim-plan" loading="lazy"></div>
+          <div class="gal-item"><img src="images/flora-flori-roz-cer.jpg" alt="Flori roz pe crengi golașe, pe cer senin" loading="lazy"></div>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Un periplu prin istorie și cultură</h3>
+          <p>Pentru pasionații de trecut și arhitectură, împrejurimile ascund comori de o valoare culturală deosebită.</p>
+        </div>
+        <ul class="exp-list">
+          <li><strong>Ruinele Cetății din Buia:</strong> o incursiune romantică și misterioasă în trecutul nobiliar al zonei.</li>
+          <li><strong>Biserica Fortificată Evanghelică:</strong> monument istoric impresionant, la câțiva pași de casă, care amintește de moștenirea trainică a sașilor.</li>
+          <li><strong>Diversitate spirituală:</strong> bisericile cochete din localitate — de la cea ortodoxă la cea greco-catolică — mărturii ale armoniei și tradiției locale.</li>
+        </ul>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Iarnă la Casa La Saal</h3>
+          <p>Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
+        </div>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/natura-turn-biserica-iarna.jpg" alt="Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-panorama-sat-iarna.jpg" alt="Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură" loading="lazy"></div>
+          <div class="gal-item"><img src="images/curte-iarna-ciubar-sauna-zapada.jpg" alt="Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună" loading="lazy"></div>
+          <div class="gal-item"><img src="images/exterior-fatada-noapte-iarna.jpg" alt="Fațada casei, noaptea, iarna, cu zăpadă pe stradă și ghirlande de lumini" loading="lazy"></div>
+        </div>
+      </div>
+
+      <p class="istoric-quote">Fiecare zi petrecută aici este o invitație la explorare. Întoarce-te din drumeție direct în confortul Casei La Saal și <b>deapănă poveștile zilei</b> la un pahar de vin în crama noastră!</p>
+    </div>
+  </section>
+
+  <!-- HUB REGIONAL -->
+  <section class="section" id="regiune">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow">Regiunea</p>
+        <h2>Hub-ul tău spre inima <em>Transilvaniei</em></h2>
+        <p>Poziționarea Casei La Saal te plasează exact în centrul unei regiuni vibrante, pline de cultură, istorie și oportunități de relaxare. În doar câteva zeci de minute de mers cu mașina, poți trece de la liniștea satului la efervescența unora dintre cele mai frumoase destinații din România.</p>
+      </div>
+
+      <div class="exp-cards">
+        <div class="exp-card" data-reveal>
+          <h3>Cultură, wellness și cetăți medievale — la ~30 minute</h3>
+          <ul>
+            <li><b>Sibiu</b> (cca. 30 min) — orașul cultural prin excelență. Pierde-te pe străduțele pietruite, vizitează Muzeul Brukenthal, traversează Podul Minciunilor și bucură-te de restaurantele de top din Piața Mare.</li>
+            <li><b>Ocna Sibiului</b> (cca. 30 min) — destinația ideală pentru răsfăț și sănătate. Cunoscută drept „Litoralul Ardealului”, te așteaptă cu lacuri helioterme sărate, perfecte pentru relaxare.</li>
+          </ul>
+        </div>
+        <div class="exp-card" data-reveal data-reveal-delay="100">
+          <h3>Călătorii în timp pe urmele sașilor</h3>
+          <ul>
+            <li><b>Biertan și satele săsești</b> — un circuit al bisericilor fortificate din împrejurimi. Cea de la Biertan, monument UNESCO, te va fascina cu arhitectura sa impunătoare și legendele locului.</li>
+            <li><b>Mediaș și Dumbrăveni</b> — farmecul discret al acestor burguri transilvănene, cu turnuri medievale și centre istorice cochete.</li>
+            <li><b>Sighișoara</b> — singura cetate medievală locuită din Europa de Sud-Est, cu turnurile sale celebre, scările acoperite și o atmosferă de basm.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Drumul spre Casa La Saal</h3>
+          <p>Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
+        </div>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/natura-panorama-sat-vara.jpg" alt="Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă" loading="lazy"></div>
+          <div class="gal-item"><img src="images/exterior-firma-la-saal-strada.jpg" alt="Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit" loading="lazy"></div>
+          <div class="gal-item"><img src="images/exterior-strada-sat-spre-casa.jpg" alt="Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal" loading="lazy"></div>
+          <div class="gal-item"><img src="images/exterior-fatada-zi-cazare.jpg" alt="Fațada casei, ziua, cu obloane maro și firma Cazare deasupra ușii" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-strada-turn-biserica.jpg" alt="Stradă din sat spre turnul bisericii săsești și clădirea La Saal" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-strada-innorat-turn.jpg" alt="Stradă din sat sub cer înnorat, turn de biserică săsească" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-strada-la-saal-cazare.jpg" alt="Stradă spre clădirea cu firma La Saal Cazare" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-panorama-munti-01.jpg" alt="Panoramă cu lanț muntos și câmp arat" loading="lazy"></div>
+          <div class="gal-item"><img src="images/natura-panorama-munti-02.jpg" alt="Panoramă cu munți sub cer înnorat, câmp arat" loading="lazy"></div>
+        </div>
+      </div>
+
+      <p class="istoric-quote">Casa La Saal este <b>„baza ta de acasă”</b> — locul primitor în care te întorci seară de seară, după o zi plină de descoperiri, pentru a te relaxa în salon sau la un biliard în cramă.</p>
+
+      <div style="margin-top:40px;text-align:center" data-reveal>
+        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20rezerv%20o%20experien%C8%9B%C4%83%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+          Rezervă-ți experiența transilvăneană
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo" style="display:flex;align-items:center;gap:10px">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" style="width:28px;height:28px">
+            <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+            <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+            <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+            <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+          </svg>
+          <span>Casa <span class="logo-accent">La Saal</span></span>
+        </div>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Șeica Mare, județul Sibiu</p>
+      </div>
+      <nav class="foot-links">
+        <a href="index.html#despre">Despre</a>
+        <a href="index.html#istorie">Istorie</a>
+        <a href="index.html#camere">Camere</a>
+        <a href="index.html#facilitati">Facilități</a>
+        <a href="#top">Experiențe</a>
+        <a href="index.html#galerie">Galerie</a>
+        <a href="https://wa.me/40787292633" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
+      <span>0787 292 633</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---------- navbar scroll state + mobile menu ---------- */
+(function(){
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 60){ header.classList.add('solid'); }
+    else{ header.classList.remove('solid'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var burger = document.getElementById('burgerBtn');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+/* ---------- word rotator ---------- */
+(function(){
+  var words = [].slice.call(document.querySelectorAll('.wr-word'));
+  if(words.length < 2) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var cur = 0;
+  setInterval(function(){
+    words[cur].classList.remove('active');
+    words[cur].classList.add('out');
+    var prev = cur;
+    cur = (cur+1) % words.length;
+    words[cur].classList.add('active');
+    setTimeout(function(){ words[prev].classList.remove('out'); }, 380);
+  }, 3500);
+})();
+
+/* ---------- scroll reveal ---------- */
+function initReveal(root){
+  var els = (root||document).querySelectorAll('[data-reveal]:not(.revealed)');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){ el.classList.add('revealed'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var delay = entry.target.dataset.revealDelay || 0;
+        setTimeout(function(){ entry.target.classList.add('revealed'); }, delay);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+}
+initReveal();
+
+</script>
+</body>
+</html>

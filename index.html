@@ -283,6 +283,44 @@
     .despre-media img{height:340px}
   }
 
+  /* ============ ISTORIC ============ */
+  .istoric-intro{max-width:760px}
+  .istoric-intro p{color:var(--ink-soft);font-size:1.05rem;margin-top:16px}
+  .istoric-intro p+p{margin-top:14px}
+
+  .postcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px}
+  @media (max-width:700px){ .postcard-grid{grid-template-columns:1fr} }
+  .postcard{position:relative;border-radius:var(--radius-l);overflow:hidden;box-shadow:var(--shadow-card)}
+  .postcard img{width:100%;height:340px;object-fit:cover;filter:sepia(.15)}
+  .postcard .cap{position:absolute;left:0;right:0;bottom:0;padding:18px 22px;background:linear-gradient(0deg, rgba(15,12,9,.75), transparent);color:#fff;font-size:.84rem;font-weight:500}
+
+  .istoric-sub{margin-top:64px}
+  .istoric-sub-head{max-width:640px;margin-bottom:26px}
+  .istoric-sub-head h3{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:500}
+  .istoric-sub-head p{color:var(--ink-soft);font-size:.98rem;margin-top:10px}
+
+  .filmstrip{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .filmstrip img{
+    flex:none;width:150px;height:112px;object-fit:cover;border-radius:var(--radius-s);
+    scroll-snap-align:start;filter:grayscale(.25) contrast(1.02);opacity:.92;
+  }
+  .filmstrip::-webkit-scrollbar{height:6px}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+
+  .azi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media (max-width:900px){ .azi-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:640px){ .azi-grid{grid-template-columns:repeat(2,1fr);gap:8px} }
+  .azi-grid a{display:block;aspect-ratio:4/3;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
+  .azi-grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+  .azi-grid a:hover img{transform:scale(1.08)}
+
+  .istoric-quote{
+    margin-top:56px;max-width:640px;border-left:2px solid var(--accent);
+    padding-left:24px;font-family:'Fraunces',serif;font-style:italic;
+    font-size:1.2rem;color:var(--ink-soft);line-height:1.5;
+  }
+  .istoric-quote b{color:var(--ink);font-weight:500}
+
   /* ============ CAMERE ============ */
   .room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
   @media (max-width:980px){ .room-grid{grid-template-columns:repeat(2,1fr)} }
@@ -570,8 +608,10 @@
     </a>
     <nav class="links" id="navLinks">
       <a href="#despre">Despre</a>
+      <a href="#istorie">Istorie</a>
       <a href="#camere">Camere</a>
       <a href="#facilitati">Facilități</a>
+      <a href="experiente.html">Experiențe</a>
       <a href="#galerie">Galerie</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -625,19 +665,96 @@
     <div class="wrap despre">
       <div class="despre-text" data-reveal>
         <p class="eyebrow" data-edit="despre.eyebrow">Despre</p>
-        <h2 data-edit="despre.title">O casă, nu <em>un hotel</em></h2>
-        <p data-edit="despre.p1">Clădirea de astăzi a fost construită în 1842 și a funcționat inițial ca școala satului. În 2022 a fost renovată integral și transformată în casă de oaspeți, fără să-și piardă din caracter — obloanele de lemn și fațada galbenă au rămas neschimbate.</p>
-        <p data-edit="despre.p2">În curte s-au adăugat, cu timpul, un loc pentru foc de tabără, un ciubăr încălzit, o saună și un foișor cu grătar. Înăuntru, un salon mare ține loc de sufragerie pentru toți oaspeții — și, la nevoie, pentru nunți sau aniversări. Nu e o pensiune cu recepție și fițe — e o casă în care intri, îți lași bagajele și rămâi.</p>
+        <h2 data-edit="despre.title">Acolo unde istoria <em>Transilvaniei</em> întâlnește liniștea pădurii</h2>
+        <p data-edit="despre.p1">La Casa La Saal, timpul nu se măsoară în ore, ci în momente de tihnă. Situată în idilicul sat Șeica Mare, județul Sibiu, pensiunea noastră de 3 stele readuce la viață fosta școală a sașilor din localitate. Clădirea istorică, renovată integral cu respect pentru trecut și atenție la confortul modern, oferă astăzi un spațiu de cazare intim și primitor.</p>
+        <p data-edit="despre.p2">Amplasată la doar câțiva pași de Biserica Fortificată Evanghelică „Sfântul Martin” și străjuită de un deal împădurit ce îndeamnă la explorare, Casa La Saal este destinația ideală pentru cei care caută să evadeze din agitația urbană. Fie că alegi una dintre cele 6 camere matrimoniale elegante sau apartamentul spațios cu două camere, te vei bucura de finisaje moderne, băi proprii și ospitalitate caldă, ardelenească.</p>
+        <p data-edit="despre.p3"><em>Lasă grijile la intrare, ascultă foșnetul pădurii și savurează gustul autentic al bucatelor locale.</em></p>
         <div class="despre-facts">
-          <span class="fact">Șeica Mare, județul Sibiu</span>
+          <span class="fact">3 stele · Min. Turismului</span>
+          <span class="fact">6 camere + apartament · 16–20 locuri</span>
           <span class="fact">Clădire din 1842, fostă școală</span>
           <span class="fact">Biserică fortificată din ~1300</span>
         </div>
       </div>
       <div class="despre-media" data-reveal>
-        <img src="images/biserica.jpg" alt="Biserică fortificată săsească, cu turn cu acoperiș ascuțit, pe fundal de deal împădurit" loading="lazy">
+        <img src="images/exterior-turn-biserica-semn-la-saal.jpg" alt="Turnul bisericii fortificate evanghelice, cu firma Casei La Saal vizibilă pe acoperiș, deal împădurit în fundal" loading="lazy">
         <div class="cap">Biserica fortificată a satului, la câțiva pași de pensiune</div>
       </div>
+    </div>
+  </section>
+
+  <!-- ISTORIC -->
+  <section class="section" id="istorie">
+    <div class="wrap">
+      <div class="section-head istoric-intro" data-reveal>
+        <p class="eyebrow">Povestea clădirii</p>
+        <h2>O școală săsească din 1842, <em>renăscută</em></h2>
+        <p>Dacă doriți să vizitați una dintre cele mai frumoase zone colinare ale Ardealului, localitatea devenită „Scaun săsesc” (Schelk Stuhl) în secolele XIII–XIV, alături de Scaunul Sibiului și Scaunul Mediașului, vă recomandăm să veniți pe urmele sașilor din nordul Sibiului, la Casa La Saal — Șeica Mare.</p>
+        <p>Conform cercetărilor locale reflectate în studiul „Șeica Mare – istorie și legendă”, clădirea a fost ridicată în 1842 ca sediu exclusiv al învățământului din localitate. Sălile mari de la parter și etaj erau destinate pregătirii și alfabetizării elevilor, iar camerele din spate serveau drept locuință oficială pentru învățătorul satului — modelul „școală cu locuință de serviciu integrată”, standard al epocii în satele transilvănene.</p>
+      </div>
+
+      <div class="postcard-grid" data-reveal>
+        <div class="postcard">
+          <img src="images/istoric-postcard-1907-turn.jpg" alt="Ilustrată veche din 1907, sepia, cu Șeica Mare și turnul bisericii" loading="lazy">
+          <div class="cap">Ilustrată din 1907, cu clădirea de astăzi a Casei La Saal</div>
+        </div>
+        <div class="postcard">
+          <img src="images/istoric-postcard-1907-piata.jpg" alt="Altă ilustrată veche sepia din aceeași perioadă, cu piața satului Șeica Mare" loading="lazy">
+          <div class="cap">Din aceeași perioadă — se zărește vârful acoperișului clădirii, chiar în fața bisericii</div>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>De la abandon la renaștere</h3>
+          <p>După 1902, când s-a deschis noua școală din vecinătate, clădirea din 1842 și-a pierdut treptat rolul educațional principal — deși a mai funcționat ca școală a sașilor până în 1990. Exodul comunității săsești și lipsa reparațiilor capitale au dus la abandonarea ei completă, iar clădirea a ajuns într-o stare avansată de degradare.</p>
+        </div>
+        <div class="filmstrip">
+          <a href="images/istoric-degradare-01.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-01.jpg" alt="Fațadă degradată, tencuială căzută, cărămidă expusă" loading="lazy"></a>
+          <a href="images/istoric-degradare-02.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-02.jpg" alt="Soclu degradat, cărămizi căzute și moloz" loading="lazy"></a>
+          <a href="images/istoric-degradare-03.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-03.jpg" alt="Colț de acoperiș degradat, coș de fum acoperit de vegetație" loading="lazy"></a>
+          <a href="images/istoric-degradare-04.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-04.jpg" alt="Perete cu cărămidă expusă și fereastră cu gratii" loading="lazy"></a>
+          <a href="images/istoric-degradare-05.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-05.jpg" alt="Acoperiș parțial prăbușit" loading="lazy"></a>
+          <a href="images/istoric-degradare-06.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-06.jpg" alt="Interior cu acoperiș prăbușit, văzut printr-o fereastră spartă" loading="lazy"></a>
+          <a href="images/istoric-degradare-07.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-07.jpg" alt="Grinzi de lemn prăbușite în interior" loading="lazy"></a>
+          <a href="images/istoric-degradare-08.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-08.jpg" alt="Fațada completă a clădirii degradate, cu arcadă de intrare" loading="lazy"></a>
+          <a href="images/istoric-degradare-09.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-09.jpg" alt="Fațada din spate, acoperită de vegetație" loading="lazy"></a>
+          <a href="images/istoric-degradare-10.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-10.jpg" alt="Vedere generală a clădirii înainte de renovare" loading="lazy"></a>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Renăscută astăzi</h3>
+          <p>Din lipsa fondurilor necesare unei reparații de anvergură, Biserica Evanghelică, proprietarul de atunci, a vândut clădirea unor persoane particulare care, printr-un proces migălos de reparații și reconstituire, au transformat-o în ceea ce este astăzi Casa La Saal — o invitație deschisă la o experiență culturală și de relaxare de bună calitate.</p>
+        </div>
+        <div class="azi-grid">
+          <a href="images/exterior-fatada-galbena-zi.jpg" target="_blank" rel="noopener"><img src="images/exterior-fatada-galbena-zi.jpg" alt="Fațada galbenă restaurată, cu obloane maro, în lumina zilei" loading="lazy"></a>
+          <a href="images/exterior-fatada-noapte-firma.jpg" target="_blank" rel="noopener"><img src="images/exterior-fatada-noapte-firma.jpg" alt="Fațada casei noaptea, cu firma luminoasă La Saal" loading="lazy"></a>
+          <a href="images/curte-ciubar-relaxare-turn-biserica.jpg" target="_blank" rel="noopener"><img src="images/curte-ciubar-relaxare-turn-biserica.jpg" alt="Oaspete relaxându-se în ciubărul din curte, cu turnul bisericii în fundal" loading="lazy"></a>
+          <a href="images/curte-ciubar-fum-turn-biserica.jpg" target="_blank" rel="noopener"><img src="images/curte-ciubar-fum-turn-biserica.jpg" alt="Ciubăr de lemn cu fum, turnul bisericii fortificate peste gard" loading="lazy"></a>
+          <a href="images/curte-terasa-ciubar-turn-biserica-01.jpg" target="_blank" rel="noopener"><img src="images/curte-terasa-ciubar-turn-biserica-01.jpg" alt="Terasă de lemn cu ciubăr, turnul bisericii fortificate în fundal" loading="lazy"></a>
+          <a href="images/curte-terasa-ciubar-turn-biserica-02.jpg" target="_blank" rel="noopener"><img src="images/curte-terasa-ciubar-turn-biserica-02.jpg" alt="Terasă de lemn cu ciubăr, coș metalic aurit, deal împădurit" loading="lazy"></a>
+          <a href="images/curte-gratar-ardei-fripte.jpg" target="_blank" rel="noopener"><img src="images/curte-gratar-ardei-fripte.jpg" alt="Grătar zidit cu ardei și vinete la fript" loading="lazy"></a>
+          <a href="images/curte-gratar-ardei-crude.jpg" target="_blank" rel="noopener"><img src="images/curte-gratar-ardei-crude.jpg" alt="Grătar zidit pregătit cu legume pentru copt" loading="lazy"></a>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3>Arhitectură săsească, păstrată cu grijă</h3>
+          <p>Specifice construcțiilor săsești, care doreau să ofere intimitate și discreție: ziduri masive, scări în spirală, holuri înalte cu arcade și o curte împrejmuită cu zid. O locație retrasă... fără a fi izolată. Furca de tors expusă pe hol amintește de anii în care casa era, cu adevărat, o casă.</p>
+        </div>
+        <div class="azi-grid">
+          <a href="images/istoric-interior-scara-spirala-furca.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal" loading="lazy"></a>
+          <a href="images/istoric-interior-scara-spirala-aplica.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-scara-spirala-aplica.jpg" alt="Scară în spirală, aplică de perete aprinsă, decor de furcă de tors" loading="lazy"></a>
+          <a href="images/istoric-interior-coridor-arcade.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-coridor-arcade.jpg" alt="Coridor arcuit cu podea din gresie, spre ușa de intrare din lemn" loading="lazy"></a>
+          <a href="images/istoric-interior-coridor-ardei.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-coridor-ardei.jpg" alt="Coridor cu scări, ardei iuți uscați decorativi pe perete" loading="lazy"></a>
+          <a href="images/istoric-interior-firida-decorativa.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-firida-decorativa.jpg" alt="Firidă decorativă pe hol, balustradă neagră din fier" loading="lazy"></a>
+        </div>
+      </div>
+
+      <p class="istoric-quote">Aici puteți aduna <b>amintiri de neuitat</b>. Vă așteptăm cu drag!</p>
     </div>
   </section>
 
@@ -689,6 +806,7 @@
         </div>
 
       </div>
+      <p style="margin-top:28px;color:var(--ink-soft);font-size:.94rem" data-reveal>La cerere, mai putem organiza: <strong style="color:var(--ink)">plimbare cu trăsura trasă de cai</strong> și <strong style="color:var(--ink)">masaj</strong>, cu maseur calificat.</p>
     </div>
   </section>
 
@@ -757,8 +875,10 @@
       </div>
       <nav class="foot-links">
         <a href="#despre">Despre</a>
+        <a href="#istorie">Istorie</a>
         <a href="#camere">Camere</a>
         <a href="#facilitati">Facilități</a>
+        <a href="experiente.html">Experiențe</a>
         <a href="#galerie">Galerie</a>
         <a href="https://wa.me/40787292633" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
