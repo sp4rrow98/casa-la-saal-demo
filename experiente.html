@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Experiențe — Casa La Saal, Șeica Mare, Sibiu</title>
-<meta name="description" content="Ce poți trăi la Casa La Saal: salonul cu bibliotecă, crama cu biliard, drumeții și floră locală pe dealurile din jur, plus cetăți săsești și orașe medievale la câteva zeci de minute — Sibiu, Biertan, Sighișoara.">
+<title>Experiențe în casă — Casa La Saal, Șeica Mare, Sibiu</title>
+<meta name="description" content="Ce poți face la Casa La Saal: salonul mare cu bibliotecă de peste 100 de cărți și jocuri de societate, crama cu masă de biliard și ping-pong.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -580,24 +580,6 @@
   a:focus-visible, button:focus-visible, .gal-item:focus-visible{
     outline:2px solid var(--accent);outline-offset:3px;border-radius:4px;
   }
-
-  /* ============ EXPERIENTE PAGE ============ */
-  .exp-hero{height:78svh;min-height:520px}
-  .exp-list{margin-top:22px;display:flex;flex-direction:column;gap:12px;max-width:640px}
-  .exp-list li{position:relative;padding-left:26px;color:var(--ink-soft);font-size:1.02rem;line-height:1.55}
-  .exp-list li::before{content:"—";position:absolute;left:0;color:var(--accent);font-weight:600}
-  .exp-list strong{color:var(--ink);font-weight:600}
-
-  .exp-cards{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:48px}
-  @media (max-width:800px){ .exp-cards{grid-template-columns:1fr} }
-  .exp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-l);padding:36px 32px;box-shadow:var(--shadow-card)}
-  .exp-card h3{font-size:1.4rem;margin-bottom:16px}
-  .exp-card ul{display:flex;flex-direction:column;gap:16px}
-  .exp-card li{color:var(--ink-soft);font-size:.98rem;line-height:1.55}
-  .exp-card li b{display:block;color:var(--ink);font-family:'Fraunces',serif;font-size:1.05rem;font-weight:500;margin-bottom:4px}
-
-  .exp-gal-lead{aspect-ratio:16/9;border-radius:var(--radius-m);overflow:hidden;margin-bottom:14px;box-shadow:var(--shadow-card)}
-  .exp-gal-lead img{width:100%;height:100%;object-fit:cover}
 </style>
 </head>
 <body>
@@ -626,10 +608,11 @@
     </a>
     <nav class="links" id="navLinks">
       <a href="index.html#despre">Despre</a>
-      <a href="index.html#istorie">Istorie</a>
+      <a href="istoric.html">Istorie</a>
       <a href="index.html#camere">Camere</a>
       <a href="index.html#facilitati">Facilități</a>
       <a href="#top">Experiențe</a>
+      <a href="imprejurimi.html">Împrejurimi</a>
       <a href="index.html#galerie">Galerie</a>
       <a href="index.html#contact">Contact</a>
     </nav>
@@ -643,6 +626,7 @@
   </div>
 </header>
 
+
 <main id="top">
 
   <!-- HERO -->
@@ -651,11 +635,11 @@
     <div class="hero-content">
       <div class="wrap">
         <p class="eyebrow">Experiențe</p>
-        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Trăiește Casa <em>La Saal</em>, în casă și pe dealuri</h1>
-        <p class="lead">De la salonul cu bibliotecă și crama cu biliard, până la cetăți medievale și sate săsești — tot ce poți descoperi aici, și în jurul nostru.</p>
+        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Trăiește Casa <em>La Saal</em>, din interior</h1>
+        <p class="lead">De la salonul cu bibliotecă, până la crama cu biliard și ping-pong — tot ce poți trăi în casă, fără să ieși pe poartă.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#interior">Experiențe la Casa La Saal</a>
-          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#regiune">Regiunea din jur</a>
+          <a class="btn btn-primary" href="#interior">Vezi salonul și crama</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="imprejurimi.html">Ce e în împrejurimi</a>
         </div>
       </div>
     </div>
@@ -715,136 +699,9 @@
       </div>
 
       <p class="istoric-quote">Casa La Saal nu este doar un loc de cazare, ci <b>o experiență în sine</b>. De la tihnă și lectură, până la râsete și competiții nocturne la subsol, fiecare colț este gândit să adune oamenii împreună.</p>
-    </div>
-  </section>
-
-  <!-- OUTDOOR -->
-  <section class="section" id="natura" style="background:var(--bg-soft)">
-    <div class="wrap">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow">Dincolo de porți</p>
-        <h2>Farmecul colinelor <em>transilvănene</em></h2>
-        <p>Experiența Casa La Saal se extinde mult dincolo de zidurile sale. Locația noastră este punctul de pornire perfect pentru a explora natura neatinsă și istoria fascinantă a zonei Șeica Mare.</p>
-      </div>
-
-      <div class="istoric-sub" style="margin-top:56px" data-reveal>
-        <div class="istoric-sub-head">
-          <h3>Aventură în natură și tradiții locale</h3>
-          <p>Dacă iubești aerul curat și mișcarea, dealurile din jur te așteaptă să le descoperi secretele. Locația se află la poalele unui deal impunător (Burbihi / Burgring), frumos împădurit.</p>
-        </div>
-        <ul class="exp-list">
-          <li><strong>Drumeții reconfortante:</strong> urmează potecile umbroase ale pădurilor care împodobesc dealurile și lasă-te încărcat de energia naturii.</li>
-          <li><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Peteiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
-          <li><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
-        </ul>
-        <div class="gal-grid" style="margin-top:28px">
-          <div class="gal-item"><img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-deal-flori-salbatice.jpg" alt="Deal înierbat cu flori sălbatice albe și copaci izolați" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-copac.jpg" alt="Panoramă cu munți la orizont și un copac singuratic în prim-plan" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-livada-stupi-albine.jpg" alt="Livadă înflorită cu stupi de albine, de la o fermă locală" loading="lazy"></div>
-        </div>
-      </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3>Floră locală</h3>
-          <p>Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px">
-          <div class="gal-item"><img src="images/flora-floare-soc-mana.jpg" alt="Floare de soc ținută în mână, deasupra unui tufiș verde" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-tufa-soc-inflorit.jpg" alt="Tufă deasă de soc înflorit" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-coada-soricelului.jpg" alt="Buchet de coada-șoricelului, deasupra unei pajiști verzi" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-camp.jpg" alt="Tufiș de cimbrișor sălbatic, cu flori mov, în câmp" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-mana.jpg" alt="Buchet de cimbrișor sălbatic mov, ținut în mână" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-albina.jpg" alt="Tufă de cimbrișor mov, cu o albină pe flori" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-pajiste.jpg" alt="Buchet de cimbrișor mov, deasupra unei pajiști cu flori sălbatice" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-piersic-livada.jpg" alt="Livadă de piersici înfloriți, cu stupi de albine" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-piersic-cladire.jpg" alt="Crenguțe înflorite de piersic, în prim-plan" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-roz-cer.jpg" alt="Flori roz pe crengi golașe, pe cer senin" loading="lazy"></div>
-        </div>
-      </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3>Un periplu prin istorie și cultură</h3>
-          <p>Pentru pasionații de trecut și arhitectură, împrejurimile ascund comori de o valoare culturală deosebită.</p>
-        </div>
-        <ul class="exp-list">
-          <li><strong>Ruinele Cetății din Buia:</strong> o incursiune romantică și misterioasă în trecutul nobiliar al zonei.</li>
-          <li><strong>Biserica Fortificată Evanghelică:</strong> monument istoric impresionant, la câțiva pași de casă, care amintește de moștenirea trainică a sașilor.</li>
-          <li><strong>Diversitate spirituală:</strong> bisericile cochete din localitate — de la cea ortodoxă la cea greco-catolică — mărturii ale armoniei și tradiției locale.</li>
-        </ul>
-      </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3>Iarnă la Casa La Saal</h3>
-          <p>Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px">
-          <div class="gal-item"><img src="images/natura-turn-biserica-iarna.jpg" alt="Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-sat-iarna.jpg" alt="Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură" loading="lazy"></div>
-          <div class="gal-item"><img src="images/curte-iarna-ciubar-sauna-zapada.jpg" alt="Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-fatada-noapte-iarna.jpg" alt="Fațada casei, noaptea, iarna, cu zăpadă pe stradă și ghirlande de lumini" loading="lazy"></div>
-        </div>
-      </div>
-
-      <p class="istoric-quote">Fiecare zi petrecută aici este o invitație la explorare. Întoarce-te din drumeție direct în confortul Casei La Saal și <b>deapănă poveștile zilei</b> la un pahar de vin în crama noastră!</p>
-    </div>
-  </section>
-
-  <!-- HUB REGIONAL -->
-  <section class="section" id="regiune">
-    <div class="wrap">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow">Regiunea</p>
-        <h2>Hub-ul tău spre inima <em>Transilvaniei</em></h2>
-        <p>Poziționarea Casei La Saal te plasează exact în centrul unei regiuni vibrante, pline de cultură, istorie și oportunități de relaxare. În doar câteva zeci de minute de mers cu mașina, poți trece de la liniștea satului la efervescența unora dintre cele mai frumoase destinații din România.</p>
-      </div>
-
-      <div class="exp-cards">
-        <div class="exp-card" data-reveal>
-          <h3>Cultură, wellness și cetăți medievale — la ~30 minute</h3>
-          <ul>
-            <li><b>Sibiu</b> (cca. 30 min) — orașul cultural prin excelență. Pierde-te pe străduțele pietruite, vizitează Muzeul Brukenthal, traversează Podul Minciunilor și bucură-te de restaurantele de top din Piața Mare.</li>
-            <li><b>Ocna Sibiului</b> (cca. 30 min) — destinația ideală pentru răsfăț și sănătate. Cunoscută drept „Litoralul Ardealului”, te așteaptă cu lacuri helioterme sărate, perfecte pentru relaxare.</li>
-          </ul>
-        </div>
-        <div class="exp-card" data-reveal data-reveal-delay="100">
-          <h3>Călătorii în timp pe urmele sașilor</h3>
-          <ul>
-            <li><b>Biertan și satele săsești</b> — un circuit al bisericilor fortificate din împrejurimi. Cea de la Biertan, monument UNESCO, te va fascina cu arhitectura sa impunătoare și legendele locului.</li>
-            <li><b>Mediaș și Dumbrăveni</b> — farmecul discret al acestor burguri transilvănene, cu turnuri medievale și centre istorice cochete.</li>
-            <li><b>Sighișoara</b> — singura cetate medievală locuită din Europa de Sud-Est, cu turnurile sale celebre, scările acoperite și o atmosferă de basm.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3>Drumul spre Casa La Saal</h3>
-          <p>Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px">
-          <div class="gal-item"><img src="images/natura-panorama-sat-vara.jpg" alt="Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-firma-la-saal-strada.jpg" alt="Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-strada-sat-spre-casa.jpg" alt="Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-fatada-zi-cazare.jpg" alt="Fațada casei, ziua, cu obloane maro și firma Cazare deasupra ușii" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-turn-biserica.jpg" alt="Stradă din sat spre turnul bisericii săsești și clădirea La Saal" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-innorat-turn.jpg" alt="Stradă din sat sub cer înnorat, turn de biserică săsească" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-la-saal-cazare.jpg" alt="Stradă spre clădirea cu firma La Saal Cazare" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-01.jpg" alt="Panoramă cu lanț muntos și câmp arat" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-02.jpg" alt="Panoramă cu munți sub cer înnorat, câmp arat" loading="lazy"></div>
-        </div>
-      </div>
-
-      <p class="istoric-quote">Casa La Saal este <b>„baza ta de acasă”</b> — locul primitor în care te întorci seară de seară, după o zi plină de descoperiri, pentru a te relaxa în salon sau la un biliard în cramă.</p>
 
       <div style="margin-top:40px;text-align:center" data-reveal>
-        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20rezerv%20o%20experien%C8%9B%C4%83%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
-          Rezervă-ți experiența transilvăneană
-        </a>
+        <a class="btn btn-primary" href="imprejurimi.html">Descoperă și împrejurimile</a>
       </div>
     </div>
   </section>
@@ -869,10 +726,11 @@
       </div>
       <nav class="foot-links">
         <a href="index.html#despre">Despre</a>
-        <a href="index.html#istorie">Istorie</a>
+        <a href="istoric.html">Istorie</a>
         <a href="index.html#camere">Camere</a>
         <a href="index.html#facilitati">Facilități</a>
         <a href="#top">Experiențe</a>
+        <a href="imprejurimi.html">Împrejurimi</a>
         <a href="index.html#galerie">Galerie</a>
         <a href="https://wa.me/40787292633" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
@@ -883,6 +741,7 @@
     </div>
   </div>
 </footer>
+
 
 <script>
 /* ---------- navbar scroll state + mobile menu ---------- */
