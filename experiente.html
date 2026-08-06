@@ -444,6 +444,15 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     color:var(--ink-soft);font-size:.82rem;
   }
+  .foot-legal{
+    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-legal-text{color:var(--ink-soft);font-size:.76rem;line-height:1.6;max-width:560px}
+  .foot-legal-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot-legal-links a{font-size:.82rem;color:var(--ink-soft)}
+  .foot-legal-links a:hover{color:var(--ink)}
+  .foot-legal-links img{height:36px;display:block}
 
   /* ============ LIGHTBOX ============ */
   .lb-overlay{
@@ -634,12 +643,12 @@
     <img src="images/exterior-fatada-noapte-luminite-01.jpg" alt="Fațada Casei La Saal noaptea, luminată cu ghirlande colorate, obloane de lemn">
     <div class="hero-content">
       <div class="wrap">
-        <p class="eyebrow">Experiențe</p>
-        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Trăiește Casa <em>La Saal</em>, din interior</h1>
-        <p class="lead">De la salonul cu bibliotecă, până la crama cu biliard și ping-pong — tot ce poți trăi în casă, fără să ieși pe poartă.</p>
+        <p class="eyebrow" data-edit="experiente.hero.eyebrow">Experiențe</p>
+        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)" data-edit="experiente.hero.h1">Trăiește Casa <em>La Saal</em>, din interior</h1>
+        <p class="lead" data-edit="experiente.hero.lead">De la salonul cu bibliotecă, până la crama cu biliard și ping-pong — tot ce poți trăi în casă, fără să ieși pe poartă.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#interior">Vezi salonul și crama</a>
-          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="imprejurimi.html">Ce e în împrejurimi</a>
+          <a class="btn btn-primary" href="#interior" data-edit="experiente.hero.cta1">Vezi salonul și crama</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="imprejurimi.html" data-edit="experiente.hero.cta2">Ce e în împrejurimi</a>
         </div>
       </div>
     </div>
@@ -650,20 +659,20 @@
   <section class="section" id="interior">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="eyebrow">În casă</p>
-        <h2>Experiențe de neuitat între zidurile <em>istoriei</em></h2>
-        <p>La Casa La Saal, fosta școală a sașilor din Șeica Mare, timpul curge altfel. Am transformat o clădire încărcată de istorie într-un refugiu modern al relaxării și bunei dispoziții, perfect pentru momentele petrecute alături de cei dragi. Fie că ești în căutare de liniște sau de distracție dinamică, interiorul casei noastre îți oferă cadrul ideal.</p>
+        <p class="eyebrow" data-edit="experiente.intro.eyebrow">În casă</p>
+        <h2 data-edit="experiente.intro.h2">Experiențe de neuitat între zidurile <em>istoriei</em></h2>
+        <p data-edit="experiente.intro.p">La Casa La Saal, fosta școală a sașilor din Șeica Mare, timpul curge altfel. Am transformat o clădire încărcată de istorie într-un refugiu modern al relaxării și bunei dispoziții, perfect pentru momentele petrecute alături de cei dragi. Fie că ești în căutare de liniște sau de distracție dinamică, interiorul casei noastre îți oferă cadrul ideal.</p>
       </div>
 
       <div class="istoric-sub" style="margin-top:56px" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Salonul Mare: spațiul tău de poveste</h3>
-          <p>Inima casei este salonul nostru generos, un loc unde lumina și confortul te invită să te desprinzi de agitația zilnică.</p>
+          <h3 data-edit="experiente.salon.h3">Salonul Mare: spațiul tău de poveste</h3>
+          <p data-edit="experiente.salon.p">Inima casei este salonul nostru generos, un loc unde lumina și confortul te invită să te desprinzi de agitația zilnică.</p>
         </div>
         <ul class="exp-list">
-          <li>Te pierzi în filele unei povești din <strong>biblioteca cu peste 100 de cărți</strong>.</li>
-          <li>Provoci prietenii la sesiuni animate de <strong>jocuri de societate</strong>.</li>
-          <li>Creezi atmosfera perfectă cu muzica ta preferată la <strong>boxa din salon</strong>, sau te relaxezi la un film bun la TV.</li>
+          <li data-edit="experiente.salon.li1">Te pierzi în filele unei povești din <strong>biblioteca cu peste 100 de cărți</strong>.</li>
+          <li data-edit="experiente.salon.li2">Provoci prietenii la sesiuni animate de <strong>jocuri de societate</strong>.</li>
+          <li data-edit="experiente.salon.li3">Creezi atmosfera perfectă cu muzica ta preferată la <strong>boxa din salon</strong>, sau te relaxezi la un film bun la TV.</li>
         </ul>
         <div class="gal-grid" style="margin-top:28px">
           <div class="gal-item"><img src="images/salon-mare-biblioteca-tv.jpg" alt="Salonul mare, cu masă festivă lungă, raft cu cărți în firidă și TV montat pe perete" loading="lazy"></div>
@@ -679,29 +688,29 @@
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Crama de la subsol: epicentrul distracției</h3>
-          <p>Coborând treptele, vei descoperi o cramă autentică, unde vibe-ul istoric se îmbină perfect cu energia jocurilor indoor. Este spațiul ideal pentru seri lungi și pline de viață.</p>
+          <h3 data-edit="experiente.crama.h3">Crama de la subsol: epicentrul distracției</h3>
+          <p data-edit="experiente.crama.p">Coborând treptele, vei descoperi o cramă autentică, unde vibe-ul istoric se îmbină perfect cu energia jocurilor indoor. Este spațiul ideal pentru seri lungi și pline de viață.</p>
         </div>
         <ul class="exp-list">
-          <li>O <strong>masă de biliard</strong> și una de <strong>ping-pong</strong>, pregătite pentru campionate amicale.</li>
-          <li>O <strong>boxă dedicată</strong>, pentru ca ritmul petrecerii să nu se oprească niciodată.</li>
+          <li data-edit="experiente.crama.li1">O <strong>masă de biliard</strong> și una de <strong>ping-pong</strong>, pregătite pentru campionate amicale.</li>
+          <li data-edit="experiente.crama.li2">O <strong>boxă dedicată</strong>, pentru ca ritmul petrecerii să nu se oprească niciodată.</li>
         </ul>
         <div class="postcard-grid" style="margin-top:28px">
           <div class="postcard">
             <img src="images/crama-masa-biliard.jpg" alt="Cramă boltită cu pereți lambrisați din lemn, masă de biliard și rafturi cu sticle de vin" loading="lazy">
-            <div class="cap">Masa de biliard, sub boltă de cărămidă</div>
+            <div class="cap" data-edit="experiente.postcard1.cap">Masa de biliard, sub boltă de cărămidă</div>
           </div>
           <div class="postcard">
             <img src="images/crama-masa-vin.jpg" alt="Cramă boltită cu masă pătrată din lemn, scaune și rafturi cu sticle de vin" loading="lazy">
-            <div class="cap">Colț de cramă pentru un pahar de vin</div>
+            <div class="cap" data-edit="experiente.postcard2.cap">Colț de cramă pentru un pahar de vin</div>
           </div>
         </div>
       </div>
 
-      <p class="istoric-quote">Casa La Saal nu este doar un loc de cazare, ci <b>o experiență în sine</b>. De la tihnă și lectură, până la râsete și competiții nocturne la subsol, fiecare colț este gândit să adune oamenii împreună.</p>
+      <p class="istoric-quote" data-edit="experiente.quote">Casa La Saal nu este doar un loc de cazare, ci <b>o experiență în sine</b>. De la tihnă și lectură, până la râsete și competiții nocturne la subsol, fiecare colț este gândit să adune oamenii împreună.</p>
 
       <div style="margin-top:40px;text-align:center" data-reveal>
-        <a class="btn btn-primary" href="imprejurimi.html">Descoperă și împrejurimile</a>
+        <a class="btn btn-primary" href="imprejurimi.html" data-edit="experiente.cta">Descoperă și împrejurimile</a>
       </div>
     </div>
   </section>
@@ -738,6 +747,14 @@
     <div class="foot-bottom">
       <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
       <span>0787 292 633</span>
+    </div>
+    <div class="foot-legal">
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <div class="foot-legal-links">
+        <a href="confidentialitate.html">Confidențialitate</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+      </div>
     </div>
   </div>
 </footer>
@@ -803,6 +820,16 @@ function initReveal(root){
   els.forEach(function(el){ io.observe(el); });
 }
 initReveal();
+
+function cslIdle(fn){ ('requestIdleCallback' in window) ? requestIdleCallback(fn,{timeout:2500}) : setTimeout(fn,1200); }
+cslIdle(function(){
+  fetch('/api/texte').then(function(r){return r.json();}).then(function(texte){
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      var v = texte[el.getAttribute('data-edit')];
+      if(v) el.innerHTML = v;
+    });
+  }).catch(function(){});
+});
 
 </script>
 </body>

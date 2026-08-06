@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Politica de confidențialitate — Casa La Saal</title>
+<meta name="description" content="Politica de confidențialitate a Casa La Saal (SAXONIA TUR S.R.L.): ce date colectăm, de ce, cât timp le păstrăm și care sunt drepturile dumneavoastră conform GDPR.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#faf6ef;
+    --bg-soft:#f3ecdf;
+    --card:#fdfbf6;
+    --ink:#2a231c;
+    --ink-soft:#6f6152;
+    --line:#e4d8c3;
+    --accent:#b5592f;
+    --accent-dark:#8a3f1f;
+    --accent-soft:#ecd3bd;
+    --radius-s:8px;
+    --radius-m:14px;
+    --radius-l:22px;
+    --maxw:1240px;
+    --shadow-card:0 1px 2px rgba(42,35,28,.04), 0 12px 28px -16px rgba(42,35,28,.18);
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    position:relative;
+  }
+
+  h1,h2,h3,h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    line-height:1.12;
+    margin:0;
+    letter-spacing:-.01em;
+  }
+  em{font-style:italic;color:var(--accent);font-family:'Fraunces',serif}
+  p{margin:0}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  ul,ol{margin:0;padding:0;list-style:none}
+  button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  @media (max-width:640px){ .wrap{padding:0 20px} }
+
+  .eyebrow{
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 26px;border-radius:999px;
+    font-size:.95rem;font-weight:600;
+    transition:transform .4s var(--ease),background .3s,box-shadow .3s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 10px 24px -10px rgba(181,89,47,.55)}
+  .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
+  .btn svg{width:18px;height:18px}
+
+  /* ============ NAVBAR (light, always solid — no image hero on this page) ============ */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:900;
+    padding:22px 0;
+    background:rgba(250,246,239,.92);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+    transition:padding .4s var(--ease),box-shadow .4s var(--ease);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  header.solid{padding:14px 0;box-shadow:0 8px 30px -18px rgba(42,35,28,.25)}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-size:1.32rem;font-weight:500;color:var(--ink)}
+  .logo-accent{color:var(--accent);font-style:italic}
+
+  .brand-mark{width:32px;height:32px;flex:none;overflow:visible}
+
+  nav.links{display:flex;gap:34px}
+  nav.links a{font-size:.92rem;color:var(--ink-soft);font-weight:500;position:relative;transition:color .4s}
+  nav.links a:hover{color:var(--ink)}
+  nav.links a::after{
+    content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;
+    background:currentColor;transform:scaleX(0);transform-origin:right;
+    transition:transform .35s var(--ease);
+  }
+  nav.links a:hover::after{transform:scaleX(1);transform-origin:left}
+
+  .nav-cta{display:flex;align-items:center;gap:18px}
+  .nav-cta .btn-primary{padding:11px 20px;font-size:.86rem}
+  .burger{display:none;width:38px;height:38px;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line)}
+  .burger span{display:block;width:16px;height:1px;background:var(--ink);position:relative;transition:background .3s}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:16px;height:1px;background:inherit}
+  .burger span::before{top:-5px} .burger span::after{top:5px}
+
+  @media (max-width:900px){
+    nav.links{
+      position:fixed;inset:0;top:0;
+      background:var(--bg);
+      flex-direction:column;justify-content:center;align-items:center;gap:28px;
+      transform:translateY(-100%);opacity:0;pointer-events:none;
+      transition:transform .5s var(--ease),opacity .4s;
+    }
+    nav.links.open{transform:translateY(0);opacity:1;pointer-events:auto}
+    nav.links a{color:var(--ink);font-size:1.4rem;font-family:'Fraunces',serif}
+    .burger{display:flex;position:relative;z-index:950}
+    .nav-cta .btn-primary span.full{display:none}
+  }
+
+  /* ============ scroll reveal ============ */
+  [data-reveal]{
+    opacity:0;transform:translateY(22px);
+    transition:opacity .7s var(--ease),transform .7s var(--ease);
+  }
+  [data-reveal].revealed{opacity:1;transform:translateY(0)}
+  @media (prefers-reduced-motion: reduce){
+    [data-reveal]{opacity:1;transform:none;transition:none}
+  }
+
+  /* ============ LEGAL CONTENT ============ */
+  .legal-head{padding:170px 0 50px;border-bottom:1px solid var(--line)}
+  .legal-head h1{font-size:clamp(2.1rem,4.6vw,3.1rem)}
+  .legal-head .lead{color:var(--ink-soft);margin-top:16px;font-size:.92rem}
+
+  .legal-body{padding:64px 0 130px}
+  .legal-body .wrap{max-width:800px}
+  .legal-block{margin-top:52px}
+  .legal-block:first-child{margin-top:0}
+  .legal-block h2{font-size:1.4rem}
+  .legal-block h3{font-size:1.08rem;margin-top:26px}
+  .legal-block p{color:var(--ink-soft);font-size:1rem;margin-top:14px;line-height:1.75}
+  .legal-block p+p{margin-top:12px}
+
+  .legal-list{margin-top:14px}
+  .legal-list li{
+    position:relative;padding-left:22px;color:var(--ink-soft);
+    font-size:1rem;line-height:1.7;margin-top:10px;
+  }
+  .legal-list li::before{
+    content:"";position:absolute;left:0;top:.65em;
+    width:6px;height:6px;border-radius:50%;background:var(--accent);
+  }
+  .legal-list li strong{color:var(--ink)}
+
+  .legal-card{
+    margin-top:20px;padding:22px 26px;border-radius:var(--radius-m);
+    background:var(--card);border:1px solid var(--line);
+  }
+  .legal-card p{margin-top:6px;font-size:.94rem}
+  .legal-card p:first-child{margin-top:0}
+  .legal-card strong{color:var(--ink)}
+
+  /* ============ FOOTER ============ */
+  footer{padding:64px 0 40px;border-top:1px solid var(--line)}
+  .foot-top{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap}
+  .foot-logo{font-family:'Fraunces',serif;font-size:1.5rem}
+  .foot-links{display:flex;gap:28px;flex-wrap:wrap}
+  .foot-links a{color:var(--ink-soft);font-size:.92rem}
+  .foot-links a:hover{color:var(--ink)}
+  .foot-bottom{
+    margin-top:48px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    color:var(--ink-soft);font-size:.82rem;
+  }
+  .foot-legal{
+    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-legal-text{color:var(--ink-soft);font-size:.76rem;line-height:1.6;max-width:560px}
+  .foot-legal-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot-legal-links a{font-size:.82rem;color:var(--ink-soft)}
+  .foot-legal-links a:hover{color:var(--ink)}
+  .foot-legal-links img{height:36px;display:block}
+</style>
+</head>
+<body>
+
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="index.html#top" class="logo">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#c96a3d"/>
+            <stop offset="100%" stop-color="#8a3f1f"/>
+          </linearGradient>
+          <radialGradient id="markGlow" cx="50%" cy="38%" r="65%">
+            <stop offset="0%" stop-color="#ecd3bd" stop-opacity=".65"/>
+            <stop offset="100%" stop-color="#ecd3bd" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+        <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+        <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+        <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+      </svg>
+      <span>Casa <span class="logo-accent">La Saal</span></span>
+    </a>
+    <nav class="links" id="navLinks">
+      <a href="index.html#despre">Despre</a>
+      <a href="istoric.html">Istorie</a>
+      <a href="index.html#camere">Camere</a>
+      <a href="index.html#facilitati">Facilități</a>
+      <a href="experiente.html">Experiențe</a>
+      <a href="imprejurimi.html">Împrejurimi</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+        <span class="full">WhatsApp</span>
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Deschide meniul" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="legal-head">
+    <div class="wrap">
+      <p class="eyebrow">Informații legale</p>
+      <h1>Politica de confidențialitate</h1>
+      <p class="lead">Ultima actualizare: 6 august 2026</p>
+    </div>
+  </section>
+
+  <section class="legal-body">
+    <div class="wrap">
+
+      <div class="legal-block" data-reveal>
+        <p>Această politică explică ce date cu caracter personal colectăm prin intermediul site-ului <strong>casalasaal.ro</strong> și al canalelor noastre de contact (WhatsApp, telefon), de ce le colectăm, cât timp le păstrăm și care sunt drepturile dumneavoastră, în conformitate cu Regulamentul (UE) 2016/679 (GDPR) și legislația română aplicabilă.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>1. Cine este operatorul de date</h2>
+        <div class="legal-card">
+          <p><strong>SAXONIA TUR S.R.L.</strong></p>
+          <p>CUI: 51973173</p>
+          <p>Nr. de ordine în Registrul Comerțului: J2025042609004</p>
+          <p>Sediu social: Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+          <p>Contact: 0787 292 633 · ssmsibiu@gmail.com</p>
+        </div>
+        <p>Societatea operează pensiunea <strong>Casa La Saal</strong> din Șeica Mare, județul Sibiu, și este operator de date cu caracter personal pentru datele colectate prin site și prin canalele de rezervare.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>2. Ce date colectăm</h2>
+        <p>Colectăm date cu caracter personal doar atunci când ni le furnizați direct, de exemplu printr-o cerere de rezervare sau un mesaj de contact:</p>
+        <ul class="legal-list">
+          <li><strong>Date de identificare și contact:</strong> nume și prenume, număr de telefon, adresă de e-mail.</li>
+          <li><strong>Detalii ale rezervării:</strong> camera solicitată, perioada sejurului (dată check-in / check-out), numărul de persoane.</li>
+          <li><strong>Conținutul comunicării:</strong> mesajele trimise prin WhatsApp, telefon sau formularul de pe site.</li>
+        </ul>
+        <p>Nu colectăm date de card bancar prin site — eventualele plăți se discută direct, prin canalele de contact de mai sus.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>3. Scopul și temeiul prelucrării</h2>
+        <ul class="legal-list">
+          <li><strong>Procesarea rezervărilor și comunicarea cu oaspeții</strong> — temei: executarea unui contract sau demersuri precontractuale, la cererea dumneavoastră (art. 6 alin. (1) lit. b GDPR).</li>
+          <li><strong>Îndeplinirea obligațiilor legale</strong> privind evidența turiștilor cazați — temei: obligație legală (art. 6 alin. (1) lit. c GDPR).</li>
+          <li><strong>Îmbunătățirea serviciilor și răspunsul la întrebări</strong> — temei: interes legitim (art. 6 alin. (1) lit. f GDPR).</li>
+        </ul>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>4. Cui dezvăluim datele</h2>
+        <p>Datele nu sunt vândute și nu sunt folosite în scopuri de marketing fără acordul dumneavoastră explicit. Le putem transmite către:</p>
+        <ul class="legal-list">
+          <li><strong>Furnizori de infrastructură tehnică</strong> care găzduiesc site-ul și baza de date a rezervărilor (Vercel și Upstash), strict pentru funcționarea site-ului.</li>
+          <li><strong>WhatsApp / Meta Platforms</strong>, atunci când alegeți să ne contactați prin WhatsApp — conform politicii proprii de confidențialitate a acestui serviciu.</li>
+          <li><strong>Autorități publice</strong>, atunci când legea ne obligă (de exemplu evidența turistică sau organe fiscale).</li>
+        </ul>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>5. Cât timp păstrăm datele</h2>
+        <p>Păstrăm datele legate de o rezervare pe durata necesară derulării acesteia, plus perioada impusă de legislația fiscală și de evidență turistică (de regulă până la 5 ani de la finalul anului fiscal în care a avut loc sejurul). Mesajele de contact care nu au dus la o rezervare sunt păstrate cât timp au relevanță pentru comunicarea cu dumneavoastră, după care sunt șterse.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>6. Drepturile dumneavoastră</h2>
+        <p>Conform GDPR, aveți dreptul de a solicita:</p>
+        <ul class="legal-list">
+          <li><strong>Acces</strong> la datele pe care le deținem despre dumneavoastră.</li>
+          <li><strong>Rectificarea</strong> datelor incorecte sau incomplete.</li>
+          <li><strong>Ștergerea</strong> datelor, atunci când nu mai există un temei legal pentru păstrarea lor.</li>
+          <li><strong>Restricționarea</strong> sau <strong>opoziția</strong> față de prelucrare, în anumite condiții.</li>
+          <li><strong>Portabilitatea</strong> datelor furnizate direct de dumneavoastră.</li>
+          <li><strong>Depunerea unei plângeri</strong> la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP) — <span style="text-decoration:underline">dataprotection.ro</span>.</li>
+        </ul>
+        <p>Pentru a exercita oricare dintre aceste drepturi, ne puteți contacta la <strong>ssmsibiu@gmail.com</strong> sau la <strong>0787 292 633</strong>.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>7. Securitatea datelor</h2>
+        <p>Luăm măsuri tehnice și organizatorice rezonabile pentru a proteja datele împotriva accesului neautorizat, pierderii sau divulgării accidentale, folosind furnizori de găzduire cu practici de securitate recunoscute la nivel internațional.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>8. Modificări ale acestei politici</h2>
+        <p>Putem actualiza periodic această politică. Data ultimei actualizări este afișată în partea de sus a paginii. Vă recomandăm să o consultați din când în când.</p>
+      </div>
+
+      <div class="legal-block" data-reveal>
+        <h2>9. Contact</h2>
+        <p>Pentru orice întrebare legată de această politică sau de datele dumneavoastră, ne puteți scrie la <strong>ssmsibiu@gmail.com</strong> sau suna la <strong>0787 292 633</strong>.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo" style="display:flex;align-items:center;gap:10px">
+          <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" style="width:28px;height:28px">
+            <g class="svg-bg"><circle cx="20" cy="20" r="19" fill="url(#markGlow)"/></g>
+            <g class="svg-roof"><path d="M5 16 L20 4 L35 16" fill="none" stroke="#8a3f1f" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g class="svg-shadow"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="rgba(30,22,14,.32)" transform="translate(1.4,1.4)"/></g>
+            <g class="svg-core"><path d="M11.5 34 V16 A8.5 8.5 0 0 1 28.5 16 V34 Z" fill="url(#markGrad)"/></g>
+            <g class="svg-accent"><circle cx="20" cy="5" r="1.7" fill="#f0d9c4"/></g>
+          </svg>
+          <span>Casa <span class="logo-accent">La Saal</span></span>
+        </div>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Șeica Mare, județul Sibiu</p>
+      </div>
+      <nav class="foot-links">
+        <a href="index.html#despre">Despre</a>
+        <a href="istoric.html">Istorie</a>
+        <a href="index.html#camere">Camere</a>
+        <a href="index.html#facilitati">Facilități</a>
+        <a href="experiente.html">Experiențe</a>
+        <a href="imprejurimi.html">Împrejurimi</a>
+        <a href="index.html#galerie">Galerie</a>
+        <a href="https://wa.me/40787292633" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
+      <span>0787 292 633</span>
+    </div>
+    <div class="foot-legal">
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <div class="foot-legal-links">
+        <a href="confidentialitate.html">Confidențialitate</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  function onScroll(){
+    if(window.scrollY > 60){ header.classList.add('solid'); }
+    else{ header.classList.remove('solid'); }
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  var burger = document.getElementById('burgerBtn');
+  var links = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){
+    var open = links.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open ? 'true':'false');
+  });
+  links.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){
+      links.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+})();
+
+function initReveal(root){
+  var els = (root||document).querySelectorAll('[data-reveal]:not(.revealed)');
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    els.forEach(function(el){ el.classList.add('revealed'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.15, rootMargin:'0px 0px -60px 0px'});
+  els.forEach(function(el){ io.observe(el); });
+}
+initReveal();
+</script>
+</body>
+</html>

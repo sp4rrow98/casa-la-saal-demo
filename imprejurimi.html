@@ -444,6 +444,15 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     color:var(--ink-soft);font-size:.82rem;
   }
+  .foot-legal{
+    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-legal-text{color:var(--ink-soft);font-size:.76rem;line-height:1.6;max-width:560px}
+  .foot-legal-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot-legal-links a{font-size:.82rem;color:var(--ink-soft)}
+  .foot-legal-links a:hover{color:var(--ink)}
+  .foot-legal-links img{height:36px;display:block}
 
   /* ============ LIGHTBOX ============ */
   .lb-overlay{
@@ -634,12 +643,12 @@
     <img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare">
     <div class="hero-content">
       <div class="wrap">
-        <p class="eyebrow">Împrejurimi</p>
-        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">Farmecul colinelor <em>transilvănene</em></h1>
-        <p class="lead">Drumeții, floră locală, cetăți medievale și orașe pline de istorie — tot ce e la câțiva pași sau la câteva zeci de minute de Casa La Saal.</p>
+        <p class="eyebrow" data-edit="imprejurimi.hero.eyebrow">Împrejurimi</p>
+        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)" data-edit="imprejurimi.hero.h1">Farmecul colinelor <em>transilvănene</em></h1>
+        <p class="lead" data-edit="imprejurimi.hero.lead">Drumeții, floră locală, cetăți medievale și orașe pline de istorie — tot ce e la câțiva pași sau la câteva zeci de minute de Casa La Saal.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#natura">Natură din jur</a>
-          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#regiune">Orașe și cetăți</a>
+          <a class="btn btn-primary" href="#natura" data-edit="imprejurimi.hero.cta1">Natură din jur</a>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#regiune" data-edit="imprejurimi.hero.cta2">Orașe și cetăți</a>
         </div>
       </div>
     </div>
@@ -650,20 +659,20 @@
   <section class="section" id="natura" style="background:var(--bg-soft)">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="eyebrow">Dincolo de porți</p>
-        <h2>Farmecul colinelor <em>transilvănene</em></h2>
-        <p>Experiența Casa La Saal se extinde mult dincolo de zidurile sale. Locația noastră este punctul de pornire perfect pentru a explora natura neatinsă și istoria fascinantă a zonei Șeica Mare.</p>
+        <p class="eyebrow" data-edit="imprejurimi.natura.eyebrow">Dincolo de porți</p>
+        <h2 data-edit="imprejurimi.natura.h2">Farmecul colinelor <em>transilvănene</em></h2>
+        <p data-edit="imprejurimi.natura.p">Experiența Casa La Saal se extinde mult dincolo de zidurile sale. Locația noastră este punctul de pornire perfect pentru a explora natura neatinsă și istoria fascinantă a zonei Șeica Mare.</p>
       </div>
 
       <div class="istoric-sub" style="margin-top:56px" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Aventură în natură și tradiții locale</h3>
-          <p>Dacă iubești aerul curat și mișcarea, dealurile din jur te așteaptă să le descoperi secretele. Locația se află la poalele unui deal impunător (Burbihi / Burgring), frumos împădurit.</p>
+          <h3 data-edit="imprejurimi.aventura.h3">Aventură în natură și tradiții locale</h3>
+          <p data-edit="imprejurimi.aventura.p">Dacă iubești aerul curat și mișcarea, dealurile din jur te așteaptă să le descoperi secretele. Locația se află la poalele unui deal impunător (Burbihi / Burgring), frumos împădurit.</p>
         </div>
         <ul class="exp-list">
-          <li><strong>Drumeții reconfortante:</strong> urmează potecile umbroase ale pădurilor care împodobesc dealurile și lasă-te încărcat de energia naturii.</li>
-          <li><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Peteiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
-          <li><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
+          <li data-edit="imprejurimi.aventura.li1"><strong>Drumeții reconfortante:</strong> urmează potecile umbroase ale pădurilor care împodobesc dealurile și lasă-te încărcat de energia naturii.</li>
+          <li data-edit="imprejurimi.aventura.li2"><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Peteiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
+          <li data-edit="imprejurimi.aventura.li3"><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
         </ul>
         <div class="gal-grid" style="margin-top:28px">
           <div class="gal-item"><img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare" loading="lazy"></div>
@@ -675,8 +684,8 @@
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Floră locală</h3>
-          <p>Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
+          <h3 data-edit="imprejurimi.flora.h3">Floră locală</h3>
+          <p data-edit="imprejurimi.flora.p">Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
         </div>
         <div class="gal-grid" style="margin-top:28px">
           <div class="gal-item"><img src="images/flora-floare-soc-mana.jpg" alt="Floare de soc ținută în mână, deasupra unui tufiș verde" loading="lazy"></div>
@@ -694,20 +703,20 @@
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Un periplu prin istorie și cultură</h3>
-          <p>Pentru pasionații de trecut și arhitectură, împrejurimile ascund comori de o valoare culturală deosebită.</p>
+          <h3 data-edit="imprejurimi.cultura.h3">Un periplu prin istorie și cultură</h3>
+          <p data-edit="imprejurimi.cultura.p">Pentru pasionații de trecut și arhitectură, împrejurimile ascund comori de o valoare culturală deosebită.</p>
         </div>
         <ul class="exp-list">
-          <li><strong>Ruinele Cetății din Buia:</strong> o incursiune romantică și misterioasă în trecutul nobiliar al zonei.</li>
-          <li><strong>Biserica Fortificată Evanghelică:</strong> monument istoric impresionant, la câțiva pași de casă, care amintește de moștenirea trainică a sașilor.</li>
-          <li><strong>Diversitate spirituală:</strong> bisericile cochete din localitate — de la cea ortodoxă la cea greco-catolică — mărturii ale armoniei și tradiției locale.</li>
+          <li data-edit="imprejurimi.cultura.li1"><strong>Ruinele Cetății din Buia:</strong> o incursiune romantică și misterioasă în trecutul nobiliar al zonei.</li>
+          <li data-edit="imprejurimi.cultura.li2"><strong>Biserica Fortificată Evanghelică:</strong> monument istoric impresionant, la câțiva pași de casă, care amintește de moștenirea trainică a sașilor.</li>
+          <li data-edit="imprejurimi.cultura.li3"><strong>Diversitate spirituală:</strong> bisericile cochete din localitate — de la cea ortodoxă la cea greco-catolică — mărturii ale armoniei și tradiției locale.</li>
         </ul>
       </div>
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Iarnă la Casa La Saal</h3>
-          <p>Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
+          <h3 data-edit="imprejurimi.iarna.h3">Iarnă la Casa La Saal</h3>
+          <p data-edit="imprejurimi.iarna.p">Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
         </div>
         <div class="gal-grid" style="margin-top:28px">
           <div class="gal-item"><img src="images/natura-turn-biserica-iarna.jpg" alt="Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură" loading="lazy"></div>
@@ -717,7 +726,7 @@
         </div>
       </div>
 
-      <p class="istoric-quote">Fiecare zi petrecută aici este o invitație la explorare. Întoarce-te din drumeție direct în confortul Casei La Saal și <b>deapănă poveștile zilei</b> la un pahar de vin în crama noastră!</p>
+      <p class="istoric-quote" data-edit="imprejurimi.quote1">Fiecare zi petrecută aici este o invitație la explorare. Întoarce-te din drumeție direct în confortul Casei La Saal și <b>deapănă poveștile zilei</b> la un pahar de vin în crama noastră!</p>
     </div>
   </section>
 
@@ -725,33 +734,33 @@
   <section class="section" id="regiune">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="eyebrow">Regiunea</p>
-        <h2>Hub-ul tău spre inima <em>Transilvaniei</em></h2>
-        <p>Poziționarea Casei La Saal te plasează exact în centrul unei regiuni vibrante, pline de cultură, istorie și oportunități de relaxare. În doar câteva zeci de minute de mers cu mașina, poți trece de la liniștea satului la efervescența unora dintre cele mai frumoase destinații din România.</p>
+        <p class="eyebrow" data-edit="imprejurimi.regiune.eyebrow">Regiunea</p>
+        <h2 data-edit="imprejurimi.regiune.h2">Hub-ul tău spre inima <em>Transilvaniei</em></h2>
+        <p data-edit="imprejurimi.regiune.p">Poziționarea Casei La Saal te plasează exact în centrul unei regiuni vibrante, pline de cultură, istorie și oportunități de relaxare. În doar câteva zeci de minute de mers cu mașina, poți trece de la liniștea satului la efervescența unora dintre cele mai frumoase destinații din România.</p>
       </div>
 
       <div class="exp-cards">
         <div class="exp-card" data-reveal>
-          <h3>Cultură, wellness și cetăți medievale — la ~30 minute</h3>
+          <h3 data-edit="imprejurimi.card1.h3">Cultură, wellness și cetăți medievale — la ~30 minute</h3>
           <ul>
-            <li><b>Sibiu</b> (cca. 30 min) — orașul cultural prin excelență. Pierde-te pe străduțele pietruite, vizitează Muzeul Brukenthal, traversează Podul Minciunilor și bucură-te de restaurantele de top din Piața Mare.</li>
-            <li><b>Ocna Sibiului</b> (cca. 30 min) — destinația ideală pentru răsfăț și sănătate. Cunoscută drept „Litoralul Ardealului”, te așteaptă cu lacuri helioterme sărate, perfecte pentru relaxare.</li>
+            <li data-edit="imprejurimi.card1.li1"><b>Sibiu</b> (cca. 30 min) — orașul cultural prin excelență. Pierde-te pe străduțele pietruite, vizitează Muzeul Brukenthal, traversează Podul Minciunilor și bucură-te de restaurantele de top din Piața Mare.</li>
+            <li data-edit="imprejurimi.card1.li2"><b>Ocna Sibiului</b> (cca. 30 min) — destinația ideală pentru răsfăț și sănătate. Cunoscută drept „Litoralul Ardealului”, te așteaptă cu lacuri helioterme sărate, perfecte pentru relaxare.</li>
           </ul>
         </div>
         <div class="exp-card" data-reveal data-reveal-delay="100">
-          <h3>Călătorii în timp pe urmele sașilor</h3>
+          <h3 data-edit="imprejurimi.card2.h3">Călătorii în timp pe urmele sașilor</h3>
           <ul>
-            <li><b>Biertan și satele săsești</b> — un circuit al bisericilor fortificate din împrejurimi. Cea de la Biertan, monument UNESCO, te va fascina cu arhitectura sa impunătoare și legendele locului.</li>
-            <li><b>Mediaș și Dumbrăveni</b> — farmecul discret al acestor burguri transilvănene, cu turnuri medievale și centre istorice cochete.</li>
-            <li><b>Sighișoara</b> — singura cetate medievală locuită din Europa de Sud-Est, cu turnurile sale celebre, scările acoperite și o atmosferă de basm.</li>
+            <li data-edit="imprejurimi.card2.li1"><b>Biertan și satele săsești</b> — un circuit al bisericilor fortificate din împrejurimi. Cea de la Biertan, monument UNESCO, te va fascina cu arhitectura sa impunătoare și legendele locului.</li>
+            <li data-edit="imprejurimi.card2.li2"><b>Mediaș și Dumbrăveni</b> — farmecul discret al acestor burguri transilvănene, cu turnuri medievale și centre istorice cochete.</li>
+            <li data-edit="imprejurimi.card2.li3"><b>Sighișoara</b> — singura cetate medievală locuită din Europa de Sud-Est, cu turnurile sale celebre, scările acoperite și o atmosferă de basm.</li>
           </ul>
         </div>
       </div>
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Drumul spre Casa La Saal</h3>
-          <p>Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
+          <h3 data-edit="imprejurimi.drum.h3">Drumul spre Casa La Saal</h3>
+          <p data-edit="imprejurimi.drum.p">Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
         </div>
         <div class="gal-grid" style="margin-top:28px">
           <div class="gal-item"><img src="images/natura-panorama-sat-vara.jpg" alt="Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă" loading="lazy"></div>
@@ -766,12 +775,12 @@
         </div>
       </div>
 
-      <p class="istoric-quote">Casa La Saal este <b>„baza ta de acasă”</b> — locul primitor în care te întorci seară de seară, după o zi plină de descoperiri, pentru a te relaxa în salon sau la un biliard în cramă.</p>
+      <p class="istoric-quote" data-edit="imprejurimi.quote2">Casa La Saal este <b>„baza ta de acasă”</b> — locul primitor în care te întorci seară de seară, după o zi plină de descoperiri, pentru a te relaxa în salon sau la un biliard în cramă.</p>
 
       <div style="margin-top:40px;text-align:center" data-reveal>
         <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20rezerv%20o%20experien%C8%9B%C4%83%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
-          Rezervă-ți experiența transilvăneană
+          <span data-edit="imprejurimi.cta">Rezervă-ți experiența transilvăneană</span>
         </a>
       </div>
     </div>
@@ -809,6 +818,14 @@
     <div class="foot-bottom">
       <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
       <span>0787 292 633</span>
+    </div>
+    <div class="foot-legal">
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <div class="foot-legal-links">
+        <a href="confidentialitate.html">Confidențialitate</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+      </div>
     </div>
   </div>
 </footer>
@@ -874,6 +891,16 @@ function initReveal(root){
   els.forEach(function(el){ io.observe(el); });
 }
 initReveal();
+
+function cslIdle(fn){ ('requestIdleCallback' in window) ? requestIdleCallback(fn,{timeout:2500}) : setTimeout(fn,1200); }
+cslIdle(function(){
+  fetch('/api/texte').then(function(r){return r.json();}).then(function(texte){
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      var v = texte[el.getAttribute('data-edit')];
+      if(v) el.innerHTML = v;
+    });
+  }).catch(function(){});
+});
 
 </script>
 </body>

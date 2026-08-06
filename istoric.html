@@ -444,6 +444,15 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     color:var(--ink-soft);font-size:.82rem;
   }
+  .foot-legal{
+    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-legal-text{color:var(--ink-soft);font-size:.76rem;line-height:1.6;max-width:560px}
+  .foot-legal-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot-legal-links a{font-size:.82rem;color:var(--ink-soft)}
+  .foot-legal-links a:hover{color:var(--ink)}
+  .foot-legal-links img{height:36px;display:block}
 
   /* ============ LIGHTBOX ============ */
   .lb-overlay{
@@ -634,9 +643,9 @@
     <img src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal">
     <div class="hero-content">
       <div class="wrap">
-        <p class="eyebrow">Povestea clădirii</p>
-        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)">O școală săsească din 1842, <em>renăscută</em></h1>
-        <p class="lead">De la sala de clasă a satului, la abandon, la Casa La Saal de astăzi — povestea clădirii, în cuvinte și în poze.</p>
+        <p class="eyebrow" data-edit="istoric.hero.eyebrow">Povestea clădirii</p>
+        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)" data-edit="istoric.hero.h1">O școală săsească din 1842, <em>renăscută</em></h1>
+        <p class="lead" data-edit="istoric.hero.lead">De la sala de clasă a satului, la abandon, la Casa La Saal de astăzi — povestea clădirii, în cuvinte și în poze.</p>
       </div>
     </div>
     <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
@@ -646,27 +655,27 @@
   <section class="section" id="istorie">
     <div class="wrap">
       <div class="section-head istoric-intro" data-reveal>
-        <p class="eyebrow">Origini</p>
-        <h2>„Scaunul săsesc” Schelk, <em>secolele XIII–XIV</em></h2>
-        <p>Dacă doriți să vizitați una dintre cele mai frumoase zone colinare ale Ardealului, localitatea devenită „Scaun săsesc” (Schelk Stuhl) în secolele XIII–XIV, alături de Scaunul Sibiului și Scaunul Mediașului, vă recomandăm să veniți pe urmele sașilor din nordul Sibiului, la Casa La Saal — Șeica Mare.</p>
-        <p>Conform cercetărilor locale reflectate în studiul „Șeica Mare – istorie și legendă”, clădirea a fost ridicată în 1842 ca sediu exclusiv al învățământului din localitate. Sălile mari de la parter și etaj erau destinate pregătirii și alfabetizării elevilor, iar camerele din spate serveau drept locuință oficială pentru învățătorul satului — modelul „școală cu locuință de serviciu integrată”, standard al epocii în satele transilvănene.</p>
+        <p class="eyebrow" data-edit="istoric.origini.eyebrow">Origini</p>
+        <h2 data-edit="istoric.origini.h2">„Scaunul săsesc” Schelk, <em>secolele XIII–XIV</em></h2>
+        <p data-edit="istoric.origini.p1">Dacă doriți să vizitați una dintre cele mai frumoase zone colinare ale Ardealului, localitatea devenită „Scaun săsesc” (Schelk Stuhl) în secolele XIII–XIV, alături de Scaunul Sibiului și Scaunul Mediașului, vă recomandăm să veniți pe urmele sașilor din nordul Sibiului, la Casa La Saal — Șeica Mare.</p>
+        <p data-edit="istoric.origini.p2">Conform cercetărilor locale reflectate în studiul „Șeica Mare – istorie și legendă”, clădirea a fost ridicată în 1842 ca sediu exclusiv al învățământului din localitate. Sălile mari de la parter și etaj erau destinate pregătirii și alfabetizării elevilor, iar camerele din spate serveau drept locuință oficială pentru învățătorul satului — modelul „școală cu locuință de serviciu integrată”, standard al epocii în satele transilvănene.</p>
       </div>
 
       <div class="postcard-grid" data-reveal>
         <div class="postcard">
           <img src="images/istoric-postcard-1907-turn.jpg" alt="Ilustrată veche din 1907, sepia, cu Șeica Mare și turnul bisericii" loading="lazy">
-          <div class="cap">Ilustrată din 1907, cu clădirea de astăzi a Casei La Saal</div>
+          <div class="cap" data-edit="istoric.postcard1.cap">Ilustrată din 1907, cu clădirea de astăzi a Casei La Saal</div>
         </div>
         <div class="postcard">
           <img src="images/istoric-postcard-1907-piata.jpg" alt="Altă ilustrată veche sepia din aceeași perioadă, cu piața satului Șeica Mare" loading="lazy">
-          <div class="cap">Din aceeași perioadă — se zărește vârful acoperișului clădirii, chiar în fața bisericii</div>
+          <div class="cap" data-edit="istoric.postcard2.cap">Din aceeași perioadă — se zărește vârful acoperișului clădirii, chiar în fața bisericii</div>
         </div>
       </div>
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>De la abandon la renaștere</h3>
-          <p>După 1902, când s-a deschis noua școală din vecinătate, clădirea din 1842 și-a pierdut treptat rolul educațional principal — deși a mai funcționat ca școală a sașilor până în 1990. Exodul comunității săsești și lipsa reparațiilor capitale au dus la abandonarea ei completă, iar clădirea a ajuns într-o stare avansată de degradare.</p>
+          <h3 data-edit="istoric.abandon.h3">De la abandon la renaștere</h3>
+          <p data-edit="istoric.abandon.p">După 1902, când s-a deschis noua școală din vecinătate, clădirea din 1842 și-a pierdut treptat rolul educațional principal — deși a mai funcționat ca școală a sașilor până în 1990. Exodul comunității săsești și lipsa reparațiilor capitale au dus la abandonarea ei completă, iar clădirea a ajuns într-o stare avansată de degradare.</p>
         </div>
         <div class="filmstrip">
           <a href="images/istoric-degradare-01.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-01.jpg" alt="Fațadă degradată, tencuială căzută, cărămidă expusă" loading="lazy"></a>
@@ -684,8 +693,8 @@
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Renăscută astăzi</h3>
-          <p>Din lipsa fondurilor necesare unei reparații de anvergură, Biserica Evanghelică, proprietarul de atunci, a vândut clădirea unor persoane particulare care, printr-un proces migălos de reparații și reconstituire, au transformat-o în ceea ce este astăzi Casa La Saal — o invitație deschisă la o experiență culturală și de relaxare de bună calitate.</p>
+          <h3 data-edit="istoric.azi.h3">Renăscută astăzi</h3>
+          <p data-edit="istoric.azi.p">Din lipsa fondurilor necesare unei reparații de anvergură, Biserica Evanghelică, proprietarul de atunci, a vândut clădirea unor persoane particulare care, printr-un proces migălos de reparații și reconstituire, au transformat-o în ceea ce este astăzi Casa La Saal — o invitație deschisă la o experiență culturală și de relaxare de bună calitate.</p>
         </div>
         <div class="azi-grid">
           <a href="images/exterior-fatada-galbena-zi.jpg" target="_blank" rel="noopener"><img src="images/exterior-fatada-galbena-zi.jpg" alt="Fațada galbenă restaurată, cu obloane maro, în lumina zilei" loading="lazy"></a>
@@ -701,8 +710,8 @@
 
       <div class="istoric-sub" data-reveal>
         <div class="istoric-sub-head">
-          <h3>Arhitectură săsească, păstrată cu grijă</h3>
-          <p>Specifice construcțiilor săsești, care doreau să ofere intimitate și discreție: ziduri masive, scări în spirală, holuri înalte cu arcade și o curte împrejmuită cu zid. O locație retrasă... fără a fi izolată. Furca de tors expusă pe hol amintește de anii în care casa era, cu adevărat, o casă.</p>
+          <h3 data-edit="istoric.arhitectura.h3">Arhitectură săsească, păstrată cu grijă</h3>
+          <p data-edit="istoric.arhitectura.p">Specifice construcțiilor săsești, care doreau să ofere intimitate și discreție: ziduri masive, scări în spirală, holuri înalte cu arcade și o curte împrejmuită cu zid. O locație retrasă... fără a fi izolată. Furca de tors expusă pe hol amintește de anii în care casa era, cu adevărat, o casă.</p>
         </div>
         <div class="azi-grid">
           <a href="images/istoric-interior-scara-spirala-furca.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal" loading="lazy"></a>
@@ -713,10 +722,10 @@
         </div>
       </div>
 
-      <p class="istoric-quote">Aici puteți aduna <b>amintiri de neuitat</b>. Vă așteptăm cu drag!</p>
+      <p class="istoric-quote" data-edit="istoric.quote">Aici puteți aduna <b>amintiri de neuitat</b>. Vă așteptăm cu drag!</p>
 
       <div style="margin-top:40px;text-align:center" data-reveal>
-        <a class="btn btn-primary" href="experiente.html">Vezi ce poți face în casă</a>
+        <a class="btn btn-primary" href="experiente.html" data-edit="istoric.cta">Vezi ce poți face în casă</a>
       </div>
     </div>
   </section>
@@ -753,6 +762,14 @@
     <div class="foot-bottom">
       <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
       <span>0787 292 633</span>
+    </div>
+    <div class="foot-legal">
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <div class="foot-legal-links">
+        <a href="confidentialitate.html">Confidențialitate</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+      </div>
     </div>
   </div>
 </footer>
@@ -818,6 +835,16 @@ function initReveal(root){
   els.forEach(function(el){ io.observe(el); });
 }
 initReveal();
+
+function cslIdle(fn){ ('requestIdleCallback' in window) ? requestIdleCallback(fn,{timeout:2500}) : setTimeout(fn,1200); }
+cslIdle(function(){
+  fetch('/api/texte').then(function(r){return r.json();}).then(function(texte){
+    document.querySelectorAll('[data-edit]').forEach(function(el){
+      var v = texte[el.getAttribute('data-edit')];
+      if(v) el.innerHTML = v;
+    });
+  }).catch(function(){});
+});
 
 </script>
 </body>

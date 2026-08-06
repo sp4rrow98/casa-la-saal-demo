@@ -444,6 +444,15 @@
     display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
     color:var(--ink-soft);font-size:.82rem;
   }
+  .foot-legal{
+    margin-top:24px;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .foot-legal-text{color:var(--ink-soft);font-size:.76rem;line-height:1.6;max-width:560px}
+  .foot-legal-links{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .foot-legal-links a{font-size:.82rem;color:var(--ink-soft)}
+  .foot-legal-links a:hover{color:var(--ink)}
+  .foot-legal-links img{height:36px;display:block}
 
   /* ============ LIGHTBOX ============ */
   .lb-overlay{
@@ -671,10 +680,10 @@
         <p data-edit="despre.p2">Amplasată la doar câțiva pași de Biserica Fortificată Evanghelică „Sfântul Martin” și străjuită de un deal împădurit ce îndeamnă la explorare, Casa La Saal este destinația ideală pentru cei care caută să evadeze din agitația urbană. Fie că alegi una dintre cele 6 camere matrimoniale elegante sau apartamentul spațios cu două camere, te vei bucura de finisaje moderne, băi proprii și ospitalitate caldă, ardelenească.</p>
         <p data-edit="despre.p3"><em>Lasă grijile la intrare, ascultă foșnetul pădurii și savurează gustul autentic al bucatelor locale.</em></p>
         <div class="despre-facts">
-          <span class="fact">3 stele · Min. Turismului</span>
-          <span class="fact">6 camere + apartament · 16–20 locuri</span>
-          <span class="fact">Clădire din 1842, fostă școală</span>
-          <span class="fact">Biserică fortificată din ~1300</span>
+          <span class="fact" data-edit="despre.fact1">3 stele · Min. Turismului</span>
+          <span class="fact" data-edit="despre.fact2">6 camere + apartament · 16–20 locuri</span>
+          <span class="fact" data-edit="despre.fact3">Clădire din 1842, fostă școală</span>
+          <span class="fact" data-edit="despre.fact4">Biserică fortificată din ~1300</span>
         </div>
       </div>
       <div class="despre-media" data-reveal>
@@ -708,31 +717,31 @@
 
         <div class="bento-item big" data-reveal>
           <img src="images/ciubar-02.jpg" alt="Ciubăr din lemn încălzit cu lemne, în curte, seara" loading="lazy">
-          <div class="bento-text"><h3>Ciubăr încălzit cu lemne</h3><p>Afară, sub cerul liber — pornit din timp, gata când ajungeți la el.</p></div>
+          <div class="bento-text"><h3 data-edit="facilitati.item1.title">Ciubăr încălzit cu lemne</h3><p data-edit="facilitati.item1.text">Afară, sub cerul liber — pornit din timp, gata când ajungeți la el.</p></div>
         </div>
 
         <div class="bento-item" data-reveal data-reveal-delay="100">
           <img src="images/sauna-02.jpg" alt="Saună din lemn masiv cu bănci și găleată tradițională" loading="lazy">
-          <div class="bento-text"><h3>Saună</h3><p>Lemn masiv, potrivită pentru câteva persoane, ușă de sticlă spre curte.</p></div>
+          <div class="bento-text"><h3 data-edit="facilitati.item2.title">Saună</h3><p data-edit="facilitati.item2.text">Lemn masiv, potrivită pentru câteva persoane, ușă de sticlă spre curte.</p></div>
         </div>
 
         <div class="bento-item" data-reveal data-reveal-delay="150">
           <img src="images/biliard.jpg" alt="Masă de biliard sub boltă de cărămidă, cu bar de vinuri în fundal" loading="lazy">
-          <div class="bento-text"><h3>Bar, biliard & ping-pong</h3><p>La demisol, sub boltă de cărămidă — biliard, ping-pong și vinuri la raft.</p></div>
+          <div class="bento-text"><h3 data-edit="facilitati.item3.title">Bar, biliard &amp; ping-pong</h3><p data-edit="facilitati.item3.text">La demisol, sub boltă de cărămidă — biliard, ping-pong și vinuri la raft.</p></div>
         </div>
 
         <div class="bento-item small" data-reveal data-reveal-delay="100">
           <img src="images/gratar.jpg" alt="Grătar zidit din cărămidă, sub pergolă de lemn, în curte" loading="lazy">
-          <div class="bento-text"><h3>Grătar & foișor</h3><p>Zidit, sub pergolă, pentru serile lungi cu carne la jar.</p></div>
+          <div class="bento-text"><h3 data-edit="facilitati.item4.title">Grătar &amp; foișor</h3><p data-edit="facilitati.item4.text">Zidit, sub pergolă, pentru serile lungi cu carne la jar.</p></div>
         </div>
 
         <div class="bento-item small" data-reveal data-reveal-delay="150">
           <img src="images/bucatarie-01.jpg" alt="Bucătărie complet utilată, cu masă lungă de lemn" loading="lazy">
-          <div class="bento-text"><h3>Bucătărie proprie</h3><p>Complet utilată, pentru cine vrea să gătească singur.</p></div>
+          <div class="bento-text"><h3 data-edit="facilitati.item5.title">Bucătărie proprie</h3><p data-edit="facilitati.item5.text">Complet utilată, pentru cine vrea să gătească singur.</p></div>
         </div>
 
       </div>
-      <p style="margin-top:28px;color:var(--ink-soft);font-size:.94rem" data-reveal>La cerere, mai putem organiza: <strong style="color:var(--ink)">plimbare cu trăsura trasă de cai</strong> și <strong style="color:var(--ink)">masaj</strong>, cu maseur calificat.</p>
+      <p style="margin-top:28px;color:var(--ink-soft);font-size:.94rem" data-reveal data-edit="facilitati.cerere">La cerere, mai putem organiza: <strong style="color:var(--ink)">plimbare cu trăsura trasă de cai</strong> și <strong style="color:var(--ink)">masaj</strong>, cu maseur calificat.</p>
     </div>
   </section>
 
@@ -813,6 +822,14 @@
     <div class="foot-bottom">
       <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
       <span>0787 292 633</span>
+    </div>
+    <div class="foot-legal">
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <div class="foot-legal-links">
+        <a href="confidentialitate.html">Confidențialitate</a>
+        <a href="termeni.html">Termeni și condiții</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+      </div>
     </div>
   </div>
 </footer>
