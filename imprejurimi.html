@@ -640,7 +640,7 @@
 
   <!-- HERO -->
   <section class="hero exp-hero">
-    <img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare">
+    <img data-slot="imprejurimi.hero" src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare">
     <div class="hero-content">
       <div class="wrap">
         <p class="eyebrow" data-edit="imprejurimi.hero.eyebrow">Împrejurimi</p>
@@ -674,7 +674,7 @@
           <li data-edit="imprejurimi.aventura.li2"><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Petiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
           <li data-edit="imprejurimi.aventura.li3"><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
         </ul>
-        <div class="gal-grid" style="margin-top:28px">
+        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.aventura">
           <div class="gal-item"><img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare" loading="lazy"></div>
           <div class="gal-item"><img src="images/natura-deal-flori-salbatice.jpg" alt="Deal înierbat cu flori sălbatice albe și copaci izolați" loading="lazy"></div>
           <div class="gal-item"><img src="images/natura-panorama-munti-copac.jpg" alt="Panoramă cu munți la orizont și un copac singuratic în prim-plan" loading="lazy"></div>
@@ -687,7 +687,7 @@
           <h3 data-edit="imprejurimi.flora.h3">Floră locală</h3>
           <p data-edit="imprejurimi.flora.p">Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
         </div>
-        <div class="gal-grid" style="margin-top:28px">
+        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.flora">
           <div class="gal-item"><img src="images/flora-floare-soc-mana.jpg" alt="Floare de soc ținută în mână, deasupra unui tufiș verde" loading="lazy"></div>
           <div class="gal-item"><img src="images/flora-tufa-soc-inflorit.jpg" alt="Tufă deasă de soc înflorit" loading="lazy"></div>
           <div class="gal-item"><img src="images/flora-coada-soricelului.jpg" alt="Buchet de coada-șoricelului, deasupra unei pajiști verzi" loading="lazy"></div>
@@ -718,7 +718,7 @@
           <h3 data-edit="imprejurimi.iarna.h3">Iarnă la Casa La Saal</h3>
           <p data-edit="imprejurimi.iarna.p">Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
         </div>
-        <div class="gal-grid" style="margin-top:28px">
+        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.iarna">
           <div class="gal-item"><img src="images/natura-turn-biserica-iarna.jpg" alt="Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură" loading="lazy"></div>
           <div class="gal-item"><img src="images/natura-panorama-sat-iarna.jpg" alt="Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură" loading="lazy"></div>
           <div class="gal-item"><img src="images/curte-iarna-ciubar-sauna-zapada.jpg" alt="Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună" loading="lazy"></div>
@@ -762,7 +762,7 @@
           <h3 data-edit="imprejurimi.drum.h3">Drumul spre Casa La Saal</h3>
           <p data-edit="imprejurimi.drum.p">Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
         </div>
-        <div class="gal-grid" style="margin-top:28px">
+        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.drum">
           <div class="gal-item"><img src="images/natura-panorama-sat-vara.jpg" alt="Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă" loading="lazy"></div>
           <div class="gal-item"><img src="images/exterior-firma-la-saal-strada.jpg" alt="Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit" loading="lazy"></div>
           <div class="gal-item"><img src="images/exterior-strada-sat-spre-casa.jpg" alt="Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal" loading="lazy"></div>
@@ -820,7 +820,7 @@
       <span>0787 292 633</span>
     </div>
     <div class="foot-legal">
-      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu · Certificat de clasificare turistică nr. 31949 din 25.05.2026 · ★★★</p>
       <div class="foot-legal-links">
         <a href="confidentialitate.html">Confidențialitate</a>
         <a href="termeni.html">Termeni și condiții</a>
@@ -899,6 +899,84 @@ cslIdle(function(){
       var v = texte[el.getAttribute('data-edit')];
       if(v) el.innerHTML = v;
     });
+  }).catch(function(){});
+});
+
+/* ---------- media (poze pe secțiuni) — fallback din HTML, suprascris de /api/media dacă răspunde ---------- */
+var MEDIA_GALLERIES = {
+  'imprejurimi.aventura': [
+    {"src":"images/natura-poteca-drumetie.jpg", "alt":"Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare"},
+    {"src":"images/natura-deal-flori-salbatice.jpg", "alt":"Deal înierbat cu flori sălbatice albe și copaci izolați"},
+    {"src":"images/natura-panorama-munti-copac.jpg", "alt":"Panoramă cu munți la orizont și un copac singuratic în prim-plan"},
+    {"src":"images/natura-livada-stupi-albine.jpg", "alt":"Livadă înflorită cu stupi de albine, de la o fermă locală"}
+  ],
+  'imprejurimi.flora': [
+    {"src":"images/flora-floare-soc-mana.jpg", "alt":"Floare de soc ținută în mână, deasupra unui tufiș verde"},
+    {"src":"images/flora-tufa-soc-inflorit.jpg", "alt":"Tufă deasă de soc înflorit"},
+    {"src":"images/flora-coada-soricelului.jpg", "alt":"Buchet de coada-șoricelului, deasupra unei pajiști verzi"},
+    {"src":"images/flora-cimbrisor-camp.jpg", "alt":"Tufiș de cimbrișor sălbatic, cu flori mov, în câmp"},
+    {"src":"images/flora-cimbrisor-mana.jpg", "alt":"Buchet de cimbrișor sălbatic mov, ținut în mână"},
+    {"src":"images/flora-cimbrisor-albina.jpg", "alt":"Tufă de cimbrișor mov, cu o albină pe flori"},
+    {"src":"images/flora-cimbrisor-pajiste.jpg", "alt":"Buchet de cimbrișor mov, deasupra unei pajiști cu flori sălbatice"},
+    {"src":"images/flora-flori-piersic-livada.jpg", "alt":"Livadă de piersici înfloriți, cu stupi de albine"},
+    {"src":"images/flora-flori-piersic-cladire.jpg", "alt":"Crenguțe înflorite de piersic, în prim-plan"},
+    {"src":"images/flora-flori-roz-cer.jpg", "alt":"Flori roz pe crengi golașe, pe cer senin"}
+  ],
+  'imprejurimi.iarna': [
+    {"src":"images/natura-turn-biserica-iarna.jpg", "alt":"Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură"},
+    {"src":"images/natura-panorama-sat-iarna.jpg", "alt":"Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură"},
+    {"src":"images/curte-iarna-ciubar-sauna-zapada.jpg", "alt":"Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună"},
+    {"src":"images/exterior-fatada-noapte-iarna.jpg", "alt":"Fațada casei, noaptea, iarna, cu zăpadă pe stradă și ghirlande de lumini"}
+  ],
+  'imprejurimi.drum': [
+    {"src":"images/natura-panorama-sat-vara.jpg", "alt":"Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă"},
+    {"src":"images/exterior-firma-la-saal-strada.jpg", "alt":"Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit"},
+    {"src":"images/exterior-strada-sat-spre-casa.jpg", "alt":"Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal"},
+    {"src":"images/exterior-fatada-zi-cazare.jpg", "alt":"Fațada casei, ziua, cu obloane maro și firma Cazare deasupra ușii"},
+    {"src":"images/natura-strada-turn-biserica.jpg", "alt":"Stradă din sat spre turnul bisericii săsești și clădirea La Saal"},
+    {"src":"images/natura-strada-innorat-turn.jpg", "alt":"Stradă din sat sub cer înnorat, turn de biserică săsească"},
+    {"src":"images/natura-strada-la-saal-cazare.jpg", "alt":"Stradă spre clădirea cu firma La Saal Cazare"},
+    {"src":"images/natura-panorama-munti-01.jpg", "alt":"Panoramă cu lanț muntos și câmp arat"},
+    {"src":"images/natura-panorama-munti-02.jpg", "alt":"Panoramă cu munți sub cer înnorat, câmp arat"}
+  ]
+};
+var MEDIA_MODE = {'imprejurimi.aventura':'div', 'imprejurimi.flora':'div', 'imprejurimi.iarna':'div', 'imprejurimi.drum':'div'};
+
+function renderMediaGallery(key){
+  var el = document.querySelector('[data-gallery="'+key+'"]');
+  if(!el) return;
+  var items = MEDIA_GALLERIES[key] || [];
+  var mode = MEDIA_MODE[key] || 'div';
+  var html = '';
+  items.forEach(function(it){
+    var alt = (it.alt||'').replace(/"/g,'&quot;');
+    var img = '<img src="'+it.src+'" alt="'+alt+'" loading="lazy">';
+    html += mode === 'a'
+      ? '<a href="'+it.src+'" target="_blank" rel="noopener">'+img+'</a>'
+      : '<div class="gal-item">'+img+'</div>';
+  });
+  el.innerHTML = html;
+}
+
+function applyMediaSlots(slots){
+  document.querySelectorAll('[data-slot]').forEach(function(el){
+    var s = slots[el.getAttribute('data-slot')];
+    if(s && s.src){ el.src = s.src; if(s.alt) el.alt = s.alt; }
+  });
+}
+
+cslIdle(function(){
+  fetch('/api/media').then(function(r){return r.json();}).then(function(data){
+    if(data && data.galleries){
+      Object.keys(MEDIA_GALLERIES).forEach(function(k){
+        var incoming = data.galleries[k];
+        if(Array.isArray(incoming) && incoming.length){
+          MEDIA_GALLERIES[k] = incoming;
+          renderMediaGallery(k);
+        }
+      });
+    }
+    if(data && data.slots) applyMediaSlots(data.slots);
   }).catch(function(){});
 });
 

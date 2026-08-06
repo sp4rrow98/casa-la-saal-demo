@@ -141,6 +141,9 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     <button class="tab" onclick="showTab('texte-istoric',this)">Texte Istoric</button>
     <button class="tab" onclick="showTab('texte-experiente',this)">Texte Experiențe</button>
     <button class="tab" onclick="showTab('texte-imprejurimi',this)">Texte Împrejurimi</button>
+    <button class="tab" onclick="showTab('poze-istoric',this)">Poze Istoric</button>
+    <button class="tab" onclick="showTab('poze-experiente',this)">Poze Experiențe</button>
+    <button class="tab" onclick="showTab('poze-imprejurimi',this)">Poze Împrejurimi</button>
   </div>
 
   <!-- CAMERE -->
@@ -243,6 +246,27 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
       <button class="btn btn-ac" onclick="salveazaTexte('imprejurimi')">Salvează textele</button>
     </div>
   </div>
+
+  <!-- POZE ISTORIC -->
+  <div class="sec" id="sec-poze-istoric" style="display:none">
+    <div class="sec-hd">Poze — Istoric</div>
+    <p class="sec-note">Poza din hero, cele 2 ilustrate din 1907 și cele 3 mini-galerii de pe pagina Istoric.</p>
+    <div id="mediaWrap-istoric"><div class="no-offers">Se încarcă...</div></div>
+  </div>
+
+  <!-- POZE EXPERIENȚE -->
+  <div class="sec" id="sec-poze-experiente" style="display:none">
+    <div class="sec-hd">Poze — Experiențe</div>
+    <p class="sec-note">Poza din hero, cele 2 poze din cramă și mini-galeriile Salonul Mare / Seri la foc. Video-ul de la foc rămâne fix, needitabil.</p>
+    <div id="mediaWrap-experiente"><div class="no-offers">Se încarcă...</div></div>
+  </div>
+
+  <!-- POZE ÎMPREJURIMI -->
+  <div class="sec" id="sec-poze-imprejurimi" style="display:none">
+    <div class="sec-hd">Poze — Împrejurimi</div>
+    <p class="sec-note">Poza din hero și cele 4 mini-galerii de pe pagina Împrejurimi.</p>
+    <div id="mediaWrap-imprejurimi"><div class="no-offers">Se încarcă...</div></div>
+  </div>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -306,8 +330,8 @@ function toast(msg,type){
   t._t=setTimeout(function(){t.className='toast';},2800);
 }
 
-var TABS=['camere','disponibilitate','poze','texte-acasa','texte-istoric','texte-experiente','texte-imprejurimi'];
-var loaded={disponibilitate:false,poze:false,'texte-acasa':false,'texte-istoric':false,'texte-experiente':false,'texte-imprejurimi':false};
+var TABS=['camere','disponibilitate','poze','texte-acasa','texte-istoric','texte-experiente','texte-imprejurimi','poze-istoric','poze-experiente','poze-imprejurimi'];
+var loaded={disponibilitate:false,poze:false,'texte-acasa':false,'texte-istoric':false,'texte-experiente':false,'texte-imprejurimi':false,'poze-istoric':false,'poze-experiente':false,'poze-imprejurimi':false};
 function showTab(name,btn){
   TABS.forEach(function(t){
     var s=document.getElementById('sec-'+t);
@@ -320,6 +344,7 @@ function showTab(name,btn){
   if(name==='disponibilitate'&&!loaded.disponibilitate){loaded.disponibilitate=true;loadBlocari();}
   if(name==='poze'&&!loaded.poze){loaded.poze=true;loadGalerie();}
   if(name.indexOf('texte-')===0&&!loaded[name]){loaded[name]=true;loadTextePage(name.slice(6));}
+  if(name.indexOf('poze-')===0&&!loaded[name]){loaded[name]=true;loadMediaPage(name.slice(5));}
 }
 
 /* ============ CAMERE ============ */
@@ -732,6 +757,242 @@ function salveazaTexte(pageKey){
     TEXT_OVERRIDES=d;
     toast('Texte salvate!','ok');
   }).catch(function(){toast('Eroare la salvare','err-t');});
+}
+
+/* ============ POZE PE PAGINĂ (Istoric / Experiențe / Împrejurimi) ============ */
+var MEDIA_PAGE_CONFIG={
+  istoric:{
+    slots:[
+      {key:'istoric.hero',label:'Poza din hero'},
+      {key:'istoric.postcard1',label:'Ilustrată 1907 — #1'},
+      {key:'istoric.postcard2',label:'Ilustrată 1907 — #2'}
+    ],
+    galleries:[
+      {key:'istoric.degradare',label:'Filmstrip: clădirea degradată'},
+      {key:'istoric.azi',label:'Renăscută astăzi'},
+      {key:'istoric.arhitectura',label:'Arhitectură săsească'}
+    ]
+  },
+  experiente:{
+    slots:[
+      {key:'experiente.hero',label:'Poza din hero'},
+      {key:'experiente.postcard1',label:'Cramă — #1'},
+      {key:'experiente.postcard2',label:'Cramă — #2'}
+    ],
+    galleries:[
+      {key:'experiente.salon',label:'Salonul Mare'},
+      {key:'experiente.foc',label:'Seri la foc (doar pozele — video-ul rămâne fix)'}
+    ]
+  },
+  imprejurimi:{
+    slots:[
+      {key:'imprejurimi.hero',label:'Poza din hero'}
+    ],
+    galleries:[
+      {key:'imprejurimi.aventura',label:'Aventură în natură'},
+      {key:'imprejurimi.flora',label:'Floră locală'},
+      {key:'imprejurimi.iarna',label:'Iarnă la Casa La Saal'},
+      {key:'imprejurimi.drum',label:'Drumul spre Casa La Saal'}
+    ]
+  }
+};
+var MEDIA_DATA=null;
+var MEDIA_PAGE_DOCS={};
+
+function fetchMedia(){
+  if(MEDIA_DATA!==null)return Promise.resolve(MEDIA_DATA);
+  return fetch('/api/media').then(function(r){return r.json();}).then(function(d){
+    MEDIA_DATA=(d&&d.slots)?d:{slots:{},galleries:{}};
+    return MEDIA_DATA;
+  });
+}
+
+function fetchPageDoc(pageKey){
+  return fetch(PAGES[pageKey].file).then(function(r){return r.text();}).then(function(html){
+    return new DOMParser().parseFromString(html,'text/html');
+  });
+}
+
+function loadMediaPage(pageKey){
+  var wrap=document.getElementById('mediaWrap-'+pageKey);
+  wrap.innerHTML='<div class="no-offers">Se încarcă...</div>';
+  Promise.all([fetchMedia(),fetchPageDoc(pageKey)]).then(function(res){
+    MEDIA_PAGE_DOCS[pageKey]=res[1];
+    renderMediaPage(pageKey);
+  }).catch(function(){
+    wrap.innerHTML='<div class="no-offers">Eroare la încărcare.</div>';
+  });
+}
+
+function renderMediaPage(pageKey){
+  var cfg=MEDIA_PAGE_CONFIG[pageKey];
+  var doc=MEDIA_PAGE_DOCS[pageKey];
+  var wrap=document.getElementById('mediaWrap-'+pageKey);
+  var html='';
+
+  cfg.slots.forEach(function(s){
+    var cur=MEDIA_DATA.slots[s.key];
+    var defaultEl=doc?doc.querySelector('[data-slot="'+s.key+'"]'):null;
+    var thumb=cur?cur.src:(defaultEl?defaultEl.getAttribute('src'):'');
+    html+='<div class="card room-card-admin">'+
+      '<img class="thumb" src="'+esc(thumb)+'" loading="lazy">'+
+      '<div class="fields">'+
+        '<div style="font-weight:600;font-size:13.5px">'+esc(s.label)+'</div>'+
+        '<div class="room-upload">'+(cur?'Poză înlocuită din admin.':'Poza implicită din site.')+'</div>'+
+        '<input class="inp" type="file" accept="image/*" data-slot-upload="'+s.key+'">'+
+      '</div>'+
+      '<div class="actions">'+
+        (cur?'<button class="btn btn-danger btn-sm" data-slot-revert="'+s.key+'" type="button">Revino la implicit</button>':'')+
+      '</div>'+
+    '</div>';
+  });
+
+  cfg.galleries.forEach(function(g){
+    var items=(MEDIA_DATA.galleries[g.key]||[]).slice().sort(function(a,b){return (a.ordine||0)-(b.ordine||0);});
+    html+='<div class="txt-sec-hd">'+esc(g.label)+'</div>';
+    if(!items.length){
+      html+='<div style="margin-bottom:12px"><p class="sec-note">Galeria nu a fost încă importată din site.</p><button class="btn btn-ac btn-sm" data-gal-import="'+g.key+'" type="button">Importă pozele existente</button></div>';
+    }
+    html+='<div class="upload-box"><div style="font-size:12.5px;color:var(--txm)">Adaugă poze noi</div><input type="file" accept="image/*" multiple data-gal-upload="'+g.key+'"></div>';
+    html+='<div class="gal-admin-grid" data-gal-grid="'+g.key+'">';
+    items.forEach(function(it){
+      html+='<div class="gcard" data-gal-item="'+it.id+'">'+
+        '<img class="gcard-thumb" src="'+esc(it.src||it.full)+'" loading="lazy">'+
+        '<div class="gcard-body">'+
+          '<input class="inp gcard-inp" type="text" placeholder="Text alternativ" value="'+esc(it.alt||'')+'" data-gal-alt>'+
+          '<div class="gcard-actions">'+
+            '<button class="btn btn-gh btn-sm" data-gal-act="up" type="button">↑</button>'+
+            '<button class="btn btn-gh btn-sm" data-gal-act="down" type="button">↓</button>'+
+            '<button class="btn btn-danger btn-sm" data-gal-act="del" type="button">Șterge</button>'+
+          '</div>'+
+        '</div>'+
+      '</div>';
+    });
+    html+='</div>';
+    if(items.length){
+      html+='<div class="f-actions" style="margin-top:10px;margin-bottom:8px"><button class="btn btn-ac btn-sm" data-gal-save="'+g.key+'" type="button">Salvează ordinea și modificările</button></div>';
+    }
+  });
+
+  wrap.innerHTML=html;
+  bindMediaPageEvents(pageKey);
+}
+
+function bindMediaPageEvents(pageKey){
+  var wrap=document.getElementById('mediaWrap-'+pageKey);
+
+  wrap.querySelectorAll('[data-slot-upload]').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      if(!inp.files||!inp.files[0])return;
+      var key=inp.getAttribute('data-slot-upload');
+      Promise.all([resizeImage(inp.files[0],1600,0.82),resizeImage(inp.files[0],500,0.78)]).then(function(pair){
+        return api('media',{actiune:'upload_slot',key:key,full_b64:pair[0].b64,thumb_b64:pair[1].b64});
+      }).then(function(d){
+        MEDIA_DATA=d;
+        renderMediaPage(pageKey);
+        toast('Poză actualizată','ok');
+      }).catch(function(){toast('Eroare la upload','err-t');});
+    });
+  });
+
+  wrap.querySelectorAll('[data-slot-revert]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var key=btn.getAttribute('data-slot-revert');
+      if(!confirm('Revii la poza implicită din site?'))return;
+      api('media',{actiune:'sterge_slot',key:key}).then(function(d){
+        MEDIA_DATA=d;
+        renderMediaPage(pageKey);
+        toast('Poză revenită la implicit','ok');
+      }).catch(function(){toast('Eroare','err-t');});
+    });
+  });
+
+  wrap.querySelectorAll('[data-gal-import]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      importMediaGallery(pageKey,btn.getAttribute('data-gal-import'));
+    });
+  });
+
+  wrap.querySelectorAll('[data-gal-upload]').forEach(function(inp){
+    inp.addEventListener('change',function(){
+      var key=inp.getAttribute('data-gal-upload');
+      var files=inp.files;
+      Array.prototype.forEach.call(files,function(file){
+        Promise.all([resizeImage(file,1600,0.82),resizeImage(file,500,0.78)]).then(function(pair){
+          return api('media',{actiune:'upload_galerie',colectie:key,full_b64:pair[0].b64,thumb_b64:pair[1].b64,alt:''});
+        }).then(function(d){
+          MEDIA_DATA=d;
+          renderMediaPage(pageKey);
+          toast('Poză adăugată','ok');
+        }).catch(function(){toast('Eroare la upload','err-t');});
+      });
+      inp.value='';
+    });
+  });
+
+  wrap.querySelectorAll('[data-gal-grid]').forEach(function(grid){
+    var key=grid.getAttribute('data-gal-grid');
+    var items=MEDIA_DATA.galleries[key]||[];
+    grid.querySelectorAll('[data-gal-item]').forEach(function(card){
+      var id=card.getAttribute('data-gal-item');
+      var it=items.find(function(x){return x.id===id;});
+      if(!it)return;
+      var altInp=card.querySelector('[data-gal-alt]');
+      if(altInp)altInp.addEventListener('input',function(){it.alt=altInp.value;});
+      var up=card.querySelector('[data-gal-act="up"]');
+      var down=card.querySelector('[data-gal-act="down"]');
+      var del=card.querySelector('[data-gal-act="del"]');
+      if(up)up.addEventListener('click',function(){moveGalleryItem(key,it,-1);renderMediaPage(pageKey);});
+      if(down)down.addEventListener('click',function(){moveGalleryItem(key,it,1);renderMediaPage(pageKey);});
+      if(del)del.addEventListener('click',function(){
+        if(!confirm('Ștergi această poză definitiv?'))return;
+        api('media',{actiune:'sterge_din_galerie',colectie:key,id:id}).then(function(d){
+          MEDIA_DATA=d;
+          renderMediaPage(pageKey);
+          toast('Poză ștearsă','ok');
+        }).catch(function(){toast('Eroare','err-t');});
+      });
+    });
+  });
+
+  wrap.querySelectorAll('[data-gal-save]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var key=btn.getAttribute('data-gal-save');
+      var items=(MEDIA_DATA.galleries[key]||[]).slice().sort(function(a,b){return (a.ordine||0)-(b.ordine||0);});
+      items.forEach(function(it,i){it.ordine=i;});
+      api('media',{actiune:'salveaza_galerie',colectie:key,items:items}).then(function(d){
+        MEDIA_DATA=d;
+        renderMediaPage(pageKey);
+        toast('Galerie salvată!','ok');
+      }).catch(function(){toast('Eroare la salvare','err-t');});
+    });
+  });
+}
+
+function moveGalleryItem(key,it,dir){
+  var items=(MEDIA_DATA.galleries[key]||[]).slice().sort(function(a,b){return (a.ordine||0)-(b.ordine||0);});
+  var idx=items.indexOf(it);
+  var swapIdx=idx+dir;
+  if(swapIdx<0||swapIdx>=items.length)return;
+  var tmp=items[idx].ordine;
+  items[idx].ordine=items[swapIdx].ordine;
+  items[swapIdx].ordine=tmp;
+}
+
+function importMediaGallery(pageKey,key){
+  var doc=MEDIA_PAGE_DOCS[pageKey];
+  var container=doc?doc.querySelector('[data-gallery="'+key+'"]'):null;
+  var imgs=container?container.querySelectorAll('img'):[];
+  var items=[];
+  imgs.forEach(function(img,i){
+    items.push({id:'g'+i+'_'+Date.now().toString(36),src:img.getAttribute('src'),full:img.getAttribute('src'),alt:img.getAttribute('alt')||'',ordine:i,stored:false});
+  });
+  toast('Se importă...','ok');
+  api('media',{actiune:'seed_galerie',colectie:key,items:items}).then(function(d){
+    MEDIA_DATA=d;
+    renderMediaPage(pageKey);
+    toast('Galerie importată: '+items.length+' poze','ok');
+  }).catch(function(){toast('Eroare la import','err-t');});
 }
 
 (function(){

@@ -641,7 +641,7 @@
 
   <!-- HERO -->
   <section class="hero exp-hero">
-    <img src="images/exterior-fatada-noapte-luminite-01.jpg" alt="Fațada Casei La Saal noaptea, luminată cu ghirlande colorate, obloane de lemn">
+    <img data-slot="experiente.hero" src="images/exterior-fatada-noapte-luminite-01.jpg" alt="Fațada Casei La Saal noaptea, luminată cu ghirlande colorate, obloane de lemn">
     <div class="hero-content">
       <div class="wrap">
         <p class="eyebrow" data-edit="experiente.hero.eyebrow">Experiențe</p>
@@ -675,7 +675,7 @@
           <li data-edit="experiente.salon.li2">Provoci prietenii la sesiuni animate de <strong>jocuri de societate</strong>.</li>
           <li data-edit="experiente.salon.li3">Creezi atmosfera perfectă cu muzica ta preferată la <strong>boxa din salon</strong>, sau te relaxezi la un film bun la TV.</li>
         </ul>
-        <div class="gal-grid" style="margin-top:28px">
+        <div class="gal-grid" style="margin-top:28px" data-gallery="experiente.salon">
           <div class="gal-item"><img src="images/salon-mare-biblioteca-tv.jpg" alt="Salonul mare, cu masă festivă lungă, raft cu cărți în firidă și TV montat pe perete" loading="lazy"></div>
           <div class="gal-item"><img src="images/salon-biblioteca-foto-vechi.jpg" alt="Salon cu bibliotecă și fotografii vechi înrămate" loading="lazy"></div>
           <div class="gal-item"><img src="images/salon-masa-lunga-biblioteca.jpg" alt="Sufragerie cu masă lungă, firidă cu cărți și canapea" loading="lazy"></div>
@@ -698,11 +698,11 @@
         </ul>
         <div class="postcard-grid" style="margin-top:28px">
           <div class="postcard">
-            <img src="images/crama-masa-biliard.jpg" alt="Cramă boltită cu pereți lambrisați din lemn, masă de biliard și rafturi cu sticle de vin" loading="lazy">
+            <img data-slot="experiente.postcard1" src="images/crama-masa-biliard.jpg" alt="Cramă boltită cu pereți lambrisați din lemn, masă de biliard și rafturi cu sticle de vin" loading="lazy">
             <div class="cap" data-edit="experiente.postcard1.cap">Masa de biliard, sub boltă de cărămidă</div>
           </div>
           <div class="postcard">
-            <img src="images/crama-masa-vin.jpg" alt="Cramă boltită cu masă pătrată din lemn, scaune și rafturi cu sticle de vin" loading="lazy">
+            <img data-slot="experiente.postcard2" src="images/crama-masa-vin.jpg" alt="Cramă boltită cu masă pătrată din lemn, scaune și rafturi cu sticle de vin" loading="lazy">
             <div class="cap" data-edit="experiente.postcard2.cap">Colț de cramă pentru un pahar de vin</div>
           </div>
         </div>
@@ -714,8 +714,10 @@
           <p data-edit="experiente.foc.p">Când se lasă seara, curtea prinde o altă viață: flăcările focului de tabără adună oaspeții laolaltă, la povești și bezele coapte pe băț.</p>
         </div>
         <div class="gal-grid" style="margin-top:28px">
-          <div class="gal-item"><img src="images/seara-foc-tabara-01.jpg" alt="Oaspeți la foc de tabără, seara, cu bezele pe bețe" loading="lazy"></div>
-          <div class="gal-item"><img src="images/seara-foc-tabara-02.jpg" alt="Oaspeți relaxați lângă foișor, seara" loading="lazy"></div>
+          <div data-gallery="experiente.foc" style="display:contents">
+            <div class="gal-item"><img src="images/seara-foc-tabara-01.jpg" alt="Oaspeți la foc de tabără, seara, cu bezele pe bețe" loading="lazy"></div>
+            <div class="gal-item"><img src="images/seara-foc-tabara-02.jpg" alt="Oaspeți relaxați lângă foișor, seara" loading="lazy"></div>
+          </div>
           <div class="gal-item">
             <video controls playsinline preload="none" poster="images/seara-foc-tabara-video-poster.jpg" aria-label="Video cu oaspeții la focul de tabără, seara">
               <source src="images/seara-foc-tabara-video.mp4" type="video/mp4">
@@ -766,7 +768,7 @@
       <span>0787 292 633</span>
     </div>
     <div class="foot-legal">
-      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu · Certificat de clasificare turistică nr. 31949 din 25.05.2026 · ★★★</p>
       <div class="foot-legal-links">
         <a href="confidentialitate.html">Confidențialitate</a>
         <a href="termeni.html">Termeni și condiții</a>
@@ -845,6 +847,63 @@ cslIdle(function(){
       var v = texte[el.getAttribute('data-edit')];
       if(v) el.innerHTML = v;
     });
+  }).catch(function(){});
+});
+
+/* ---------- media (poze pe secțiuni) — fallback din HTML, suprascris de /api/media dacă răspunde ---------- */
+var MEDIA_GALLERIES = {
+  'experiente.salon': [
+    {"src":"images/salon-mare-biblioteca-tv.jpg", "alt":"Salonul mare, cu masă festivă lungă, raft cu cărți în firidă și TV montat pe perete"},
+    {"src":"images/salon-biblioteca-foto-vechi.jpg", "alt":"Salon cu bibliotecă și fotografii vechi înrămate"},
+    {"src":"images/salon-masa-lunga-biblioteca.jpg", "alt":"Sufragerie cu masă lungă, firidă cu cărți și canapea"},
+    {"src":"images/salon-masa-toamna.jpg", "alt":"Masă festivă cu decor de toamnă, pahare de vin și scaune de lemn"},
+    {"src":"images/salon-masa-festiva-aur.jpg", "alt":"Masă festivă pentru o aniversare, farfurii aurii și baloane"},
+    {"src":"images/salon-eveniment-mese-lungi.jpg", "alt":"Sală amenajată pentru un eveniment, cu mese lungi aranjate"},
+    {"src":"images/salon-petrecere-baloane.jpg", "alt":"Salon decorat pentru o petrecere aniversară, cu baloane"},
+    {"src":"images/salon-seara-lumini-dans.jpg", "alt":"Oaspeți petrecând seara sub lumini colorate, în salon"}
+  ],
+  'experiente.foc': [
+    {"src":"images/seara-foc-tabara-01.jpg", "alt":"Oaspeți la foc de tabără, seara, cu bezele pe bețe"},
+    {"src":"images/seara-foc-tabara-02.jpg", "alt":"Oaspeți relaxați lângă foișor, seara"}
+  ]
+};
+var MEDIA_MODE = {'experiente.salon':'div', 'experiente.foc':'div'};
+
+function renderMediaGallery(key){
+  var el = document.querySelector('[data-gallery="'+key+'"]');
+  if(!el) return;
+  var items = MEDIA_GALLERIES[key] || [];
+  var mode = MEDIA_MODE[key] || 'div';
+  var html = '';
+  items.forEach(function(it){
+    var alt = (it.alt||'').replace(/"/g,'&quot;');
+    var img = '<img src="'+it.src+'" alt="'+alt+'" loading="lazy">';
+    html += mode === 'a'
+      ? '<a href="'+it.src+'" target="_blank" rel="noopener">'+img+'</a>'
+      : '<div class="gal-item">'+img+'</div>';
+  });
+  el.innerHTML = html;
+}
+
+function applyMediaSlots(slots){
+  document.querySelectorAll('[data-slot]').forEach(function(el){
+    var s = slots[el.getAttribute('data-slot')];
+    if(s && s.src){ el.src = s.src; if(s.alt) el.alt = s.alt; }
+  });
+}
+
+cslIdle(function(){
+  fetch('/api/media').then(function(r){return r.json();}).then(function(data){
+    if(data && data.galleries){
+      Object.keys(MEDIA_GALLERIES).forEach(function(k){
+        var incoming = data.galleries[k];
+        if(Array.isArray(incoming) && incoming.length){
+          MEDIA_GALLERIES[k] = incoming;
+          renderMediaGallery(k);
+        }
+      });
+    }
+    if(data && data.slots) applyMediaSlots(data.slots);
   }).catch(function(){});
 });
 

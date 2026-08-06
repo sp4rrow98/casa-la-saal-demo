@@ -640,7 +640,7 @@
 
   <!-- HERO -->
   <section class="hero exp-hero">
-    <img src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal">
+    <img data-slot="istoric.hero" src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal">
     <div class="hero-content">
       <div class="wrap">
         <p class="eyebrow" data-edit="istoric.hero.eyebrow">Povestea clădirii</p>
@@ -663,11 +663,11 @@
 
       <div class="postcard-grid" data-reveal>
         <div class="postcard">
-          <img src="images/istoric-postcard-1907-turn.jpg" alt="Ilustrată veche din 1907, sepia, cu Șeica Mare și turnul bisericii" loading="lazy">
+          <img data-slot="istoric.postcard1" src="images/istoric-postcard-1907-turn.jpg" alt="Ilustrată veche din 1907, sepia, cu Șeica Mare și turnul bisericii" loading="lazy">
           <div class="cap" data-edit="istoric.postcard1.cap">Ilustrată din 1907, cu clădirea de astăzi a Casei La Saal</div>
         </div>
         <div class="postcard">
-          <img src="images/istoric-postcard-1907-piata.jpg" alt="Altă ilustrată veche sepia din aceeași perioadă, cu piața satului Șeica Mare" loading="lazy">
+          <img data-slot="istoric.postcard2" src="images/istoric-postcard-1907-piata.jpg" alt="Altă ilustrată veche sepia din aceeași perioadă, cu piața satului Șeica Mare" loading="lazy">
           <div class="cap" data-edit="istoric.postcard2.cap">Din aceeași perioadă — se zărește vârful acoperișului clădirii, chiar în fața bisericii</div>
         </div>
       </div>
@@ -677,7 +677,7 @@
           <h3 data-edit="istoric.abandon.h3">De la abandon la renaștere</h3>
           <p data-edit="istoric.abandon.p">După 1902, când s-a deschis noua școală din vecinătate, clădirea din 1842 și-a pierdut treptat rolul educațional principal — deși a mai funcționat ca școală a sașilor până în 1990. Exodul comunității săsești și lipsa reparațiilor capitale au dus la abandonarea ei completă, iar clădirea a ajuns într-o stare avansată de degradare.</p>
         </div>
-        <div class="filmstrip">
+        <div class="filmstrip" data-gallery="istoric.degradare">
           <a href="images/istoric-degradare-01.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-01.jpg" alt="Fațadă degradată, tencuială căzută, cărămidă expusă" loading="lazy"></a>
           <a href="images/istoric-degradare-02.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-02.jpg" alt="Soclu degradat, cărămizi căzute și moloz" loading="lazy"></a>
           <a href="images/istoric-degradare-03.jpg" target="_blank" rel="noopener"><img src="images/istoric-degradare-03.jpg" alt="Colț de acoperiș degradat, coș de fum acoperit de vegetație" loading="lazy"></a>
@@ -696,7 +696,7 @@
           <h3 data-edit="istoric.azi.h3">Renăscută astăzi</h3>
           <p data-edit="istoric.azi.p">Din lipsa fondurilor necesare unei reparații de anvergură, Biserica Evanghelică, proprietarul de atunci, a vândut clădirea unor persoane particulare care, printr-un proces migălos de reparații și reconstituire, au transformat-o în ceea ce este astăzi Casa La Saal — o invitație deschisă la o experiență culturală și de relaxare de bună calitate.</p>
         </div>
-        <div class="azi-grid">
+        <div class="azi-grid" data-gallery="istoric.azi">
           <a href="images/exterior-fatada-galbena-zi.jpg" target="_blank" rel="noopener"><img src="images/exterior-fatada-galbena-zi.jpg" alt="Fațada galbenă restaurată, cu obloane maro, în lumina zilei" loading="lazy"></a>
           <a href="images/exterior-fatada-noapte-firma.jpg" target="_blank" rel="noopener"><img src="images/exterior-fatada-noapte-firma.jpg" alt="Fațada casei noaptea, cu firma luminoasă La Saal" loading="lazy"></a>
           <a href="images/curte-ciubar-relaxare-turn-biserica.jpg" target="_blank" rel="noopener"><img src="images/curte-ciubar-relaxare-turn-biserica.jpg" alt="Oaspete relaxându-se în ciubărul din curte, cu turnul bisericii în fundal" loading="lazy"></a>
@@ -713,7 +713,7 @@
           <h3 data-edit="istoric.arhitectura.h3">Arhitectură săsească, păstrată cu grijă</h3>
           <p data-edit="istoric.arhitectura.p">Specifice construcțiilor săsești, care doreau să ofere intimitate și discreție: ziduri masive, scări în spirală, holuri înalte cu arcade și o curte împrejmuită cu zid. O locație retrasă... fără a fi izolată. Furca de tors expusă pe hol amintește de anii în care casa era, cu adevărat, o casă.</p>
         </div>
-        <div class="azi-grid">
+        <div class="azi-grid" data-gallery="istoric.arhitectura">
           <a href="images/istoric-interior-scara-spirala-furca.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-scara-spirala-furca.jpg" alt="Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal" loading="lazy"></a>
           <a href="images/istoric-interior-scara-spirala-aplica.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-scara-spirala-aplica.jpg" alt="Scară în spirală, aplică de perete aprinsă, decor de furcă de tors" loading="lazy"></a>
           <a href="images/istoric-interior-coridor-arcade.jpg" target="_blank" rel="noopener"><img src="images/istoric-interior-coridor-arcade.jpg" alt="Coridor arcuit cu podea din gresie, spre ușa de intrare din lemn" loading="lazy"></a>
@@ -764,7 +764,7 @@
       <span>0787 292 633</span>
     </div>
     <div class="foot-legal">
-      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu</p>
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu · Certificat de clasificare turistică nr. 31949 din 25.05.2026 · ★★★</p>
       <div class="foot-legal-links">
         <a href="confidentialitate.html">Confidențialitate</a>
         <a href="termeni.html">Termeni și condiții</a>
@@ -843,6 +843,78 @@ cslIdle(function(){
       var v = texte[el.getAttribute('data-edit')];
       if(v) el.innerHTML = v;
     });
+  }).catch(function(){});
+});
+
+/* ---------- media (poze pe secțiuni) — fallback din HTML, suprascris de /api/media dacă răspunde ---------- */
+var MEDIA_GALLERIES = {
+  'istoric.degradare': [
+    {"src":"images/istoric-degradare-01.jpg", "alt":"Fațadă degradată, tencuială căzută, cărămidă expusă"},
+    {"src":"images/istoric-degradare-02.jpg", "alt":"Soclu degradat, cărămizi căzute și moloz"},
+    {"src":"images/istoric-degradare-03.jpg", "alt":"Colț de acoperiș degradat, coș de fum acoperit de vegetație"},
+    {"src":"images/istoric-degradare-04.jpg", "alt":"Perete cu cărămidă expusă și fereastră cu gratii"},
+    {"src":"images/istoric-degradare-05.jpg", "alt":"Acoperiș parțial prăbușit"},
+    {"src":"images/istoric-degradare-06.jpg", "alt":"Interior cu acoperiș prăbușit, văzut printr-o fereastră spartă"},
+    {"src":"images/istoric-degradare-07.jpg", "alt":"Grinzi de lemn prăbușite în interior"},
+    {"src":"images/istoric-degradare-08.jpg", "alt":"Fațada completă a clădirii degradate, cu arcadă de intrare"},
+    {"src":"images/istoric-degradare-09.jpg", "alt":"Fațada din spate, acoperită de vegetație"},
+    {"src":"images/istoric-degradare-10.jpg", "alt":"Vedere generală a clădirii înainte de renovare"}
+  ],
+  'istoric.azi': [
+    {"src":"images/exterior-fatada-galbena-zi.jpg", "alt":"Fațada galbenă restaurată, cu obloane maro, în lumina zilei"},
+    {"src":"images/exterior-fatada-noapte-firma.jpg", "alt":"Fațada casei noaptea, cu firma luminoasă La Saal"},
+    {"src":"images/curte-ciubar-relaxare-turn-biserica.jpg", "alt":"Oaspete relaxându-se în ciubărul din curte, cu turnul bisericii în fundal"},
+    {"src":"images/curte-ciubar-fum-turn-biserica.jpg", "alt":"Ciubăr de lemn cu fum, turnul bisericii fortificate peste gard"},
+    {"src":"images/curte-terasa-ciubar-turn-biserica-01.jpg", "alt":"Terasă de lemn cu ciubăr, turnul bisericii fortificate în fundal"},
+    {"src":"images/curte-terasa-ciubar-turn-biserica-02.jpg", "alt":"Terasă de lemn cu ciubăr, coș metalic aurit, deal împădurit"},
+    {"src":"images/curte-gratar-ardei-fripte.jpg", "alt":"Grătar zidit cu ardei și vinete la fript"},
+    {"src":"images/curte-gratar-ardei-crude.jpg", "alt":"Grătar zidit pregătit cu legume pentru copt"}
+  ],
+  'istoric.arhitectura': [
+    {"src":"images/istoric-interior-scara-spirala-furca.jpg", "alt":"Scară interioară în spirală, cu furcă de tors antică expusă pe un piedestal"},
+    {"src":"images/istoric-interior-scara-spirala-aplica.jpg", "alt":"Scară în spirală, aplică de perete aprinsă, decor de furcă de tors"},
+    {"src":"images/istoric-interior-coridor-arcade.jpg", "alt":"Coridor arcuit cu podea din gresie, spre ușa de intrare din lemn"},
+    {"src":"images/istoric-interior-coridor-ardei.jpg", "alt":"Coridor cu scări, ardei iuți uscați decorativi pe perete"},
+    {"src":"images/istoric-interior-firida-decorativa.jpg", "alt":"Firidă decorativă pe hol, balustradă neagră din fier"}
+  ]
+};
+var MEDIA_MODE = {'istoric.degradare':'a', 'istoric.azi':'a', 'istoric.arhitectura':'a'};
+
+function renderMediaGallery(key){
+  var el = document.querySelector('[data-gallery="'+key+'"]');
+  if(!el) return;
+  var items = MEDIA_GALLERIES[key] || [];
+  var mode = MEDIA_MODE[key] || 'div';
+  var html = '';
+  items.forEach(function(it){
+    var alt = (it.alt||'').replace(/"/g,'&quot;');
+    var img = '<img src="'+it.src+'" alt="'+alt+'" loading="lazy">';
+    html += mode === 'a'
+      ? '<a href="'+it.src+'" target="_blank" rel="noopener">'+img+'</a>'
+      : '<div class="gal-item">'+img+'</div>';
+  });
+  el.innerHTML = html;
+}
+
+function applyMediaSlots(slots){
+  document.querySelectorAll('[data-slot]').forEach(function(el){
+    var s = slots[el.getAttribute('data-slot')];
+    if(s && s.src){ el.src = s.src; if(s.alt) el.alt = s.alt; }
+  });
+}
+
+cslIdle(function(){
+  fetch('/api/media').then(function(r){return r.json();}).then(function(data){
+    if(data && data.galleries){
+      Object.keys(MEDIA_GALLERIES).forEach(function(k){
+        var incoming = data.galleries[k];
+        if(Array.isArray(incoming) && incoming.length){
+          MEDIA_GALLERIES[k] = incoming;
+          renderMediaGallery(k);
+        }
+      });
+    }
+    if(data && data.slots) applyMediaSlots(data.slots);
   }).catch(function(){});
 });
 
