@@ -139,9 +139,13 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     <button class="tab" onclick="showTab('disponibilitate',this)">Disponibilitate</button>
     <button class="tab" onclick="showTab('poze',this)">Poze</button>
     <button class="tab" onclick="showTab('texte-acasa',this)">Texte Acasă</button>
+    <button class="tab" onclick="showTab('texte-acasa-en',this)">Texte Acasă (EN)</button>
     <button class="tab" onclick="showTab('texte-istoric',this)">Texte Istoric</button>
+    <button class="tab" onclick="showTab('texte-istoric-en',this)">Texte Istoric (EN)</button>
     <button class="tab" onclick="showTab('texte-experiente',this)">Texte Experiențe</button>
+    <button class="tab" onclick="showTab('texte-experiente-en',this)">Texte Experiențe (EN)</button>
     <button class="tab" onclick="showTab('texte-imprejurimi',this)">Texte Împrejurimi</button>
+    <button class="tab" onclick="showTab('texte-imprejurimi-en',this)">Texte Împrejurimi (EN)</button>
     <button class="tab" onclick="showTab('poze-istoric',this)">Poze Istoric</button>
     <button class="tab" onclick="showTab('poze-experiente',this)">Poze Experiențe</button>
     <button class="tab" onclick="showTab('poze-imprejurimi',this)">Poze Împrejurimi</button>
@@ -218,6 +222,16 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     </div>
   </div>
 
+  <!-- TEXTE ACASĂ (EN) -->
+  <div class="sec" id="sec-texte-acasa-en" style="display:none">
+    <div class="sec-hd">Texte — Acasă (EN)</div>
+    <p class="sec-note">Varianta în engleză a paginii de start (index-en.html). Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-acasa-en"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('acasa-en')">Salvează textele</button>
+    </div>
+  </div>
+
   <!-- TEXTE ISTORIC -->
   <div class="sec" id="sec-texte-istoric" style="display:none">
     <div class="sec-hd">Texte — Istoric</div>
@@ -225,6 +239,16 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     <div id="texteList-istoric"><div class="no-offers">Se încarcă...</div></div>
     <div class="f-actions" style="margin-top:16px">
       <button class="btn btn-ac" onclick="salveazaTexte('istoric')">Salvează textele</button>
+    </div>
+  </div>
+
+  <!-- TEXTE ISTORIC (EN) -->
+  <div class="sec" id="sec-texte-istoric-en" style="display:none">
+    <div class="sec-hd">Texte — Istoric (EN)</div>
+    <p class="sec-note">Varianta în engleză (istoric-en.html). Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-istoric-en"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('istoric-en')">Salvează textele</button>
     </div>
   </div>
 
@@ -238,6 +262,16 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     </div>
   </div>
 
+  <!-- TEXTE EXPERIENȚE (EN) -->
+  <div class="sec" id="sec-texte-experiente-en" style="display:none">
+    <div class="sec-hd">Texte — Experiențe (EN)</div>
+    <p class="sec-note">Varianta în engleză (experiente-en.html). Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-experiente-en"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('experiente-en')">Salvează textele</button>
+    </div>
+  </div>
+
   <!-- TEXTE ÎMPREJURIMI -->
   <div class="sec" id="sec-texte-imprejurimi" style="display:none">
     <div class="sec-hd">Texte — Împrejurimi</div>
@@ -245,6 +279,16 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     <div id="texteList-imprejurimi"><div class="no-offers">Se încarcă...</div></div>
     <div class="f-actions" style="margin-top:16px">
       <button class="btn btn-ac" onclick="salveazaTexte('imprejurimi')">Salvează textele</button>
+    </div>
+  </div>
+
+  <!-- TEXTE ÎMPREJURIMI (EN) -->
+  <div class="sec" id="sec-texte-imprejurimi-en" style="display:none">
+    <div class="sec-hd">Texte — Împrejurimi (EN)</div>
+    <p class="sec-note">Varianta în engleză (imprejurimi-en.html). Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-imprejurimi-en"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('imprejurimi-en')">Salvează textele</button>
     </div>
   </div>
 
@@ -331,8 +375,8 @@ function toast(msg,type){
   t._t=setTimeout(function(){t.className='toast';},2800);
 }
 
-var TABS=['camere','disponibilitate','poze','texte-acasa','texte-istoric','texte-experiente','texte-imprejurimi','poze-istoric','poze-experiente','poze-imprejurimi'];
-var loaded={disponibilitate:false,poze:false,'texte-acasa':false,'texte-istoric':false,'texte-experiente':false,'texte-imprejurimi':false,'poze-istoric':false,'poze-experiente':false,'poze-imprejurimi':false};
+var TABS=['camere','disponibilitate','poze','texte-acasa','texte-acasa-en','texte-istoric','texte-istoric-en','texte-experiente','texte-experiente-en','texte-imprejurimi','texte-imprejurimi-en','poze-istoric','poze-experiente','poze-imprejurimi'];
+var loaded={disponibilitate:false,poze:false,'texte-acasa':false,'texte-acasa-en':false,'texte-istoric':false,'texte-istoric-en':false,'texte-experiente':false,'texte-experiente-en':false,'texte-imprejurimi':false,'texte-imprejurimi-en':false,'poze-istoric':false,'poze-experiente':false,'poze-imprejurimi':false};
 function showTab(name,btn){
   TABS.forEach(function(t){
     var s=document.getElementById('sec-'+t);
@@ -355,9 +399,9 @@ var ROOMS_SEED=[
   {id:'tei',      nume:'Camera Tei',    tip:'Cameră',    descriere:'Liniștită, cu dulap din lemn deschis la culoare și pereți calzi.',    pret:'230 lei', img:'images/room-03.jpg', alt:'Cameră liniștită cu dulap din lemn și tablou cu copaci pe perete'},
   {id:'salcam',   nume:'Camera Salcâm', tip:'Cameră',    descriere:'Draperii petrol, lumină caldă, fereastră spre grădină.',              pret:'240 lei', img:'images/room-04.jpg', alt:'Cameră cu draperii petrol, tăblie din lemn și lumină caldă'},
   {id:'brad',     nume:'Camera Brad',   tip:'Mansardă',  descriere:'Sub acoperiș înclinat, cu geam de tavan prin care intră cerul.',      pret:'220 lei', img:'images/room-06.jpg', alt:'Cameră la mansardă, cu geam de tavan înclinat spre cer și tablou cu floarea-soarelui'},
-  {id:'arin',     nume:'Camera Arin',   tip:'Cameră',    descriere:'Spațioasă, cu hol propriu și aer condiționat.',                       pret:'260 lei', img:'images/room-09.jpg', alt:'Cameră spațioasă cu hol propriu și aparat de aer condiționat'},
+  {id:'arin',     nume:'Camera Arin',   tip:'Cameră',    descriere:'Spațioasă, cu hol propriu și aer condiționat.',                       pret:'260 lei', img:'images/room-10.jpg', alt:'Cameră cu tăblie din șipci de lemn, pat dublu și pictură cu flori albe pe perete'},
   {id:'fag',      nume:'Camera Fag',    tip:'Cameră',    descriere:'Cameră dublă, cu dulap din lemn și lumină de dimineață.',             pret:'230 lei', img:'images/room-02.jpg', alt:'Cameră cu perdele maro și tăblie din lemn, unghi diferit'},
-  {id:'apartament',nume:'Apartament',   tip:'Apartament',descriere:'Două camere, ideal pentru familii sau grupuri mai mari.',             pret:'420 lei', img:'images/room-detail-02.jpg', alt:'Detaliu apartament cu birou și oglindă'}
+  {id:'apartament',nume:'Apartament',   tip:'Apartament',descriere:'Două camere, ideal pentru familii sau grupuri mai mari.',             pret:'420 lei', img:'images/room-09.jpg', alt:'Cameră spațioasă cu hol propriu și aparat de aer condiționat'}
 ];
 
 function importCamere(){
@@ -676,9 +720,13 @@ function handleUpload(files){
 var TEXT_OVERRIDES=null;
 var PAGES={
   acasa:       {file:'/index.html'},
+  'acasa-en':       {file:'/index-en.html'},
   istoric:     {file:'/istoric.html'},
+  'istoric-en':     {file:'/istoric-en.html'},
   experiente:  {file:'/experiente.html'},
-  imprejurimi: {file:'/imprejurimi.html'}
+  'experiente-en':  {file:'/experiente-en.html'},
+  imprejurimi: {file:'/imprejurimi.html'},
+  'imprejurimi-en': {file:'/imprejurimi-en.html'}
 };
 var PAGE_KEYS={}, PAGE_DEFAULTS={};
 

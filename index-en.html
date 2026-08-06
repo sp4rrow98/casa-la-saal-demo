@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="ro">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Împrejurimi — Casa La Saal, Șeica Mare, Sibiu</title>
-<meta name="description" content="Ce e în jurul Casei La Saal: drumeții, situri Natura 2000, floră locală, Cetatea Buia, plus Sibiu, Ocna Sibiului, Biertan și Sighișoara la câteva zeci de minute.">
+<title>Casa La Saal — a guesthouse with a story, Șeica Mare, Sibiu</title>
+<meta name="description" content="Casa La Saal: a guesthouse in a former 1842 Saxon school in Șeica Mare, Sibiu county. Bonfire evenings, a wood-fired hot tub, sauna, billiards bar and an event hall.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -412,6 +412,15 @@
   .gal-item{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
   .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
   .gal-item:hover img{transform:scale(1.09)}
+  .gal-play{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .gal-play svg{
+    width:44px;height:44px;color:#fff;filter:drop-shadow(0 2px 10px rgba(0,0,0,.5));
+    transition:transform .3s var(--ease);
+  }
+  .gal-item:hover .gal-play svg{transform:scale(1.12)}
 
   @media (max-width:980px){ .gal-grid{grid-template-columns:repeat(4,1fr)} }
   @media (max-width:640px){ .gal-grid{grid-template-columns:repeat(3,1fr);gap:8px} }
@@ -473,6 +482,14 @@
     box-shadow:0 32px 80px rgba(0,0,0,.6);
   }
   .lb-overlay.open .lb-img{transform:scale(1)}
+  .lb-video{
+    max-width:92vw;max-height:80vh;
+    border-radius:8px;
+    transform:scale(.94);
+    transition:transform .35s cubic-bezier(.22,1,.36,1);
+    box-shadow:0 32px 80px rgba(0,0,0,.6);
+  }
+  .lb-overlay.open .lb-video{transform:scale(1)}
   .lb-close{
     position:absolute;top:20px;right:20px;
     width:44px;height:44px;border-radius:50%;cursor:pointer;
@@ -596,7 +613,7 @@
 
 <header id="siteHeader">
   <div class="wrap">
-    <a href="index.html#top" class="logo">
+    <a href="#top" class="logo">
       <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
         <defs>
           <linearGradient id="markGrad" x1="0" y1="0" x2="0" y2="1">
@@ -617,173 +634,177 @@
       <span>Casa <span class="logo-accent">La Saal</span></span>
     </a>
     <nav class="links" id="navLinks">
-      <a href="index.html#despre">Despre</a>
-      <a href="istoric.html">Istorie</a>
-      <a href="index.html#camere">Camere</a>
-      <a href="index.html#facilitati">Facilități</a>
-      <a href="experiente.html">Experiențe</a>
-      <a href="#top">Împrejurimi</a>
-      <a href="index.html#galerie">Galerie</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="imprejurimi-en.html" class="lang-link">EN</a>
+      <a href="#despre">About</a>
+      <a href="istoric-en.html">History</a>
+      <a href="#camere">Rooms</a>
+      <a href="#facilitati">Amenities</a>
+      <a href="experiente-en.html">Experiences</a>
+      <a href="imprejurimi-en.html">Surroundings</a>
+      <a href="#galerie">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="index.html" class="lang-link">RO</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20%C3%AEntreb%20de%20disponibilitate%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+      <a class="btn btn-primary" href="https://wa.me/40787292633?text=Hello!%20I'd%20like%20to%20ask%20about%20availability%20at%20Casa%20La%20Saal." target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
         <span class="full">WhatsApp</span>
       </a>
-      <button class="burger" id="burgerBtn" aria-label="Deschide meniul" aria-expanded="false"><span></span></button>
+      <button class="burger" id="burgerBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </div>
 </header>
 
-
 <main id="top">
 
   <!-- HERO -->
-  <section class="hero exp-hero">
-    <img data-slot="imprejurimi.hero" src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare">
+  <section class="hero">
+    <img src="images/hero.jpg" alt="Inner courtyard with a built-in grill under a pergola, house with painted walls, and wooded hills in the background">
     <div class="hero-content">
       <div class="wrap">
-        <p class="eyebrow" data-edit="imprejurimi.hero.eyebrow">Împrejurimi</p>
-        <h1 style="font-size:clamp(2.4rem,6vw,4.2rem)" data-edit="imprejurimi.hero.h1">Farmecul colinelor <em>transilvănene</em></h1>
-        <p class="lead" data-edit="imprejurimi.hero.lead">Drumeții, floră locală, cetăți medievale și orașe pline de istorie — tot ce e la câțiva pași sau la câteva zeci de minute de Casa La Saal.</p>
+        <p class="eyebrow" data-edit="acasa-en.hero.eyebrow">Șeica Mare, Sibiu County</p>
+        <h1>
+          Casa La Saal
+          <span class="rotator-line">a place for
+            <span class="wr-wrap">
+              <span class="wr-word active">quiet</span>
+              <span class="wr-word">friends</span>
+              <span class="wr-word">long stories</span>
+              <span class="wr-word">a hot tub under the stars</span>
+            </span>
+          </span>
+        </h1>
+        <p class="lead" data-edit="acasa-en.hero.sub">A guesthouse with a story, quiet, and plenty of room for time spent together — in a former Saxon school from 1842, renovated in 2022.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#natura" data-edit="imprejurimi.hero.cta1">Natură din jur</a>
-          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="#regiune" data-edit="imprejurimi.hero.cta2">Orașe și cetăți</a>
+          <button class="btn btn-primary" onclick="openCalModal()" type="button">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Book now
+          </button>
+          <a class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.4)" href="https://wa.me/40787292633?text=Hello!%20I'd%20like%20to%20ask%20about%20availability%20at%20Casa%20La%20Saal." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+            Message us on WhatsApp
+          </a>
         </div>
       </div>
     </div>
     <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
   </section>
 
-  <!-- OUTDOOR -->
-  <section class="section" id="natura" style="background:var(--bg-soft)">
-    <div class="wrap">
-      <div class="section-head" data-reveal>
-        <p class="eyebrow" data-edit="imprejurimi.natura.eyebrow">Dincolo de porți</p>
-        <h2 data-edit="imprejurimi.natura.h2">Farmecul colinelor <em>transilvănene</em></h2>
-        <p data-edit="imprejurimi.natura.p">Experiența Casa La Saal se extinde mult dincolo de zidurile sale. Locația noastră este punctul de pornire perfect pentru a explora natura neatinsă și istoria fascinantă a zonei Șeica Mare.</p>
-      </div>
-
-      <div class="istoric-sub" style="margin-top:56px" data-reveal>
-        <div class="istoric-sub-head">
-          <h3 data-edit="imprejurimi.aventura.h3">Aventură în natură și tradiții locale</h3>
-          <p data-edit="imprejurimi.aventura.p">Dacă iubești aerul curat și mișcarea, dealurile din jur te așteaptă să le descoperi secretele. Locația se află la poalele unui deal impunător (Burbihi / Burgring), frumos împădurit.</p>
-        </div>
-        <ul class="exp-list">
-          <li data-edit="imprejurimi.aventura.li1"><strong>Drumeții reconfortante:</strong> urmează potecile umbroase ale pădurilor care împodobesc dealurile și lasă-te încărcat de energia naturii.</li>
-          <li data-edit="imprejurimi.aventura.li2"><strong>Biodiversitate unică:</strong> explorează cele 3 situri Natura 2000 din zonă — stejarul pufos de la Petiș, castanii comestibili de la Buia și pajiștile de la Veseud — adevărate sanctuare ecologice.</li>
-          <li data-edit="imprejurimi.aventura.li3"><strong>Excursii și viață la țară:</strong> pornește în explorarea satelor vecine și vizitează fermele locale, unde poți gusta din autenticitatea produselor curate.</li>
-        </ul>
-        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.aventura">
-          <div class="gal-item"><img src="images/natura-poteca-drumetie.jpg" alt="Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-deal-flori-salbatice.jpg" alt="Deal înierbat cu flori sălbatice albe și copaci izolați" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-copac.jpg" alt="Panoramă cu munți la orizont și un copac singuratic în prim-plan" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-livada-stupi-albine.jpg" alt="Livadă înflorită cu stupi de albine, de la o fermă locală" loading="lazy"></div>
+  <!-- DESPRE -->
+  <section class="section" id="despre">
+    <div class="wrap despre">
+      <div class="despre-text" data-reveal>
+        <p class="eyebrow" data-edit="acasa-en.despre.eyebrow">About</p>
+        <h2 data-edit="acasa-en.despre.title">Where the history of <em>Transylvania</em> meets the quiet of the forest</h2>
+        <p data-edit="acasa-en.despre.p1">At Casa La Saal, time isn't measured in hours, but in moments of calm. Set in the idyllic village of Șeica Mare, Sibiu county, our 3-star guesthouse brings the village's former Saxon school back to life. The historic building, fully renovated with respect for the past and an eye for modern comfort, now offers an intimate, welcoming place to stay.</p>
+        <p data-edit="acasa-en.despre.p2">Just a few steps from the Evangelical Fortified Church "Saint Martin" and watched over by a wooded hill that invites exploring, Casa La Saal is the ideal destination for anyone looking to escape the bustle of the city. Whether you choose one of our 6 elegant double rooms or the spacious two-room apartment, you'll enjoy modern finishes, private bathrooms, and warm Transylvanian hospitality.</p>
+        <p data-edit="acasa-en.despre.p3"><em>Leave your worries at the door, listen to the rustle of the forest, and savor the authentic taste of local food.</em></p>
+        <div class="despre-facts">
+          <span class="fact" data-edit="acasa-en.despre.fact1">3 stars · Ministry of Tourism</span>
+          <span class="fact" data-edit="acasa-en.despre.fact2">6 rooms + apartment · 16–20 guests</span>
+          <span class="fact" data-edit="acasa-en.despre.fact3">Building from 1842, former school</span>
+          <span class="fact" data-edit="acasa-en.despre.fact4">Fortified church from ~1300</span>
         </div>
       </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3 data-edit="imprejurimi.flora.h3">Floră locală</h3>
-          <p data-edit="imprejurimi.flora.p">Cimbrișor sălbatic, soc, coada-șoricelului și livezi înflorite — plantele care cresc liber pe dealurile din jurul Șeicii Mari, multe dintre ele folosite tradițional în ceaiuri și leacuri de casă.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.flora">
-          <div class="gal-item"><img src="images/flora-floare-soc-mana.jpg" alt="Floare de soc ținută în mână, deasupra unui tufiș verde" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-tufa-soc-inflorit.jpg" alt="Tufă deasă de soc înflorit" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-coada-soricelului.jpg" alt="Buchet de coada-șoricelului, deasupra unei pajiști verzi" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-camp.jpg" alt="Tufiș de cimbrișor sălbatic, cu flori mov, în câmp" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-mana.jpg" alt="Buchet de cimbrișor sălbatic mov, ținut în mână" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-albina.jpg" alt="Tufă de cimbrișor mov, cu o albină pe flori" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-cimbrisor-pajiste.jpg" alt="Buchet de cimbrișor mov, deasupra unei pajiști cu flori sălbatice" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-piersic-livada.jpg" alt="Livadă de piersici înfloriți, cu stupi de albine" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-piersic-cladire.jpg" alt="Crenguțe înflorite de piersic, în prim-plan" loading="lazy"></div>
-          <div class="gal-item"><img src="images/flora-flori-roz-cer.jpg" alt="Flori roz pe crengi golașe, pe cer senin" loading="lazy"></div>
-        </div>
+      <div class="despre-media" data-reveal>
+        <img src="images/exterior-turn-biserica-semn-la-saal.jpg" alt="The tower of the Evangelical fortified church, with the Casa La Saal sign visible on the roof, wooded hill in the background" loading="lazy">
+        <div class="cap">The village's fortified church, just steps from the guesthouse</div>
       </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3 data-edit="imprejurimi.cultura.h3">Un periplu prin istorie și cultură</h3>
-          <p data-edit="imprejurimi.cultura.p">Pentru pasionații de trecut și arhitectură, împrejurimile ascund comori de o valoare culturală deosebită.</p>
-        </div>
-        <ul class="exp-list">
-          <li data-edit="imprejurimi.cultura.li1"><strong>Ruinele Cetății din Buia:</strong> o incursiune romantică și misterioasă în trecutul nobiliar al zonei.</li>
-          <li data-edit="imprejurimi.cultura.li2"><strong>Biserica Fortificată Evanghelică:</strong> monument istoric impresionant, la câțiva pași de casă, care amintește de moștenirea trainică a sașilor.</li>
-          <li data-edit="imprejurimi.cultura.li3"><strong>Diversitate spirituală:</strong> bisericile cochete din localitate — de la cea ortodoxă la cea greco-catolică — mărturii ale armoniei și tradiției locale.</li>
-        </ul>
-      </div>
-
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3 data-edit="imprejurimi.iarna.h3">Iarnă la Casa La Saal</h3>
-          <p data-edit="imprejurimi.iarna.p">Dealurile și turnul bisericii sub chiciură, iar seara — ciubărul și sauna te așteaptă tot afară, calde, chiar dacă zăpada troienește curtea.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.iarna">
-          <div class="gal-item"><img src="images/natura-turn-biserica-iarna.jpg" alt="Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-sat-iarna.jpg" alt="Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură" loading="lazy"></div>
-          <div class="gal-item"><img src="images/curte-iarna-ciubar-sauna-zapada.jpg" alt="Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-fatada-noapte-iarna.jpg" alt="Fațada casei, noaptea, iarna, cu zăpadă pe stradă și ghirlande de lumini" loading="lazy"></div>
-        </div>
-      </div>
-
-      <p class="istoric-quote" data-edit="imprejurimi.quote1">Fiecare zi petrecută aici este o invitație la explorare. Întoarce-te din drumeție direct în confortul Casei La Saal și <b>deapănă poveștile zilei</b> la un pahar de vin în crama noastră!</p>
     </div>
   </section>
 
-  <!-- HUB REGIONAL -->
-  <section class="section" id="regiune">
+  <!-- CAMERE -->
+  <section class="section" id="camere" style="background:var(--bg-soft)">
     <div class="wrap">
       <div class="section-head" data-reveal>
-        <p class="eyebrow" data-edit="imprejurimi.regiune.eyebrow">Regiunea</p>
-        <h2 data-edit="imprejurimi.regiune.h2">Hub-ul tău spre inima <em>Transilvaniei</em></h2>
-        <p data-edit="imprejurimi.regiune.p">Poziționarea Casei La Saal te plasează exact în centrul unei regiuni vibrante, pline de cultură, istorie și oportunități de relaxare. În doar câteva zeci de minute de mers cu mașina, poți trece de la liniștea satului la efervescența unora dintre cele mai frumoase destinații din România.</p>
+        <p class="eyebrow" data-edit="acasa-en.camere.eyebrow">Accommodation</p>
+        <h2 data-edit="acasa-en.camere.title">Simple rooms, made for <em>rest</em></h2>
+        <p data-edit="acasa-en.camere.sub">6 double rooms and a two-room apartment — room for 16-20 guests. Every room has a private bathroom, TV, minibar, and access to the shared kitchen. No two rooms are alike.</p>
+      </div>
+      <div class="room-grid" id="roomGrid"></div>
+    </div>
+  </section>
+
+  <!-- FACILITĂȚI -->
+  <section class="section" id="facilitati">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow" data-edit="acasa-en.facilitati.eyebrow">Amenities</p>
+        <h2 data-edit="acasa-en.facilitati.title">For the days you don't want to go <em>anywhere</em></h2>
+        <p data-edit="acasa-en.facilitati.sub">Everything that belongs to the house is available to guests — no separate bookings, no hourly charges.</p>
+      </div>
+      <div class="bento">
+
+        <div class="bento-item big" data-reveal>
+          <img src="images/ciubar-02.jpg" alt="Wood-fired hot tub in the courtyard, in the evening" loading="lazy">
+          <div class="bento-text"><h3 data-edit="acasa-en.facilitati.item1.title">Wood-fired hot tub</h3><p data-edit="acasa-en.facilitati.item1.text">Outside, under the open sky — lit ahead of time, ready when you get to it.</p></div>
+        </div>
+
+        <div class="bento-item" data-reveal data-reveal-delay="100">
+          <img src="images/sauna-02.jpg" alt="Solid wood sauna with benches and a traditional bucket" loading="lazy">
+          <div class="bento-text"><h3 data-edit="acasa-en.facilitati.item2.title">Sauna</h3><p data-edit="acasa-en.facilitati.item2.text">Solid wood, fits a few people, glass door facing the courtyard.</p></div>
+        </div>
+
+        <div class="bento-item" data-reveal data-reveal-delay="150">
+          <img src="images/biliard.jpg" alt="Billiard table beneath a brick vault, with a wine bar in the background" loading="lazy">
+          <div class="bento-text"><h3 data-edit="acasa-en.facilitati.item3.title">Bar, billiards &amp; ping-pong</h3><p data-edit="acasa-en.facilitati.item3.text">In the basement, beneath a brick vault — billiards, ping-pong, and wine on the shelf.</p></div>
+        </div>
+
+        <div class="bento-item small" data-reveal data-reveal-delay="100">
+          <img src="images/gratar.jpg" alt="Brick-built grill under a wooden pergola, in the courtyard" loading="lazy">
+          <div class="bento-text"><h3 data-edit="acasa-en.facilitati.item4.title">Grill &amp; gazebo</h3><p data-edit="acasa-en.facilitati.item4.text">Built-in, under a pergola, for long evenings grilling meat.</p></div>
+        </div>
+
+        <div class="bento-item small" data-reveal data-reveal-delay="150">
+          <img src="images/bucatarie-01.jpg" alt="Fully equipped kitchen with a long wooden table" loading="lazy">
+          <div class="bento-text"><h3 data-edit="acasa-en.facilitati.item5.title">Guest kitchen</h3><p data-edit="acasa-en.facilitati.item5.text">Fully equipped, for anyone who wants to cook for themselves.</p></div>
+        </div>
+
+      </div>
+      <p style="margin-top:28px;color:var(--ink-soft);font-size:.94rem" data-reveal data-edit="acasa-en.facilitati.cerere">On request, we can also arrange: <strong style="color:var(--ink)">a horse-drawn carriage ride</strong> and <strong style="color:var(--ink)">massage</strong>, with a qualified masseur.</p>
+    </div>
+  </section>
+
+  <!-- DARK MOMENT -->
+  <section class="moment">
+    <img src="images/ciubar-01.jpg" alt="Wood-fired hot tub, lit up at night, next to the wooden cabin" loading="lazy">
+    <div class="wrap">
+      <div class="moment-inner" data-reveal>
+        <p class="eyebrow" data-edit="acasa-en.seara.eyebrow">Evening</p>
+        <h2 data-edit="acasa-en.seara.title">When darkness falls over the hill</h2>
+        <p data-edit="acasa-en.seara.sub">The fire burns under the hot tub from whatever hour you choose. Steam rises over the courtyard, someone puts on quiet music inside, and the surrounding hills disappear into the dark. It's the moment of the day worth coming for.</p>
+        <a class="btn btn-light" href="https://wa.me/40787292633?text=Hello!%20I'd%20like%20to%20ask%20about%20availability%20at%20Casa%20La%20Saal." target="_blank" rel="noopener">Book an evening</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIE -->
+  <section class="section" id="galerie">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <p class="eyebrow" data-edit="acasa-en.galerie.eyebrow">Gallery</p>
+        <h2 data-edit="acasa-en.galerie.title">The whole house, in <em>pictures</em></h2>
+        <p data-edit="acasa-en.galerie.sub">34 real photos, no retouching — this is exactly what the guesthouse looks like, day and night.</p>
       </div>
 
-      <div class="exp-cards">
-        <div class="exp-card" data-reveal>
-          <h3 data-edit="imprejurimi.card1.h3">Cultură, wellness și cetăți medievale — la ~30 minute</h3>
-          <ul>
-            <li data-edit="imprejurimi.card1.li1"><b>Sibiu</b> (cca. 30 min) — orașul cultural prin excelență. Pierde-te pe străduțele pietruite, vizitează Muzeul Brukenthal, traversează Podul Minciunilor și bucură-te de restaurantele de top din Piața Mare.</li>
-            <li data-edit="imprejurimi.card1.li2"><b>Ocna Sibiului</b> (cca. 30 min) — destinația ideală pentru răsfăț și sănătate. Cunoscută drept „Litoralul Ardealului”, te așteaptă cu lacuri helioterme sărate, perfecte pentru relaxare.</li>
-          </ul>
-        </div>
-        <div class="exp-card" data-reveal data-reveal-delay="100">
-          <h3 data-edit="imprejurimi.card2.h3">Călătorii în timp pe urmele sașilor</h3>
-          <ul>
-            <li data-edit="imprejurimi.card2.li1"><b>Biertan și satele săsești</b> — un circuit al bisericilor fortificate din împrejurimi. Cea de la Biertan, monument UNESCO, te va fascina cu arhitectura sa impunătoare și legendele locului.</li>
-            <li data-edit="imprejurimi.card2.li2"><b>Mediaș și Dumbrăveni</b> — farmecul discret al acestor burguri transilvănene, cu turnuri medievale și centre istorice cochete.</li>
-            <li data-edit="imprejurimi.card2.li3"><b>Sighișoara</b> — singura cetate medievală locuită din Europa de Sud-Est, cu turnurile sale celebre, scările acoperite și o atmosferă de basm.</li>
-          </ul>
-        </div>
+      <div class="gal-grid" id="galGrid">
+        <!-- items injected identically as static markup below -->
       </div>
+    </div>
+  </section>
 
-      <div class="istoric-sub" data-reveal>
-        <div class="istoric-sub-head">
-          <h3 data-edit="imprejurimi.drum.h3">Drumul spre Casa La Saal</h3>
-          <p data-edit="imprejurimi.drum.p">Sat liniștit, la poalele dealului, cu biserica fortificată drept reper — ușor de găsit, greu de uitat.</p>
-        </div>
-        <div class="gal-grid" style="margin-top:28px" data-gallery="imprejurimi.drum">
-          <div class="gal-item"><img src="images/natura-panorama-sat-vara.jpg" alt="Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-firma-la-saal-strada.jpg" alt="Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-strada-sat-spre-casa.jpg" alt="Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal" loading="lazy"></div>
-          <div class="gal-item"><img src="images/exterior-fatada-zi-cazare.jpg" alt="Fațada casei, ziua, cu obloane maro și firma Cazare deasupra ușii" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-turn-biserica.jpg" alt="Stradă din sat spre turnul bisericii săsești și clădirea La Saal" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-innorat-turn.jpg" alt="Stradă din sat sub cer înnorat, turn de biserică săsească" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-strada-la-saal-cazare.jpg" alt="Stradă spre clădirea cu firma La Saal Cazare" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-01.jpg" alt="Panoramă cu lanț muntos și câmp arat" loading="lazy"></div>
-          <div class="gal-item"><img src="images/natura-panorama-munti-02.jpg" alt="Panoramă cu munți sub cer înnorat, câmp arat" loading="lazy"></div>
-        </div>
-      </div>
-
-      <p class="istoric-quote" data-edit="imprejurimi.quote2">Casa La Saal este <b>„baza ta de acasă”</b> — locul primitor în care te întorci seară de seară, după o zi plină de descoperiri, pentru a te relaxa în salon sau la un biliard în cramă.</p>
-
-      <div style="margin-top:40px;text-align:center" data-reveal>
-        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Bun%C4%83!%20A%C8%99%20vrea%20s%C4%83%20rezerv%20o%20experien%C8%9B%C4%83%20la%20Casa%20La%20Saal." target="_blank" rel="noopener">
+  <!-- CONTACT -->
+  <section class="section" id="contact">
+    <div class="wrap">
+      <div class="contact" data-reveal>
+        <p class="eyebrow" data-edit="acasa-en.contact.eyebrow">Contact</p>
+        <h2 data-edit="acasa-en.contact.title">Let's set a <em>date</em></h2>
+        <p data-edit="acasa-en.contact.sub">The easiest way is WhatsApp — we reply quickly and tell you exactly which rooms are free.</p>
+        <a class="btn btn-primary" href="https://wa.me/40787292633?text=Hello!%20I'd%20like%20to%20ask%20about%20availability%20at%20Casa%20La%20Saal." target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
-          <span data-edit="imprejurimi.cta">Rezervă-ți experiența transilvăneană</span>
+          Message on WhatsApp
         </a>
+        <p class="phone">0787 292 633 · ssmsibiu@gmail.com</p>
+        <p class="phone" style="margin-top:2px">Șeica Mare, No. 125, Sibiu County</p>
       </div>
     </div>
   </section>
@@ -804,36 +825,174 @@
           </svg>
           <span>Casa <span class="logo-accent">La Saal</span></span>
         </div>
-        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Șeica Mare, județul Sibiu</p>
+        <p style="color:var(--ink-soft);font-size:.9rem;margin-top:8px">Șeica Mare, Sibiu County</p>
       </div>
       <nav class="foot-links">
-        <a href="index.html#despre">Despre</a>
-        <a href="istoric.html">Istorie</a>
-        <a href="index.html#camere">Camere</a>
-        <a href="index.html#facilitati">Facilități</a>
-        <a href="experiente.html">Experiențe</a>
-        <a href="#top">Împrejurimi</a>
-        <a href="index.html#galerie">Galerie</a>
+        <a href="#despre">About</a>
+        <a href="istoric-en.html">History</a>
+        <a href="#camere">Rooms</a>
+        <a href="#facilitati">Amenities</a>
+        <a href="experiente-en.html">Experiences</a>
+        <a href="imprejurimi-en.html">Surroundings</a>
+        <a href="#galerie">Gallery</a>
         <a href="https://wa.me/40787292633" target="_blank" rel="noopener">WhatsApp</a>
       </nav>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Casa La Saal. Toate drepturile rezervate.</span>
+      <span>© 2026 Casa La Saal. All rights reserved.</span>
       <span>0787 292 633</span>
     </div>
     <div class="foot-legal">
-      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu · Certificat de clasificare turistică nr. 31949 din 25.05.2026 · ★★★</p>
+      <p class="foot-legal-text">SAXONIA TUR S.R.L. · CUI 51973173 · Nr. Reg. Com. J2025042609004 · Sat Șeica Mare, Comuna Șeica Mare, Nr. 125, Județul Sibiu · Tourist classification certificate no. 31949 dated 25.05.2026 · ★★★</p>
       <div class="foot-legal-links">
-        <a href="confidentialitate.html">Confidențialitate</a>
-        <a href="termeni.html">Termeni și condiții</a>
-        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Soluționarea Alternativă a Litigiilor"></a>
+        <a href="confidentialitate.html">Privacy Policy</a>
+        <a href="termeni.html">Terms and Conditions</a>
+        <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener"><img src="images/anpc-sal.png" alt="ANPC — Alternative Dispute Resolution"></a>
       </div>
     </div>
   </div>
 </footer>
 
+<!-- Lightbox overlay -->
+<div class="lb-overlay" id="lbOverlay" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="lb-close" id="lbClose" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+  <div class="lb-inner">
+    <img class="lb-img" id="lbImg" src="" alt="">
+    <video class="lb-video" id="lbVideo" controls playsinline style="display:none"></video>
+  </div>
+</div>
+
+<!-- Calendar rezervare -->
+<div class="cal-ov" id="calOv" role="dialog" aria-modal="true" aria-label="Booking calendar">
+  <div class="cal-box" id="calBox">
+    <div class="cal-drag"></div>
+    <div class="cal-head">
+      <div class="cal-head-text">
+        <p class="eyebrow">Availability</p>
+        <h3>Check availability &amp; book</h3>
+      </div>
+      <button class="cal-close" onclick="closeCalModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="cal-legend">
+      <span><i class="cal-sw cal-sw-ci"></i>Check-in</span>
+      <span><i class="cal-sw cal-sw-co"></i>Check-out</span>
+    </div>
+    <div class="cal-nav">
+      <button id="calPrev" type="button" aria-label="Previous month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div id="calNavLabel" class="cal-nav-label"></div>
+      <button id="calNext" type="button" aria-label="Next month"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+    <div class="cal-months" id="calMonths"></div>
+    <div class="cal-divider"></div>
+    <div class="cal-summary" id="calSummary">Choose your check-in date.</div>
+    <a class="cal-cta" id="calCta" href="https://wa.me/40787292633?text=Hello!%20I'd%20like%20to%20book%20at%20Casa%20La%20Saal." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.5.1-.2 0-.4 0-.5C10 9 9.4 7.6 9.2 7c-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.2.3-1 1-1 2.3 0 1.4 1 2.7 1.1 2.9.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4 0-.1-.2-.2-.4-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.5 5.3L2 22l4.8-1.5C8.4 21.5 10.2 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.3l-.3-.2-3 .9.9-2.9-.2-.3C4 15 3.5 13.5 3.5 12 3.5 7.3 7.3 3.5 12 3.5S20.5 7.3 20.5 12 16.7 20.2 12 20.2z"/></svg>
+      Book on WhatsApp
+    </a>
+    <p class="cal-note">We'll confirm exact availability directly on WhatsApp.</p>
+  </div>
+</div>
 
 <script>
+/* ---------- gallery data (32 photos + 1 video) — kept as valid JSON so the admin
+   panel can parse this array straight out of the page source when seeding ---------- */
+var GALLERY = [
+  {"src":"images/hero.jpg", "alt":"Courtyard with a built-in grill under a pergola and hills in the background"},
+  {"src":"images/fatada-seara.jpg", "alt":"The house's façade in the evening, lit up"},
+  {"src":"images/biserica.jpg", "alt":"Saxon fortified church"},
+  {"src":"images/sat-iarna.jpg", "alt":"The village in winter, under snow, with wooded hills"},
+  {"src":"images/colaj.jpg", "alt":"Collage with the façade, the hot tub, the sauna, the billiard table, and the rooms"},
+
+  {"src":"images/room-01.jpg", "alt":"Room with brown curtains and a wooden headboard"},
+  {"src":"images/room-02.jpg", "alt":"Room with brown curtains, different angle"},
+  {"src":"images/room-03.jpg", "alt":"Room with a wooden wardrobe and a painting of trees"},
+  {"src":"images/room-04.jpg", "alt":"Room with teal drapes"},
+  {"src":"images/room-05.jpg", "alt":"Attic room with a ceiling window"},
+  {"src":"images/room-06.jpg", "alt":"Attic room, different angle"},
+  {"src":"images/room-07.jpg", "alt":"Room with teal drapes, bed detail"},
+  {"src":"images/room-08.jpg", "alt":"Room hallway with air conditioning"},
+  {"src":"images/room-09.jpg", "alt":"Room with its own hallway"},
+  {"src":"images/room-detail-01.jpg", "alt":"Room detail with a mirror and small desk"},
+  {"src":"images/room-detail-02.jpg", "alt":"Room detail, different angle"},
+
+  {"src":"images/sauna-02.jpg", "alt":"Solid wood sauna"},
+  {"src":"images/gratar-02.jpg", "alt":"Built-in grill under a pergola, different angle"},
+  {"src":"images/ciubar-01.jpg", "alt":"Wood-fired hot tub, at night"},
+  {"src":"images/ciubar-02.jpg", "alt":"Wood-fired hot tub, wide view"},
+  {"src":"images/ciubar-03.jpg", "alt":"Wood-fired hot tub, another night shot"},
+  {"src":"images/ciubar-interior.jpg", "alt":"Inside the hot tub, colored lighting"},
+  {"src":"images/cabana-seara.jpg", "alt":"The wooden cabin with hot tub and sauna, in the evening, with the fireplace lit"},
+
+  {"src":"images/terasa.jpg", "alt":"Covered gazebo with tables set"},
+  {"src":"images/biliard.jpg", "alt":"Billiard table beneath a brick vault"},
+  {"src":"images/bucatarie-01.jpg", "alt":"Equipped kitchen with a long table"},
+  {"src":"images/bucatarie-02.jpg", "alt":"Equipped kitchen, different angle"},
+  {"src":"images/sufragerie.jpg", "alt":"Living room with a bookcase and large table"},
+
+  {"src":"images/dining-eveniment-01.jpg", "alt":"Festive table set for an event"},
+  {"src":"images/dining-eveniment-02.jpg", "alt":"Festive table, different angle"},
+  {"src":"images/petrecere.jpg", "alt":"Table set for a birthday party"},
+  {"src":"images/noapte-blur.jpg", "alt":"The inner courtyard, in the evening"},
+
+  {"src":"images/seara-foc-tabara-01.jpg", "alt":"Guests at a bonfire in the evening, roasting marshmallows on sticks"},
+  {"src":"images/seara-foc-tabara-02.jpg", "alt":"Guests relaxing by the gazebo, in the evening"},
+  {"type":"video", "src":"images/seara-foc-tabara-video-poster.jpg", "video":"images/seara-foc-tabara-video.mp4", "alt":"Video of guests at the evening bonfire"}
+];
+
+function renderGallery(){
+  var grid = document.getElementById('galGrid');
+  var html = '';
+  GALLERY.forEach(function(item, i){
+    var isVideo = item.type === 'video';
+    var playIcon = isVideo ? '<span class="gal-play"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,.35)"/><path d="M10 8.5l6 3.5-6 3.5v-7z" fill="#fff"/></svg></span>' : '';
+    html += '<div class="gal-item" tabindex="0" role="button" aria-label="'+(isVideo?'Play video':'Open photo')+': '+item.alt+'" data-index="'+i+'">'+
+              '<img src="'+item.src+'" alt="'+item.alt+'" loading="lazy">'+
+              playIcon+
+            '</div>';
+  });
+  grid.innerHTML = html;
+}
+renderGallery();
+
+/* ---------- room data (7 units) — fallback seed for this English page ---------- */
+var ROOMS = [
+  {"id":"nuc",      "nume":"Nuc Room",    "tip":"Room",    "descriere":"Heavy curtains, a solid wood headboard, and an old painting on the wall.", "pret":"250 lei", "img":"images/room-01.jpg", "alt":"Room with heavy brown curtains, a solid wood headboard, and an old painting on the wall", "ordine":0},
+  {"id":"tei",      "nume":"Tei Room",    "tip":"Room",    "descriere":"Quiet, with a light-colored wooden wardrobe and warm walls.",    "pret":"230 lei", "img":"images/room-03.jpg", "alt":"Quiet room with a wooden wardrobe and a painting of trees on the wall", "ordine":1},
+  {"id":"salcam",   "nume":"Salcâm Room", "tip":"Room",    "descriere":"Teal drapes, warm light, a window facing the garden.",              "pret":"240 lei", "img":"images/room-04.jpg", "alt":"Room with teal drapes, a wooden headboard, and warm light", "ordine":2},
+  {"id":"brad",     "nume":"Brad Room",   "tip":"Attic Room",  "descriere":"Under a sloped roof, with a ceiling window that lets the sky in.",      "pret":"220 lei", "img":"images/room-06.jpg", "alt":"Attic room, with a sloped ceiling window open to the sky and a sunflower painting", "ordine":3},
+  {"id":"arin",     "nume":"Arin Room",   "tip":"Room",    "descriere":"Spacious, with its own hallway and air conditioning.",                       "pret":"260 lei", "img":"images/room-10.jpg", "alt":"Room with a wood-slat headboard, a double bed, and a white flower painting on the wall", "ordine":4},
+  {"id":"fag",      "nume":"Fag Room",    "tip":"Room",    "descriere":"Double room, with a wooden wardrobe and morning light.",             "pret":"230 lei", "img":"images/room-02.jpg", "alt":"Room with brown curtains and a wooden headboard, different angle", "ordine":5},
+  {"id":"apartament","nume":"Apartment",   "tip":"Apartment","descriere":"Two rooms, ideal for families or larger groups.",             "pret":"420 lei", "img":"images/room-09.jpg", "alt":"Spacious room with its own hallway and an air conditioning unit", "ordine":6}
+];
+
+function roomImgSrc(r){
+  return r.imgId ? ('/api/img?id='+r.imgId+'&size=full') : (r.img||'');
+}
+
+function renderRooms(){
+  var grid = document.getElementById('roomGrid');
+  var html = '';
+  ROOMS.slice().sort(function(a,b){ return (a.ordine||0)-(b.ordine||0); }).forEach(function(r, i){
+    html +=
+      '<article class="room-card" data-reveal data-reveal-delay="'+((i%3)*100)+'">'+
+        '<div class="room-media"><span class="room-tag">'+r.tip+'</span><img src="'+roomImgSrc(r)+'" alt="'+(r.alt||r.nume)+'" loading="lazy"></div>'+
+        '<div class="room-body"><div class="room-body-top"><h3>'+r.nume+'</h3><div class="room-price"><span class="amount">'+r.pret+'</span><span class="per">/ night</span></div></div><p>'+r.descriere+'</p></div>'+
+      '</article>';
+  });
+  grid.innerHTML = html;
+}
+renderRooms();
+
 /* ---------- navbar scroll state + mobile menu ---------- */
 (function(){
   var header = document.getElementById('siteHeader');
@@ -894,7 +1053,189 @@ function initReveal(root){
 }
 initReveal();
 
+/* ---------- lightbox (gallery, with prev/next) ---------- */
+(function(){
+  var overlay = document.getElementById('lbOverlay');
+  var img = document.getElementById('lbImg');
+  var video = document.getElementById('lbVideo');
+  var btnClose = document.getElementById('lbClose');
+  var btnPrev = document.getElementById('lbPrev');
+  var btnNext = document.getElementById('lbNext');
+  var current = 0;
+
+  function show(i){
+    current = (i + GALLERY.length) % GALLERY.length;
+    var item = GALLERY[current];
+    video.pause();
+    if(item.type === 'video'){
+      img.style.display = 'none';
+      video.style.display = '';
+      video.src = item.video;
+      video.poster = item.src;
+    } else {
+      video.style.display = 'none';
+      video.src = '';
+      img.style.display = '';
+      img.src = item.full || item.src;
+      img.alt = item.alt;
+    }
+  }
+  function open(i){
+    show(i);
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    video.pause();
+    setTimeout(function(){ img.src=''; video.src=''; }, 320);
+  }
+
+  // Delegated on the grid container (not per-item) so it keeps working after
+  // GALLERY is re-rendered from /api/galerie.
+  document.getElementById('galGrid').addEventListener('click', function(e){
+    var el = e.target.closest('.gal-item');
+    if(el) open(parseInt(el.dataset.index,10));
+  });
+  document.getElementById('galGrid').addEventListener('keydown', function(e){
+    if(e.key !== 'Enter' && e.key !== ' ') return;
+    var el = e.target.closest('.gal-item');
+    if(el){ e.preventDefault(); open(parseInt(el.dataset.index,10)); }
+  });
+
+  btnClose.addEventListener('click', close);
+  btnPrev.addEventListener('click', function(){ show(current-1); });
+  btnNext.addEventListener('click', function(){ show(current+1); });
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) close(); });
+  document.addEventListener('keydown', function(e){
+    if(!overlay.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(current-1);
+    if(e.key === 'ArrowRight') show(current+1);
+  });
+})();
+
+/* ---------- calendar rezervare ---------- */
+(function(){
+  var CAL_WA = "40787292633";
+  var CAL_NAME = "Casa La Saal";
+  var LUNI = ["January","February","March","April","May","June",
+    "July","August","September","October","November","December"];
+  var ZILE = ["M","T","W","T","F","S","S"];
+
+  var checkin = null, checkout = null;
+  var cursor = new Date(); cursor.setDate(1);
+  var today = new Date(); today.setHours(0,0,0,0);
+
+  function iso(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
+  function isPast(d){ return d < today; }
+
+  function clickDay(d){
+    if(isPast(d)) return;
+    if(!checkin||(checkin&&checkout)){ checkin=d; checkout=null; }
+    else if(d<=checkin){ checkin=d; }
+    else { checkout=d; }
+    renderCal();
+  }
+
+  function buildMonth(year,month){
+    var wrap=document.createElement('div');
+    var dow=document.createElement('div'); dow.className='cal-dow';
+    ZILE.forEach(function(z){ var c=document.createElement('div'); c.textContent=z; dow.appendChild(c); });
+    wrap.appendChild(dow);
+    var grid=document.createElement('div'); grid.className='cal-grid';
+    var first=new Date(year,month,1);
+    var lead=(first.getDay()+6)%7;
+    for(var i=0;i<lead;i++){ var e=document.createElement('div'); e.className='cal-day empty'; grid.appendChild(e); }
+    var days=new Date(year,month+1,0).getDate();
+    for(var n=1;n<=days;n++){
+      var d=new Date(year,month,n);
+      var cell=document.createElement('div'); cell.className='cal-day'; cell.textContent=n;
+      if(isPast(d)){ cell.classList.add('past'); }
+      else{
+        cell.classList.add('sel-pick');
+        if(checkin&&iso(d)===iso(checkin)) cell.classList.add('checkin');
+        if(checkout&&iso(d)===iso(checkout)) cell.classList.add('checkout');
+        if(checkin&&checkout&&d>checkin&&d<checkout) cell.classList.add('in-range');
+        (function(day){ cell.onclick=function(){ clickDay(day); }; })(d);
+      }
+      grid.appendChild(cell);
+    }
+    wrap.appendChild(grid);
+    return wrap;
+  }
+
+  function updateSummary(){
+    var s=document.getElementById('calSummary'),cta=document.getElementById('calCta');
+    var f=function(d){ return LUNI[d.getMonth()]+' '+d.getDate(); };
+    if(checkin&&checkout){
+      var nopti=Math.round((checkout-checkin)/86400000);
+      s.innerHTML='<b>'+f(checkin)+'</b> → <b>'+f(checkout)+'</b> · '+nopti+' '+(nopti===1?'night':'nights');
+      var txt='Hello! I\'d like to book at '+CAL_NAME+': check-in '+f(checkin)+', check-out '+f(checkout)+' ('+nopti+' '+(nopti===1?'night':'nights')+').';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt);
+    } else if(checkin){
+      s.textContent='Now choose your check-out date.';
+      var txt2='Hello! I\'d like to book at '+CAL_NAME+', check-in '+f(checkin)+'.';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt2);
+    } else {
+      s.textContent='Choose your check-in date.';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent('Hello! I\'d like to book at '+CAL_NAME+'.');
+    }
+  }
+
+  function renderCal(){
+    var host=document.getElementById('calMonths'); host.innerHTML='';
+    var viz=window.innerWidth>=520?2:1;
+    var navLbl=document.getElementById('calNavLabel');
+    var d0=new Date(cursor.getFullYear(),cursor.getMonth(),1);
+    if(viz===2){
+      var d1=new Date(cursor.getFullYear(),cursor.getMonth()+1,1);
+      navLbl.textContent=LUNI[d0.getMonth()]+' – '+LUNI[d1.getMonth()]+' '+d1.getFullYear();
+    }else{
+      navLbl.textContent=LUNI[d0.getMonth()]+' '+d0.getFullYear();
+    }
+    for(var i=0;i<viz;i++){
+      var d=new Date(cursor.getFullYear(),cursor.getMonth()+i,1);
+      host.appendChild(buildMonth(d.getFullYear(),d.getMonth()));
+    }
+    updateSummary();
+    document.getElementById('calPrev').disabled=(cursor.getFullYear()===today.getFullYear()&&cursor.getMonth()===today.getMonth());
+  }
+
+  document.getElementById('calPrev').onclick=function(){ cursor.setMonth(cursor.getMonth()-1); renderCal(); };
+  document.getElementById('calNext').onclick=function(){ cursor.setMonth(cursor.getMonth()+1); renderCal(); };
+
+  window.openCalModal=function(){
+    document.getElementById('calOv').classList.add('open');
+    document.body.style.overflow='hidden';
+    renderCal();
+  };
+  window.closeCalModal=function(){
+    document.getElementById('calOv').classList.remove('open');
+    document.body.style.overflow='';
+  };
+
+  document.getElementById('calOv').addEventListener('click',function(e){
+    if(e.target===this) closeCalModal();
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape'&&document.getElementById('calOv').classList.contains('open')) closeCalModal();
+  });
+})();
+
+/* ---------- admin-managed content overrides (best-effort — no /api on GitHub Pages) ---------- */
 function cslIdle(fn){ ('requestIdleCallback' in window) ? requestIdleCallback(fn,{timeout:2500}) : setTimeout(fn,1200); }
+
+cslIdle(function(){
+  fetch('/api/galerie').then(function(r){return r.json();}).then(function(data){
+    if(Array.isArray(data) && data.length){
+      GALLERY = data;
+      renderGallery();
+    }
+  }).catch(function(){});
+});
+
 cslIdle(function(){
   fetch('/api/texte').then(function(r){return r.json();}).then(function(texte){
     document.querySelectorAll('[data-edit]').forEach(function(el){
@@ -903,85 +1244,6 @@ cslIdle(function(){
     });
   }).catch(function(){});
 });
-
-/* ---------- media (poze pe secțiuni) — fallback din HTML, suprascris de /api/media dacă răspunde ---------- */
-var MEDIA_GALLERIES = {
-  'imprejurimi.aventura': [
-    {"src":"images/natura-poteca-drumetie.jpg", "alt":"Potecă de pământ printr-o vale verde, dealuri împădurite în depărtare"},
-    {"src":"images/natura-deal-flori-salbatice.jpg", "alt":"Deal înierbat cu flori sălbatice albe și copaci izolați"},
-    {"src":"images/natura-panorama-munti-copac.jpg", "alt":"Panoramă cu munți la orizont și un copac singuratic în prim-plan"},
-    {"src":"images/natura-livada-stupi-albine.jpg", "alt":"Livadă înflorită cu stupi de albine, de la o fermă locală"}
-  ],
-  'imprejurimi.flora': [
-    {"src":"images/flora-floare-soc-mana.jpg", "alt":"Floare de soc ținută în mână, deasupra unui tufiș verde"},
-    {"src":"images/flora-tufa-soc-inflorit.jpg", "alt":"Tufă deasă de soc înflorit"},
-    {"src":"images/flora-coada-soricelului.jpg", "alt":"Buchet de coada-șoricelului, deasupra unei pajiști verzi"},
-    {"src":"images/flora-cimbrisor-camp.jpg", "alt":"Tufiș de cimbrișor sălbatic, cu flori mov, în câmp"},
-    {"src":"images/flora-cimbrisor-mana.jpg", "alt":"Buchet de cimbrișor sălbatic mov, ținut în mână"},
-    {"src":"images/flora-cimbrisor-albina.jpg", "alt":"Tufă de cimbrișor mov, cu o albină pe flori"},
-    {"src":"images/flora-cimbrisor-pajiste.jpg", "alt":"Buchet de cimbrișor mov, deasupra unei pajiști cu flori sălbatice"},
-    {"src":"images/flora-flori-piersic-livada.jpg", "alt":"Livadă de piersici înfloriți, cu stupi de albine"},
-    {"src":"images/flora-flori-piersic-cladire.jpg", "alt":"Crenguțe înflorite de piersic, în prim-plan"},
-    {"src":"images/flora-flori-roz-cer.jpg", "alt":"Flori roz pe crengi golașe, pe cer senin"}
-  ],
-  'imprejurimi.iarna': [
-    {"src":"images/natura-turn-biserica-iarna.jpg", "alt":"Turnul bisericii săsești, acoperit parțial de zăpadă, deal cu chiciură"},
-    {"src":"images/natura-panorama-sat-iarna.jpg", "alt":"Vedere de iarnă asupra satului, cu acoperișuri și deal acoperite de chiciură"},
-    {"src":"images/curte-iarna-ciubar-sauna-zapada.jpg", "alt":"Curte interioară iarna, acoperită de zăpadă, cu ciubăr și cabană saună"},
-    {"src":"images/exterior-fatada-noapte-iarna.jpg", "alt":"Fațada casei, noaptea, iarna, cu zăpadă pe stradă și ghirlande de lumini"}
-  ],
-  'imprejurimi.drum': [
-    {"src":"images/natura-panorama-sat-vara.jpg", "alt":"Vedere de ansamblu asupra satului, cu turnul bisericii și acoperișuri de țiglă"},
-    {"src":"images/exterior-firma-la-saal-strada.jpg", "alt":"Clădirea cu firma La Saal Cazare, turnul bisericii și deal împădurit"},
-    {"src":"images/exterior-strada-sat-spre-casa.jpg", "alt":"Vedere de pe stradă spre clădirea La Saal, cu turnul bisericii în fundal"},
-    {"src":"images/exterior-fatada-zi-cazare.jpg", "alt":"Fațada casei, ziua, cu obloane maro și firma Cazare deasupra ușii"},
-    {"src":"images/natura-strada-turn-biserica.jpg", "alt":"Stradă din sat spre turnul bisericii săsești și clădirea La Saal"},
-    {"src":"images/natura-strada-innorat-turn.jpg", "alt":"Stradă din sat sub cer înnorat, turn de biserică săsească"},
-    {"src":"images/natura-strada-la-saal-cazare.jpg", "alt":"Stradă spre clădirea cu firma La Saal Cazare"},
-    {"src":"images/natura-panorama-munti-01.jpg", "alt":"Panoramă cu lanț muntos și câmp arat"},
-    {"src":"images/natura-panorama-munti-02.jpg", "alt":"Panoramă cu munți sub cer înnorat, câmp arat"}
-  ]
-};
-var MEDIA_MODE = {'imprejurimi.aventura':'div', 'imprejurimi.flora':'div', 'imprejurimi.iarna':'div', 'imprejurimi.drum':'div'};
-
-function renderMediaGallery(key){
-  var el = document.querySelector('[data-gallery="'+key+'"]');
-  if(!el) return;
-  var items = MEDIA_GALLERIES[key] || [];
-  var mode = MEDIA_MODE[key] || 'div';
-  var html = '';
-  items.forEach(function(it){
-    var alt = (it.alt||'').replace(/"/g,'&quot;');
-    var img = '<img src="'+it.src+'" alt="'+alt+'" loading="lazy">';
-    html += mode === 'a'
-      ? '<a href="'+it.src+'" target="_blank" rel="noopener">'+img+'</a>'
-      : '<div class="gal-item">'+img+'</div>';
-  });
-  el.innerHTML = html;
-}
-
-function applyMediaSlots(slots){
-  document.querySelectorAll('[data-slot]').forEach(function(el){
-    var s = slots[el.getAttribute('data-slot')];
-    if(s && s.src){ el.src = s.src; if(s.alt) el.alt = s.alt; }
-  });
-}
-
-cslIdle(function(){
-  fetch('/api/media').then(function(r){return r.json();}).then(function(data){
-    if(data && data.galleries){
-      Object.keys(MEDIA_GALLERIES).forEach(function(k){
-        var incoming = data.galleries[k];
-        if(Array.isArray(incoming) && incoming.length){
-          MEDIA_GALLERIES[k] = incoming;
-          renderMediaGallery(k);
-        }
-      });
-    }
-    if(data && data.slots) applyMediaSlots(data.slots);
-  }).catch(function(){});
-});
-
 </script>
 </body>
 </html>
