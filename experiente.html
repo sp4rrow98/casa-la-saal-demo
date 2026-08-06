@@ -411,6 +411,7 @@
   .gal-item{position:relative;aspect-ratio:1/1;overflow:hidden;border-radius:var(--radius-s);cursor:zoom-in}
   .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
   .gal-item:hover img{transform:scale(1.09)}
+  .gal-item video{width:100%;height:100%;object-fit:cover;cursor:default}
 
   @media (max-width:980px){ .gal-grid{grid-template-columns:repeat(4,1fr)} }
   @media (max-width:640px){ .gal-grid{grid-template-columns:repeat(3,1fr);gap:8px} }
@@ -703,6 +704,22 @@
           <div class="postcard">
             <img src="images/crama-masa-vin.jpg" alt="Cramă boltită cu masă pătrată din lemn, scaune și rafturi cu sticle de vin" loading="lazy">
             <div class="cap" data-edit="experiente.postcard2.cap">Colț de cramă pentru un pahar de vin</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="istoric-sub" data-reveal>
+        <div class="istoric-sub-head">
+          <h3 data-edit="experiente.foc.h3">Seri la foc, sub cerul curții</h3>
+          <p data-edit="experiente.foc.p">Când se lasă seara, curtea prinde o altă viață: flăcările focului de tabără adună oaspeții laolaltă, la povești și bezele coapte pe băț.</p>
+        </div>
+        <div class="gal-grid" style="margin-top:28px">
+          <div class="gal-item"><img src="images/seara-foc-tabara-01.jpg" alt="Oaspeți la foc de tabără, seara, cu bezele pe bețe" loading="lazy"></div>
+          <div class="gal-item"><img src="images/seara-foc-tabara-02.jpg" alt="Oaspeți relaxați lângă foișor, seara" loading="lazy"></div>
+          <div class="gal-item">
+            <video controls playsinline preload="none" poster="images/seara-foc-tabara-video-poster.jpg" aria-label="Video cu oaspeții la focul de tabără, seara">
+              <source src="images/seara-foc-tabara-video.mp4" type="video/mp4">
+            </video>
           </div>
         </div>
       </div>
