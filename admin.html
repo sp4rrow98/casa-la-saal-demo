@@ -137,7 +137,10 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     <button class="tab active" onclick="showTab('camere',this)">Camere</button>
     <button class="tab" onclick="showTab('disponibilitate',this)">Disponibilitate</button>
     <button class="tab" onclick="showTab('poze',this)">Poze</button>
-    <button class="tab" onclick="showTab('texte',this)">Texte</button>
+    <button class="tab" onclick="showTab('texte-acasa',this)">Texte Acasă</button>
+    <button class="tab" onclick="showTab('texte-istoric',this)">Texte Istoric</button>
+    <button class="tab" onclick="showTab('texte-experiente',this)">Texte Experiențe</button>
+    <button class="tab" onclick="showTab('texte-imprejurimi',this)">Texte Împrejurimi</button>
   </div>
 
   <!-- CAMERE -->
@@ -201,13 +204,43 @@ textarea.inp{resize:vertical;font-family:var(--fb);line-height:1.5}
     </div>
   </div>
 
-  <!-- TEXTE -->
-  <div class="sec" id="sec-texte" style="display:none">
-    <div class="sec-hd">Texte site</div>
+  <!-- TEXTE ACASĂ -->
+  <div class="sec" id="sec-texte-acasa" style="display:none">
+    <div class="sec-hd">Texte — Acasă</div>
     <p class="sec-note">Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
-    <div id="texteList"><div class="no-offers">Se încarcă...</div></div>
+    <div id="texteList-acasa"><div class="no-offers">Se încarcă...</div></div>
     <div class="f-actions" style="margin-top:16px">
-      <button class="btn btn-ac" onclick="salveazaTexte()">Salvează textele</button>
+      <button class="btn btn-ac" onclick="salveazaTexte('acasa')">Salvează textele</button>
+    </div>
+  </div>
+
+  <!-- TEXTE ISTORIC -->
+  <div class="sec" id="sec-texte-istoric" style="display:none">
+    <div class="sec-hd">Texte — Istoric</div>
+    <p class="sec-note">Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-istoric"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('istoric')">Salvează textele</button>
+    </div>
+  </div>
+
+  <!-- TEXTE EXPERIENȚE -->
+  <div class="sec" id="sec-texte-experiente" style="display:none">
+    <div class="sec-hd">Texte — Experiențe</div>
+    <p class="sec-note">Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-experiente"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('experiente')">Salvează textele</button>
+    </div>
+  </div>
+
+  <!-- TEXTE ÎMPREJURIMI -->
+  <div class="sec" id="sec-texte-imprejurimi" style="display:none">
+    <div class="sec-hd">Texte — Împrejurimi</div>
+    <p class="sec-note">Fiecare câmp are varianta implicită de pe site. Poți folosi &lt;br&gt; și &lt;em&gt; pentru formatare. Lasă gol ca să revii la textul implicit.</p>
+    <div id="texteList-imprejurimi"><div class="no-offers">Se încarcă...</div></div>
+    <div class="f-actions" style="margin-top:16px">
+      <button class="btn btn-ac" onclick="salveazaTexte('imprejurimi')">Salvează textele</button>
     </div>
   </div>
 </div>
@@ -273,8 +306,8 @@ function toast(msg,type){
   t._t=setTimeout(function(){t.className='toast';},2800);
 }
 
-var TABS=['camere','disponibilitate','poze','texte'];
-var loaded={disponibilitate:false,poze:false,texte:false};
+var TABS=['camere','disponibilitate','poze','texte-acasa','texte-istoric','texte-experiente','texte-imprejurimi'];
+var loaded={disponibilitate:false,poze:false,'texte-acasa':false,'texte-istoric':false,'texte-experiente':false,'texte-imprejurimi':false};
 function showTab(name,btn){
   TABS.forEach(function(t){
     var s=document.getElementById('sec-'+t);
@@ -286,7 +319,7 @@ function showTab(name,btn){
   if(btn)btn.classList.add('active');
   if(name==='disponibilitate'&&!loaded.disponibilitate){loaded.disponibilitate=true;loadBlocari();}
   if(name==='poze'&&!loaded.poze){loaded.poze=true;loadGalerie();}
-  if(name==='texte'&&!loaded.texte){loaded.texte=true;loadTexte();}
+  if(name.indexOf('texte-')===0&&!loaded[name]){loaded[name]=true;loadTextePage(name.slice(6));}
 }
 
 /* ============ CAMERE ============ */
@@ -613,63 +646,86 @@ function handleUpload(files){
   });
 }
 
-/* ============ TEXTE ============ */
-var TEXT_DEFAULTS=null, TEXT_OVERRIDES=null;
-var TXT_SEC_ORDER=['hero','despre','facilitati','seara','galerie','contact'];
+/* ============ TEXTE (4 pagini) ============ */
+var TEXT_OVERRIDES=null;
+var PAGES={
+  acasa:       {file:'/index.html'},
+  istoric:     {file:'/istoric.html'},
+  experiente:  {file:'/experiente.html'},
+  imprejurimi: {file:'/imprejurimi.html'}
+};
+var PAGE_KEYS={}, PAGE_DEFAULTS={};
 
-function loadTexte(){
-  document.getElementById('texteList').innerHTML='<div class="no-offers">Se încarcă...</div>';
+function fetchOverrides(){
+  if(TEXT_OVERRIDES!==null)return Promise.resolve(TEXT_OVERRIDES);
+  return fetch('/api/texte').then(function(r){return r.json();}).then(function(d){
+    TEXT_OVERRIDES=d||{};
+    return TEXT_OVERRIDES;
+  });
+}
+
+function loadTextePage(pageKey){
+  var listEl=document.getElementById('texteList-'+pageKey);
+  listEl.innerHTML='<div class="no-offers">Se încarcă...</div>';
   Promise.all([
-    fetch('/index.html').then(function(r){return r.text();}),
-    fetch('/api/texte').then(function(r){return r.json();})
+    fetch(PAGES[pageKey].file).then(function(r){return r.text();}),
+    fetchOverrides()
   ]).then(function(res){
     var doc=new DOMParser().parseFromString(res[0],'text/html');
-    TEXT_OVERRIDES=res[1]||{};
     var keys=[];
     doc.querySelectorAll('[data-edit]').forEach(function(el){
       var k=el.getAttribute('data-edit');
       if(keys.indexOf(k)<0)keys.push(k);
     });
-    TEXT_DEFAULTS={};
+    var defaults={};
     keys.forEach(function(k){
       var el=doc.querySelector('[data-edit="'+k+'"]');
-      TEXT_DEFAULTS[k]=el?el.innerHTML.trim():'';
+      defaults[k]=el?el.innerHTML.trim():'';
     });
-    renderTexte(keys);
+    PAGE_KEYS[pageKey]=keys;
+    PAGE_DEFAULTS[pageKey]=defaults;
+    renderTextePage(pageKey);
   }).catch(function(){
-    document.getElementById('texteList').innerHTML='<div class="no-offers">Eroare la încărcare.</div>';
+    listEl.innerHTML='<div class="no-offers">Eroare la încărcare.</div>';
   });
 }
 
-function renderTexte(keys){
-  var groups={};
+// Cheile paginilor noi sunt namespace-uite (ex: "istoric.hero.h1") — scoatem
+// prefixul paginii ca să grupăm câmpurile pe secțiune (hero, salon, quote...).
+function sectionOf(pageKey,fullKey){
+  var k=fullKey;
+  var pre=pageKey+'.';
+  if(pageKey!=='acasa'&&k.indexOf(pre)===0)k=k.slice(pre.length);
+  return k.split('.')[0];
+}
+
+function renderTextePage(pageKey){
+  var keys=PAGE_KEYS[pageKey]||[];
+  var defaults=PAGE_DEFAULTS[pageKey]||{};
+  var groups={}, order=[];
   keys.forEach(function(k){
-    var sec=k.split('.')[0];
-    (groups[sec]=groups[sec]||[]).push(k);
-  });
-  var secs=Object.keys(groups).sort(function(a,b){
-    var ia=TXT_SEC_ORDER.indexOf(a); if(ia<0)ia=999;
-    var ib=TXT_SEC_ORDER.indexOf(b); if(ib<0)ib=999;
-    return ia-ib;
+    var sec=sectionOf(pageKey,k);
+    if(!groups[sec]){groups[sec]=[];order.push(sec);}
+    groups[sec].push(k);
   });
   var html='';
-  secs.forEach(function(sec){
+  order.forEach(function(sec){
     html+='<div class="txt-sec-hd">'+esc(sec)+'</div>';
     groups[sec].forEach(function(k){
-      var d=TEXT_DEFAULTS[k]||'';
-      var v=TEXT_OVERRIDES[k]||d;
+      var d=defaults[k]||'';
+      var v=(TEXT_OVERRIDES&&TEXT_OVERRIDES[k])||d;
       html+='<div class="txt-field">'+
         '<div class="txt-key">'+esc(k)+'</div>'+
         '<textarea class="inp" rows="2" data-tkey="'+esc(k)+'">'+esc(v)+'</textarea>'+
       '</div>';
     });
   });
-  document.getElementById('texteList').innerHTML=html||'<div class="no-offers">Niciun câmp editabil găsit.</div>';
+  document.getElementById('texteList-'+pageKey).innerHTML=html||'<div class="no-offers">Niciun câmp editabil găsit.</div>';
 }
 
-function salveazaTexte(){
+function salveazaTexte(pageKey){
   var updates={};
-  document.querySelectorAll('#texteList textarea[data-tkey]').forEach(function(ta){
+  document.querySelectorAll('#texteList-'+pageKey+' textarea[data-tkey]').forEach(function(ta){
     updates[ta.getAttribute('data-tkey')]=ta.value;
   });
   api('texte',{actiune:'salveaza',updates:updates}).then(function(d){
