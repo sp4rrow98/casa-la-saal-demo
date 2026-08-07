@@ -553,6 +553,18 @@
   .cal-sw{width:13px;height:13px;border-radius:3px;display:inline-block;flex-shrink:0}
   .cal-sw-ci{background:var(--accent)}
   .cal-sw-co{background:var(--accent-dark)}
+  .cal-rooms{margin-bottom:16px}
+  .cal-rooms-label{font-size:12px;color:var(--ink-soft);margin-bottom:8px}
+  .cal-rooms-hint{opacity:.7}
+  .cal-rooms-list{display:flex;flex-wrap:wrap;gap:8px}
+  .cal-room-chip{
+    font-family:'Inter',sans-serif;font-size:12.5px;font-weight:500;
+    padding:7px 14px;border-radius:999px;border:1px solid var(--line);
+    background:var(--bg-soft);color:var(--ink);cursor:pointer;
+    transition:background .15s,border-color .15s,color .15s;
+  }
+  .cal-room-chip:hover{border-color:var(--accent)}
+  .cal-room-chip.active{background:var(--accent);border-color:var(--accent);color:#fff}
   .cal-nav{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;border-top:1px solid var(--line);padding-top:16px}
   .cal-nav button{
     background:var(--bg-soft);border:1px solid var(--line);border-radius:var(--radius-s);
@@ -584,6 +596,8 @@
   .cal-day.sel-pick:not(.checkin):not(.checkout):not(.in-range):hover{background:var(--bg-soft)}
   .cal-day.past{color:var(--line);cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px}
   .cal-day.past:hover{background:transparent}
+  .cal-day.blocked{color:var(--ink-soft);cursor:not-allowed;text-decoration:line-through;text-decoration-thickness:1px;background:rgba(180,60,40,.07)}
+  .cal-day.blocked:hover{background:rgba(180,60,40,.07)}
   .cal-day.in-range{background:var(--accent-soft);border-radius:0}
   .cal-day.checkin{background:var(--accent);color:#fff;border-radius:5px 0 0 5px;font-weight:600}
   .cal-day.checkout{background:var(--accent-dark);color:#fff;border-radius:0 5px 5px 0;font-weight:600}
@@ -888,6 +902,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
     </div>
+    <div class="cal-rooms">
+      <p class="cal-rooms-label">Pentru ce cameră? <span class="cal-rooms-hint">(opțional — poți alege una sau mai multe)</span></p>
+      <div class="cal-rooms-list" id="calRoomsList"></div>
+    </div>
     <div class="cal-legend">
       <span><i class="cal-sw cal-sw-ci"></i>Check-in</span>
       <span><i class="cal-sw cal-sw-co"></i>Check-out</span>
@@ -1132,19 +1150,77 @@ initReveal();
   var checkin = null, checkout = null;
   var cursor = new Date(); cursor.setDate(1);
   var today = new Date(); today.setHours(0,0,0,0);
+  var selectedRooms = new Set();
+  var blockedData = {};
 
   function iso(d){ return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2); }
   function isPast(d){ return d < today; }
 
+  function getBlockedSet(){
+    var set = new Set();
+    selectedRooms.forEach(function(rid){
+      (blockedData[rid]||[]).forEach(function(dt){ set.add(dt); });
+    });
+    return set;
+  }
+  function rangeHasBlocked(start,endExclusive,blockedSet){
+    var d = new Date(start);
+    while(d < endExclusive){
+      if(blockedSet.has(iso(d))) return true;
+      d.setDate(d.getDate()+1);
+    }
+    return false;
+  }
+  function roomNames(){
+    return Array.from(selectedRooms).map(function(id){
+      var r = ROOMS.find(function(x){ return x.id===id; });
+      return r ? r.nume : id;
+    });
+  }
+  function fetchBlocari(){
+    return fetch('/api/blocari').then(function(r){return r.json();}).then(function(d){
+      blockedData = (d && d.blocked) || {};
+    }).catch(function(){});
+  }
+  function buildRoomsPicker(){
+    var host=document.getElementById('calRoomsList');
+    if(!host) return;
+    host.innerHTML='';
+    ROOMS.slice().sort(function(a,b){ return (a.ordine||0)-(b.ordine||0); }).forEach(function(r){
+      var chip=document.createElement('button');
+      chip.type='button';
+      chip.className='cal-room-chip'+(selectedRooms.has(r.id)?' active':'');
+      chip.textContent=r.nume;
+      chip.onclick=function(){
+        if(selectedRooms.has(r.id)) selectedRooms.delete(r.id); else selectedRooms.add(r.id);
+        onRoomsChanged();
+      };
+      host.appendChild(chip);
+    });
+  }
+  function validateSelection(){
+    var blockedSet=getBlockedSet();
+    if(checkin && blockedSet.has(iso(checkin))){ checkin=null; checkout=null; }
+    else if(checkin && checkout && rangeHasBlocked(checkin,checkout,blockedSet)){ checkout=null; }
+  }
+  function onRoomsChanged(){
+    buildRoomsPicker();
+    validateSelection();
+    renderCal();
+  }
+
   function clickDay(d){
     if(isPast(d)) return;
+    var blockedSet=getBlockedSet();
+    if(blockedSet.has(iso(d))) return;
     if(!checkin||(checkin&&checkout)){ checkin=d; checkout=null; }
     else if(d<=checkin){ checkin=d; }
+    else if(rangeHasBlocked(checkin,d,blockedSet)){ return; }
     else { checkout=d; }
     renderCal();
   }
 
-  function buildMonth(year,month){
+  function buildMonth(year,month,blockedSet){
     var wrap=document.createElement('div');
     var dow=document.createElement('div'); dow.className='cal-dow';
     ZILE.forEach(function(z){ var c=document.createElement('div'); c.textContent=z; dow.appendChild(c); });
@@ -1158,6 +1234,10 @@ initReveal();
       var d=new Date(year,month,n);
       var cell=document.createElement('div'); cell.className='cal-day'; cell.textContent=n;
       if(isPast(d)){ cell.classList.add('past'); }
+      else if(blockedSet.has(iso(d))){
+        cell.classList.add('blocked');
+        cell.title='Indisponibil pentru camera selectată';
+      }
       else{
         cell.classList.add('sel-pick');
         if(checkin&&iso(d)===iso(checkin)) cell.classList.add('checkin');
@@ -1174,18 +1254,20 @@ initReveal();
   function updateSummary(){
     var s=document.getElementById('calSummary'),cta=document.getElementById('calCta');
     var f=function(d){ return d.getDate()+' '+LUNI[d.getMonth()].toLowerCase(); };
+    var names=roomNames();
+    var roomsTxt=names.join(', ');
     if(checkin&&checkout){
       var nopti=Math.round((checkout-checkin)/86400000);
-      s.innerHTML='<b>'+f(checkin)+'</b> → <b>'+f(checkout)+'</b> · '+nopti+' '+(nopti===1?'noapte':'nopți');
-      var txt='Bună! Aș dori să rezerv la '+CAL_NAME+': check-in '+f(checkin)+', check-out '+f(checkout)+' ('+nopti+' '+(nopti===1?'noapte':'nopți')+').';
+      s.innerHTML='<b>'+f(checkin)+'</b> → <b>'+f(checkout)+'</b> · '+nopti+' '+(nopti===1?'noapte':'nopți')+(roomsTxt?' · '+roomsTxt:'');
+      var txt='Bună! Aș dori să rezerv la '+CAL_NAME+(roomsTxt?' ('+roomsTxt+')':'')+': check-in '+f(checkin)+', check-out '+f(checkout)+' ('+nopti+' '+(nopti===1?'noapte':'nopți')+').';
       cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt);
     } else if(checkin){
-      s.textContent='Acum alege data de check-out.';
-      var txt2='Bună! Aș dori să rezerv la '+CAL_NAME+', check-in '+f(checkin)+'.';
+      s.textContent='Acum alege data de check-out.'+(roomsTxt?' ('+roomsTxt+')':'');
+      var txt2='Bună! Aș dori să rezerv la '+CAL_NAME+(roomsTxt?' ('+roomsTxt+')':'')+', check-in '+f(checkin)+'.';
       cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent(txt2);
     } else {
-      s.textContent='Alege data de check-in.';
-      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent('Bună! Aș dori să rezerv la '+CAL_NAME+'.');
+      s.textContent=roomsTxt?('Alege data de check-in pentru: '+roomsTxt+'.'):'Alege data de check-in.';
+      cta.href='https://wa.me/'+CAL_WA+'?text='+encodeURIComponent('Bună! Aș dori să rezerv la '+CAL_NAME+(roomsTxt?' ('+roomsTxt+')':'')+'.');
     }
   }
 
@@ -1200,9 +1282,10 @@ initReveal();
     }else{
       navLbl.textContent=LUNI[d0.getMonth()]+' '+d0.getFullYear();
     }
+    var blockedSet=getBlockedSet();
     for(var i=0;i<viz;i++){
       var d=new Date(cursor.getFullYear(),cursor.getMonth()+i,1);
-      host.appendChild(buildMonth(d.getFullYear(),d.getMonth()));
+      host.appendChild(buildMonth(d.getFullYear(),d.getMonth(),blockedSet));
     }
     updateSummary();
     document.getElementById('calPrev').disabled=(cursor.getFullYear()===today.getFullYear()&&cursor.getMonth()===today.getMonth());
@@ -1214,7 +1297,9 @@ initReveal();
   window.openCalModal=function(){
     document.getElementById('calOv').classList.add('open');
     document.body.style.overflow='hidden';
+    buildRoomsPicker();
     renderCal();
+    fetchBlocari().then(function(){ validateSelection(); renderCal(); });
   };
   window.closeCalModal=function(){
     document.getElementById('calOv').classList.remove('open');
